@@ -1,22 +1,87 @@
 import type { Profile } from "@/lib/schema/profile";
-import type { Program, RuleOutcome } from "@/lib/rules/programs";
-
-export interface Candidate {
-  program: Program;
-  /** Per-predicate outcomes, preserved so unknowns surface downstream. */
-  outcomes: RuleOutcome[];
-}
+import {
+  programs,
+  type ProgramRules,
+  type RuleOutcome,
+} from "@/lib/rules/programs";
 
 /**
- * Layer 1: deterministic candidate selection.
- * A program is excluded only on a definite "no-match"; unknowns keep it in
- * play and are reported as unknowns, never guessed around.
+ * Layer 1: deterministic candidate selection. Pure functions — no LLM, no I/O.
+ *
+ * Classification:
+ * - likely_relevant   — every rule passes
+ * - possibly_relevant — no rule fails, but at least one is unknown
+ *                       (unknownFields lists what's missing)
+ * - excluded          — at least one rule hard-fails (failedRules names them)
  */
+
+export type CandidateStatus =
+  | "likely_relevant"
+  | "possibly_relevant"
+  | "excluded";
+
+export interface RuleResult {
+  ruleId: string;
+  description: string;
+  outcome: RuleOutcome;
+  fields: readonly string[];
+}
+
+export interface Candidate {
+  programId: string;
+  programName: string;
+  corpusDocumentId: string;
+  status: CandidateStatus;
+  ruleResults: RuleResult[];
+  /** Profile fields (deduplicated) behind unknown outcomes. */
+  unknownFields: string[];
+  /** Ids of the rules that failed (nonempty exactly when excluded). */
+  failedRules: string[];
+}
+
+export function evaluateProgram(
+  program: ProgramRules,
+  profile: Profile,
+): Candidate {
+  const ruleResults: RuleResult[] = program.rules.map((rule) => ({
+    ruleId: rule.id,
+    description: rule.description,
+    outcome: rule.evaluate(profile),
+    fields: rule.fields,
+  }));
+
+  const failedRules = ruleResults
+    .filter((r) => r.outcome === "fail")
+    .map((r) => r.ruleId);
+  const unknownFields = [
+    ...new Set(
+      ruleResults
+        .filter((r) => r.outcome === "unknown")
+        .flatMap((r) => r.fields),
+    ),
+  ];
+
+  const status: CandidateStatus =
+    failedRules.length > 0
+      ? "excluded"
+      : unknownFields.length > 0
+        ? "possibly_relevant"
+        : "likely_relevant";
+
+  return {
+    programId: program.programId,
+    programName: program.programName,
+    corpusDocumentId: program.corpusDocumentId,
+    status,
+    ruleResults,
+    unknownFields,
+    failedRules,
+  };
+}
+
 export function selectCandidates(
   profile: Profile,
-  registry: readonly Program[],
+  registry: readonly ProgramRules[] = programs,
 ): Candidate[] {
-  void profile;
-  void registry;
-  throw new Error("Not implemented");
+  return registry.map((program) => evaluateProgram(program, profile));
 }
