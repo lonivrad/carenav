@@ -1,14 +1,147 @@
+"use client";
+
+import type { Intake } from "@/lib/schema/intake";
+import type { QuestionDef } from "@/components/intake/questions";
+
+type Answer = Intake[keyof Intake] | undefined;
+
 export interface QuestionStepProps {
-  questionId: string;
-  prompt: string;
+  question: QuestionDef;
+  value: Answer;
+  onChange: (value: Answer) => void;
+}
+
+const btnBase =
+  "block w-full rounded border px-4 py-3 text-left transition-colors";
+const btnOff = "border-neutral-300 hover:border-neutral-500";
+const btnOn = "border-neutral-900 bg-neutral-900 text-white";
+
+function ChoiceButton({
+  selected,
+  label,
+  onClick,
+}: {
+  selected: boolean;
+  label: string;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      aria-pressed={selected}
+      onClick={onClick}
+      className={`${btnBase} ${selected ? btnOn : btnOff}`}
+    >
+      {label}
+    </button>
+  );
 }
 
 /** One step of the intake questionnaire. */
-export function QuestionStep({ questionId, prompt }: QuestionStepProps) {
+export function QuestionStep({ question, value, onChange }: QuestionStepProps) {
+  const declined = value === "unknown" || value === "prefer_not_to_say";
+
+  const declineButtons = (
+    <div className="mt-4 flex gap-2 border-t border-neutral-200 pt-4">
+      <ChoiceButton
+        selected={value === "unknown"}
+        label="I don't know"
+        onClick={() => onChange("unknown")}
+      />
+      <ChoiceButton
+        selected={value === "prefer_not_to_say"}
+        label="Prefer not to say"
+        onClick={() => onChange("prefer_not_to_say")}
+      />
+    </div>
+  );
+
   return (
-    <fieldset data-question={questionId}>
-      <legend>{prompt}</legend>
-      {/* TODO: input controls */}
+    <fieldset data-question={question.id}>
+      <legend className="text-xl font-medium">{question.prompt}</legend>
+      {question.help && (
+        <p className="mt-2 text-sm text-neutral-500">{question.help}</p>
+      )}
+
+      <div className="mt-4 space-y-2">
+        {question.kind === "age" && (
+          <input
+            type="number"
+            inputMode="numeric"
+            min={18}
+            max={120}
+            placeholder="Age in years"
+            aria-label="Age in years"
+            value={typeof value === "number" ? value : ""}
+            onChange={(e) => {
+              const n = e.target.valueAsNumber;
+              onChange(Number.isNaN(n) ? undefined : n);
+            }}
+            className="w-40 rounded border border-neutral-300 px-4 py-3"
+          />
+        )}
+
+        {question.kind === "select" && (
+          <select
+            aria-label={question.prompt}
+            value={typeof value === "string" && !declined ? value : ""}
+            onChange={(e) => onChange(e.target.value as Answer)}
+            className="w-full rounded border border-neutral-300 px-4 py-3"
+          >
+            <option value="" disabled>
+              Select…
+            </option>
+            {question.options?.map((o) => (
+              <option key={o.value} value={o.value}>
+                {o.label}
+              </option>
+            ))}
+          </select>
+        )}
+
+        {question.kind === "single" &&
+          question.options?.map((o) => (
+            <ChoiceButton
+              key={o.value}
+              selected={value === o.value}
+              label={o.label}
+              onClick={() => onChange(o.value as Answer)}
+            />
+          ))}
+
+        {question.kind === "multi" && (
+          <>
+            {question.options?.map((o) => {
+              const list = Array.isArray(value) ? (value as string[]) : [];
+              const checked = list.includes(o.value);
+              return (
+                <ChoiceButton
+                  key={o.value}
+                  selected={checked}
+                  label={`${checked ? "☑" : "☐"} ${o.label}`}
+                  onClick={() => {
+                    const next = checked
+                      ? list.filter((v) => v !== o.value)
+                      : [...list, o.value];
+                    // Deselecting everything returns to "unanswered" — an
+                    // explicit empty answer comes only from the none button.
+                    onChange(next.length === 0 ? undefined : (next as Answer));
+                  }}
+                />
+              );
+            })}
+            {question.noneLabel && (
+              <ChoiceButton
+                selected={Array.isArray(value) && value.length === 0}
+                label={question.noneLabel}
+                onClick={() => onChange([] as unknown as Answer)}
+              />
+            )}
+          </>
+        )}
+      </div>
+
+      {declineButtons}
     </fieldset>
   );
 }

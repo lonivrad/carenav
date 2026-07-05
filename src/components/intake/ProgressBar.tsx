@@ -5,9 +5,27 @@ export interface ProgressBarProps {
 
 /** Questionnaire progress indicator. */
 export function ProgressBar({ step, total }: ProgressBarProps) {
+  const pct = Math.round((step / total) * 100);
   return (
-    <div role="progressbar" aria-valuenow={step} aria-valuemax={total}>
-      {/* TODO */}
+    <div className="mb-6">
+      <div className="mb-1 flex justify-between text-sm text-neutral-500">
+        <span>
+          Question {step} of {total}
+        </span>
+        <span>{pct}%</span>
+      </div>
+      <div
+        role="progressbar"
+        aria-valuenow={step}
+        aria-valuemin={0}
+        aria-valuemax={total}
+        className="h-2 w-full rounded bg-neutral-200"
+      >
+        <div
+          className="h-2 rounded bg-neutral-800 transition-all"
+          style={{ width: `${pct}%` }}
+        />
+      </div>
     </div>
   );
 }
