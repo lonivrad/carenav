@@ -1,8 +1,10 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 
 import { intakeSchema, type Intake } from "@/lib/schema/intake";
+import { reportSchema } from "@/lib/schema/report";
 import { ProgressBar } from "@/components/intake/ProgressBar";
 import { QuestionStep } from "@/components/intake/QuestionStep";
 import { ReviewScreen } from "@/components/intake/ReviewScreen";
@@ -15,6 +17,7 @@ import {
 type Phase = "questions" | "review" | "done" | "error";
 
 export function IntakeFlow() {
+  const router = useRouter();
   const [answers, setAnswers] = useState<RawAnswers>({});
   const [index, setIndex] = useState(0);
   const [phase, setPhase] = useState<Phase>("questions");
@@ -78,8 +81,19 @@ export function IntakeFlow() {
           "Your answers were validated and saved in this browser session. Report generation is not available yet — it arrives in a later phase of this project.",
         );
       } else if (res.ok) {
-        setPhase("done");
-        setMessage("Your answers were submitted.");
+        const body = await res.json();
+        const parsedReport = reportSchema.safeParse(body.report);
+        if (!parsedReport.success) {
+          setPhase("error");
+          setMessage("The report came back in an unexpected format. Please try again.");
+          return;
+        }
+        const id = crypto.randomUUID();
+        sessionStorage.setItem(
+          `carenav.report.${id}`,
+          JSON.stringify(parsedReport.data),
+        );
+        router.push(`/report/${id}`);
       } else {
         setPhase("error");
         setMessage(`Submission failed (status ${res.status}). Please try again.`);

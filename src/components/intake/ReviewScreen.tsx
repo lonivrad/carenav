@@ -52,8 +52,13 @@ export function ReviewScreen({
         disabled={submitting}
         className="mt-8 rounded bg-neutral-900 px-6 py-3 text-white disabled:opacity-50"
       >
-        {submitting ? "Submitting…" : "Submit answers"}
+        {submitting ? "Generating your report…" : "Submit answers"}
       </button>
+      {submitting && (
+        <p className="mt-2 text-sm text-neutral-500">
+          This can take up to a couple of minutes.
+        </p>
+      )}
     </section>
   );
 }
