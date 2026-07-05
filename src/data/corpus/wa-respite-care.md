@@ -65,11 +65,18 @@ generally must have originated before age 18):
   counseling, caregiver training, supplies and equipment, and one-on-one
   consultation.
   No statewide dollar or hour cap for FCSP respite is published; amounts
-  vary by Area Agency on Aging and local budget, and waitlists can apply —
-  confirm current limits with the local AAA.
-  <!-- HUMAN-VERIFY: Ask the local Area Agency on Aging (via Community
-  Living Connections, 1-855-567-0252) about current FCSP respite budget
-  limits and any waitlist in the family's county. -->
+  vary by Area Agency on Aging and local budget. Per manually gathered AAA
+  information (2026-07-05, unpublished — confirm with the AAA before
+  relying on it): King County (Aging & Disability Services) allows up to
+  $4,362 over a rolling 6-month period for high-burden caregivers,
+  prioritized by TCARE assessment tier (Priority 1–2 caregivers, e.g.
+  40+ hours/week co-resident care, get respite funds first; lower-priority
+  applicants are deferred to support groups when funding is tight);
+  Snohomish County (county Human Services with Homage Senior Services)
+  ranges roughly $1,000–$4,362/year on a sliding fee scale with cost
+  sharing at higher incomes and a "screening and hold" roster when funds
+  are fully allocated. Other counties differ — ask the local AAA via
+  Community Living Connections, 1-855-567-0252.
 - DDA: respite under the IFS or other DDA waivers. IFS annual allocation
   levels per WAC 388-828-9140 (effective 10/18/2021, WSR 21-19-093):
   Level 1 "up to: $1,200," Level 2 "up to: $1,800," Level 3 "up to:
@@ -96,11 +103,13 @@ generally must have originated before age 18):
 
 - Lifespan Respite: the application form (multiple care recipients may be
   listed on one form; the award splits evenly).
-  No official page enumerates proof documents beyond the application
-  itself — confirm with the program before gathering paperwork.
-  <!-- HUMAN-VERIFY: Ask Lifespan Respite WA (via lifespanrespitewa.org or
-  the application contact listed there) whether any documentation beyond
-  the application form is required. -->
+  No proof documents or income verification are required — confirmed
+  against the current application form itself (tfaforms.com/4694142,
+  retrieved 2026-07-05): eligibility is self-reported through required
+  yes/no certifications on the form (e.g., "I provide 40 or more hours of
+  care, supervision, or monitoring per week" and "I receive respite care
+  through Medicaid or other program that provides respite care"), with no
+  attachments requested.
 - FCSP: TCARE screening/assessment completed with a caregiver specialist;
   requirements vary by AAA.
 - DDA: DDA eligibility determination records, then the waiver service

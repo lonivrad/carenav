@@ -72,9 +72,20 @@ All of the following are required:
 - Face-to-face assessment and provider certification of homebound status and
   need for skilled care.
 - Provider order for home health services and the agency-maintained care plan.
-- <!-- HUMAN-VERIFY: Ask the home health agency what, if anything, the
-  beneficiary must supply beyond insurance cards and ID; general Medicare
-  questions: 1-800-MEDICARE (1-800-633-4227). -->
-  Medicare.gov does not publish a beneficiary paperwork checklist; the
-  agency and provider assemble the certification records, so confirm any
-  required items with the agency at intake.
+- Medicare.gov does not publish a beneficiary paperwork checklist — the
+  agency and provider assemble the certification records. Items agencies
+  commonly involve the beneficiary in (manually compiled 2026-07-05; varies
+  by agency, so confirm at intake):
+  - The face-to-face encounter note (a visit with the certifying provider
+    within 90 days before or 30 days after care starts) and the written
+    homebound-status justification.
+  - The plan of care (CMS-485), which the beneficiary's doctor must sign,
+    listing ordered services, frequency, and duration.
+  - In Washington: a copy of the POLST for the agency binder, with the
+    original bright-green form posted visibly in the home for EMS; health
+    care directive and power-of-attorney documents if someone else signs
+    consents (surrogate hierarchy under RCW 7.70.065 applies without a
+    DPOA).
+  - Supplemental coverage documents (Medigap, Medicaid, or LTC insurance),
+    and the Home Health Change of Care Notice (HHCCN) or ABN if the agency
+    expects Medicare to deny particular services.

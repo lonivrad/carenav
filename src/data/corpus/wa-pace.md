@@ -62,12 +62,12 @@ Costs:
 
 - With Medicaid: no monthly premium.
 - Medicare-only (no Medicaid): a monthly premium for the long-term-care
-  portion plus a Part D drug premium. Premium dollar amounts are set by each
-  PACE organization and are not published centrally — confirm current
-  premiums with the organization's intake line.
-  <!-- HUMAN-VERIFY: Ask each PACE organization's intake line for current
-  Medicare-only premium amounts — Providence PACE (206) 320-5325, ICHS PACE
-  (206) 462-7100, PNW PACE Partners (253) 459-7270. -->
+  portion plus a Part D drug premium. Per intake guidance (manually
+  verified 2026-07-05), the premium equals the current Medicaid capitation
+  rate plus an amount for prescription drug coverage; there are no
+  copayments or deductibles in either case. Exact dollar amounts are quoted
+  by the PACE organization at intake — Providence PACE (206) 320-5325,
+  ICHS PACE (206) 462-7100, PNW PACE Partners (253) 459-7270.
 - Private pay is accepted for people with neither Medicare nor Medicaid.
 - No deductible, copayment, or coinsurance for any PACE-team-approved drug,
   service, or care.
@@ -84,13 +84,13 @@ Washington PACE organizations (per DSHS):
   and Wellness Center, 939 Golf Dr S, Seattle 98144. Phone: (206) 462-7100.
 - PNW PACE Partners (MultiCare-affiliated), 6442 S. Yakima Ave, Tacoma 98408.
   Phone: (253) 459-7270.
-- County coverage (King, Snohomish, Pierce, Spokane) is inferred from center
-  locations; the DSHS page lists no counties and defines service areas only
-  by a downloadable "PACE Coverage Area Zip Codes" spreadsheet.
-  <!-- HUMAN-VERIFY: Check the family's ZIP against the "PACE Coverage Area
-  Zip Codes" spreadsheet linked from the DSHS PACE page
-  (https://www.dshs.wa.gov/altsa/program-all-inclusive-care-elderly-pace),
-  or ask the PACE organization's intake line whether the ZIP is served. -->
+- County coverage confirmed from the DSHS "PACE Coverage Area Zip Codes"
+  spreadsheet (retrieved 2026-07-05): coverage spans exactly four counties —
+  King (100 ZIPs), Pierce (49), Spokane (27), and Snohomish (21) — 197 ZIP
+  codes total, with Providence serving 119 ZIPs, ICHS 75, and PNW PACE 61.
+  Whether a specific ZIP is served still must be checked against the
+  spreadsheet (linked from the DSHS PACE page) or with the organization's
+  intake line, since coverage within a county is not complete.
 
 Process (per HCA): the state certifies nursing facility level of care
 (functional assessment under WAC 388-106-0700 series); Home & Community
@@ -103,9 +103,21 @@ State policy questions: PACE@dshs.wa.gov.
 - Financial eligibility documentation under Apple Health HCB-waiver or
   institutional rules (income and resources).
 - The state functional / level-of-care assessment.
-- No official page publishes an applicant document checklist; the PACE
-  organizations' intake lines walk applicants through requirements, so call
-  the intake line for the specific list.
-  <!-- HUMAN-VERIFY: Ask the PACE organization's intake line what documents
-  an applicant must bring — Providence PACE (206) 320-5325, ICHS PACE
-  (206) 462-7100, PNW PACE Partners (253) 459-7270. -->
+- Applicant checklist per intake guidance (manually compiled 2026-07-05;
+  confirm specifics with the organization's intake line):
+  - Identity and insurance: government photo ID; Social Security card or
+    federal documentation; Medicare (Parts A & B) and/or Apple Health cards
+    (front and back); DSHS 14-532 (Authorized Representative) if someone is
+    applying on the person's behalf; DSHS 17-063 (Authorization to Release
+    Information) so the PACE provider and state can coordinate intake.
+  - Financial (for the Medicaid pathway, reviewed by an HCS financial
+    specialist): proof of income for the past 30–90 days (SSA/SSDI award
+    letters, pension statements, VA benefit letters, paystubs); statements
+    for all accounts (checking, savings, retirement accounts, investments)
+    against the $2,000/$3,000 resource limits; property tax assessments or
+    deeds for any real estate (the primary home is generally documented
+    even when exempt).
+  - Clinical (for the NFLOC certification): a complete current medication
+    list; recent diagnostic records, physician notes, or hospital discharge
+    summaries; and documentation of the daily activities the person needs
+    hands-on help with.

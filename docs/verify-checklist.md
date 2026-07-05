@@ -1,9 +1,12 @@
 # Corpus VERIFY checklist
 
-**Status (2026-07-05): verification pass complete.** 24 items verified
-against fetched primary sources, 7 converted to `HUMAN-VERIFY` markers, 1
-still unverified (va-aid-attendance care-cost evidence). Full quotes and
-corrections: `eval/results/corpus-verification-report.md`.
+**Status (2026-07-05): all 32 items resolved.** 24 verified against fetched
+primary sources; the remaining 8 (7 HUMAN-VERIFY + 1 ambiguous) closed in a
+second pass using manually gathered materials — the DSHS PACE ZIP spreadsheet,
+the live Lifespan Respite application form, current VA Forms 21-2680/21-0779,
+and manually gathered AAA/HCS/intake notes (attributed and hedged in the
+docs). No markers remain in the corpus. Full detail:
+`eval/results/corpus-verification-report.md`.
 
 Every `<!-- VERIFY -->` marker in `src/data/corpus/`, grouped by document.
 Check items off as claims are confirmed against primary sources; when a claim
@@ -15,16 +18,16 @@ is verified, update the corpus doc, remove the marker, and re-run
 - [x] **L43 — Stale WAC citations.** HCA manual page shows a 2018 revision
   date citing WACs effective 2017. Confirm the cited rules are still current
   in the Washington Administrative Code.
-- [x] **L63 — Premium amounts.** *(HUMAN-VERIFY — marker replaced with contact/question in the doc)* Premiums are set by each PACE organization
+- [x] **L63 — Premium amounts.** *(resolved second pass with manually gathered data)* Premiums are set by each PACE organization
   and not published centrally. Call Providence ElderPlace / Franciscan /
   Sound PACE intake lines for current Medicare-only premium figures.
 - [x] **L75 — Spokane ZIP typo.** DSHS prints the Spokane center's ZIP as
   98208 (an Everett-area ZIP; Spokane is 992xx — likely 99208). Confirm the
   address before relying on it.
-- [x] **L82 — County coverage.** *(HUMAN-VERIFY — marker replaced with contact/question in the doc)* King/Snohomish/Pierce/Spokane coverage is
+- [x] **L82 — County coverage.** *(resolved second pass with manually gathered data)* King/Snohomish/Pierce/Spokane coverage is
   inferred from center locations; DSHS defines service areas by ZIP. Confirm
   against the DSHS PACE ZIP list.
-- [x] **L97 — Document checklist.** *(HUMAN-VERIFY — marker replaced with contact/question in the doc)* No official applicant document checklist
+- [x] **L97 — Document checklist.** *(resolved second pass with manually gathered data)* No official applicant document checklist
   is published; intake lines walk applicants through requirements. Confirm
   with a PACE organization what applicants must supply.
 
@@ -51,20 +54,20 @@ is verified, update the corpus doc, remove the marker, and re-run
   amounts printed in the April 2026 DSHS manual; current amount is
   recalculated from home care agency rates (HCS Rates website, "MAC-TSOA"
   tab). Pull the current figure.
-- [x] **L88 — Enrollment-pause intake.** *(HUMAN-VERIFY — marker replaced with contact/question in the doc)* Unclear whether full applications
+- [x] **L88 — Enrollment-pause intake.** *(resolved second pass with manually gathered data)* Unclear whether full applications
   are financially processed during the pause or intake is waitlist-only (the
   waitlist FAQ says joining requires only basic demographics). Confirm with
   DSHS/HCS.
 
 ## wa-respite-care.md (3)
 
-- [x] **L65 — FCSP respite caps.** *(HUMAN-VERIFY — marker replaced with contact/question in the doc)* No statewide dollar/hour cap published;
+- [x] **L65 — FCSP respite caps.** *(resolved second pass with manually gathered data)* No statewide dollar/hour cap published;
   amounts vary by AAA and local budget, waitlists possible. Confirm with the
   relevant Area Agency on Aging.
 - [x] **L68 — DDA respite details.** IFS annual budget tiers and Overnight
   Planned Respite Services (OPRS) details were not confirmed from official
   pages. Verify with DDA sources.
-- [x] **L88 — Proof documents.** *(HUMAN-VERIFY — marker replaced with contact/question in the doc)* No fetched page enumerates proof documents
+- [x] **L88 — Proof documents.** *(resolved second pass with manually gathered data)* No fetched page enumerates proof documents
   beyond the application itself. Confirm with FCSP/AAA intake.
 
 ## wa-mac.md (3)
@@ -98,7 +101,7 @@ is verified, update the corpus doc, remove the marker, and re-run
 - [x] **L66 — Surviving-spouse rates.** Not covered in this document; fetched
   pages covered veteran rates only. Decide whether to add a
   surviving-spouse section with sourced rates.
-- [ ] **L91 — Care-cost evidence.** *(STILL UNVERIFIED — source ambiguous)* Whether additional evidence of
+- [x] **L91 — Care-cost evidence.** *(resolved second pass — VA Forms 21-2680/21-0779 read directly; expenses go on 21P-8416)* Whether additional evidence of
   unreimbursed care costs is required for A&A specifically was not detailed
   on the fetched pages. Confirm with VA guidance.
 
@@ -126,13 +129,13 @@ is verified, update the corpus doc, remove the marker, and re-run
   inpatient admission and ending after 60 consecutive days without inpatient
   hospital or SNF care; the fetched pages reference benefit periods without
   the full definition. Verify on Medicare.gov.
-- [x] **L82 — Document checklist.** *(HUMAN-VERIFY — marker replaced with contact/question in the doc)* Medicare.gov publishes no explicit
+- [x] **L82 — Document checklist.** *(resolved second pass with manually gathered data)* Medicare.gov publishes no explicit
   beneficiary document checklist; hospital and SNF handle certification
   paperwork. Confirm nothing is required of the beneficiary directly.
 
 ## medicare-home-health.md (1)
 
-- [x] **L75 — Paperwork checklist.** *(HUMAN-VERIFY — marker replaced with contact/question in the doc)* Medicare.gov publishes no explicit
+- [x] **L75 — Paperwork checklist.** *(resolved second pass with manually gathered data)* Medicare.gov publishes no explicit
   beneficiary paperwork checklist; the agency and provider assemble
   certification records. Confirm nothing is required of the beneficiary
   directly.

@@ -11,6 +11,11 @@ Outcome: 24 items VERIFIED (markers removed, sources added to frontmatter and
 manifest), 1 item STILL UNVERIFIED (marker retained), 7 items HUMAN-VERIFY
 (markers replaced, wording hedged).
 
+**Update (2026-07-05, second pass):** all remaining items were subsequently
+resolved with manually gathered materials — see "Human verification follow-up"
+at the end of this report. No `VERIFY` or `HUMAN-VERIFY` markers remain in the
+corpus.
+
 ---
 
 ## VERIFIED
@@ -255,3 +260,56 @@ lists the exact question and contact.
    SNF admissions office / home health agency what, if anything, the
    beneficiary must supply beyond insurance cards and ID (general questions:
    1-800-MEDICARE, 1-800-633-4227).
+
+---
+
+## Human verification follow-up (2026-07-05, second pass)
+
+The remaining 8 items (7 HUMAN-VERIFY + 1 STILL UNVERIFIED) were resolved
+with manually gathered materials. Three were verified against primary
+artifacts supplied directly; five rest on manually gathered notes and are
+attributed and hedged as such in the corpus docs.
+
+Verified against supplied artifacts:
+
+- **PACE ZIP coverage.** The DSHS "PACE Coverage Area Zip Codes" spreadsheet
+  (retrieved 2026-07-05) was parsed directly: 197 ZIPs across exactly four
+  county sheets — King (100), Pierce (49), Spokane (27), Snohomish (21);
+  Providence serves 119 ZIPs, ICHS 75, PNW PACE 61. County coverage upgraded
+  from inference to confirmed.
+- **Lifespan Respite proof documents.** The live application form
+  (tfaforms.com/4694142, retrieved 2026-07-05) was read in full: eligibility
+  is self-reported via required yes/no certifications; no proof documents or
+  income verification are requested.
+- **VA A&A care-cost evidence.** Current VA Forms 21-2680 (OMB 2900-0721,
+  exp. 02/28/2026) and 21-0779 (OMB 2900-0652, exp. 09/30/2026) were read:
+  neither collects expense amounts, consistent with unreimbursed medical
+  expenses being an income-calculation input reported on VA Form 21P-8416 or
+  the 21P-527EZ application. The last `VERIFY` marker was replaced with this
+  explanation.
+
+Resolved from manually gathered notes (attributed "manually
+verified/compiled 2026-07-05" in the docs, with confirm-before-relying
+hedges retained):
+
+- **PACE premiums** — no fixed published amounts; Medicaid-eligible enrollees
+  pay nothing, otherwise the premium equals the Medicaid capitation rate plus
+  a drug-coverage amount; exact figures quoted at intake.
+- **PACE applicant checklist** — identity/insurance (photo ID, SSN card,
+  Medicare/Apple Health cards, DSHS 14-532 and 17-063), financial packet for
+  the Medicaid pathway (30–90 days of income proof, all account statements,
+  property documents), and clinical records for the NFLOC assessment.
+- **FCSP respite caps** — King County: up to $4,362 per rolling 6 months,
+  TCARE-priority allocation; Snohomish County: ~$1,000–$4,362/year on a
+  sliding fee scale with a screening-and-hold roster. Unpublished figures —
+  flagged in the doc to confirm with the AAA.
+- **TSOA enrollment-pause intake** — waitlist-only; Presumptive Eligibility
+  suspended; applications only establish a request date (waitlist ordered by
+  request date under WAC 388-106-1975); pre-12/1/2025 enrollees/PE approvals
+  continue.
+- **Medicare SNF / home-health beneficiary paperwork** — commonly required
+  items compiled (discharge summary proving the 3-day inpatient stay,
+  physician orders, medication list, WA PASRR Level I / DSHS 14-300, POLST,
+  DPOA or RCW 7.70.065 surrogate hierarchy, secondary-coverage documents,
+  SNFABN/HHCCN notices, face-to-face note and CMS-485 for home health) —
+  hedged as varying by facility/agency.

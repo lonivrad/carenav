@@ -89,14 +89,18 @@ massage therapy).
   1-855-567-0252 (ask for a Family Caregiver specialist).
 - Functional eligibility is assessed by AAA/HCS staff; financial eligibility
   by HCS/HCA financial workers; eligibility is reviewed annually.
-- During the enrollment pause it is unclear whether full applications are
-  financially processed or intake is waitlist-only (the waitlist FAQ says
-  joining requires only basic demographic information) — ask HCS directly
-  before assembling financial documents.
-  <!-- HUMAN-VERIFY: Ask Home & Community Services (via Community Living
-  Connections, 1-855-567-0252) whether TSOA applications are financially
-  processed during the enrollment pause or whether intake is
-  waitlist-only. -->
+- Enrollment-pause intake (manually verified 2026-07-05): intake is
+  waitlist-only — no new applications are financially processed for
+  immediate services during the pause. Presumptive Eligibility screenings
+  are suspended while the waitlist is in effect; submitting an application
+  now only establishes the request date on the statewide first-come,
+  first-served waitlist (managed by request date under WAC 388-106-1975),
+  and full financial and functional assessments happen when the person is
+  called from the waitlist. People fully enrolled or already approved for
+  Presumptive Eligibility before December 1, 2025 keep their services and
+  continue financial processing. While waiting, families can ask their AAA
+  to screen for non-Medicaid FCSP respite funds that don't depend on the
+  paused TSOA budget.
 
 ## Documentation needed
 

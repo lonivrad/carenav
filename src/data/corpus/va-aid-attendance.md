@@ -95,5 +95,17 @@ A&A clinical criteria — at least one must apply:
   service history, marital and work history, dependent information, gross
   monthly household income, asset values, and unreimbursed medical expenses;
   medical records if under age 65.
-- <!-- VERIFY --> Whether additional evidence of unreimbursed care costs is
-  required for A&A specifically was not detailed on the fetched pages.
+- Unreimbursed care-cost evidence (manually verified 2026-07-05): care-cost
+  evidence is part of the pension's income calculation rather than a separate
+  A&A requirement. If household income is already below the MAPR, it is not
+  needed to qualify (though reporting expenses can increase the payment); if
+  income is above the MAPR, unreimbursed medical/care expenses (home health
+  aides, assisted living, nursing home fees) are deducted to reduce
+  "countable income" and are reported on VA Form 21P-8416 (Medical Expense
+  Report). Typical proof: a care contract or provider statement, a breakdown
+  showing the care covers activities of daily living, and receipts or
+  canceled checks showing the costs were unreimbursed. Neither VA Form
+  21-2680 nor 21-0779 collects expense amounts (confirmed against the
+  current forms, OMB 2900-0721 exp. 02/28/2026 and OMB 2900-0652 exp.
+  09/30/2026) — expenses go on 21P-8416 or the 21P-527EZ application
+  itself.

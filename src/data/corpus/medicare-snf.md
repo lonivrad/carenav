@@ -82,9 +82,24 @@ Costs per benefit period (2026, per CMS MM14279 and Medicare.gov):
 - Proof of the 3-day qualifying inpatient hospital stay (inpatient status,
   not observation).
 - The doctor's order or determination of the need for daily skilled care.
-- <!-- HUMAN-VERIFY: Ask the admitting SNF's admissions office what, if
-  anything, the beneficiary must supply beyond insurance cards and ID;
-  general Medicare questions: 1-800-MEDICARE (1-800-633-4227). -->
-  Medicare.gov does not publish a beneficiary document checklist; the
-  hospital and SNF handle the certification paperwork, so confirm any
-  required items with the facility's admissions office.
+- Medicare.gov does not publish a beneficiary document checklist — the
+  hospital and SNF handle the certification paperwork. Items facilities
+  commonly require (manually compiled 2026-07-05; varies by facility, so
+  confirm with the admissions office):
+  - Hospital discharge summary proving the 3-day consecutive inpatient stay
+    (observation status does not count), the physician's order for daily
+    skilled care, recent history & physical, a certified current medication
+    list, and often proof of negative TB status.
+  - Washington-specific: a completed PASRR Level I screening (DSHS 14-300)
+    must accompany admission; DSHS intake/referral form 10-570 if a
+    transition to Apple Health LTSS is possible; and a prior-authorization
+    letter from the plan if the person is on Medicare Advantage.
+  - Care directives and authority: POLST (Washington's bright-green WSMA/
+    DOH form, signed by the patient/proxy and a WA-licensed clinician) or
+    health care directive; durable power of attorney for health care, or
+    documentation of the surrogate hierarchy under RCW 7.70.065 if there is
+    no DPOA.
+  - Secondary coverage for the day-21+ coinsurance: Medigap policy,
+    Medicaid award letter (dual-eligibles), or LTC insurance policy; expect
+    to sign the SNF Advance Beneficiary Notice (SNFABN) if the facility
+    believes Medicare may deny specific services.
