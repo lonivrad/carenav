@@ -1,0 +1,32 @@
+{
+  "documents": [
+    {
+      "id": "wa-medicaid-copes",
+      "file": "corpus/wa-medicaid-copes.md",
+      "sourceUrl": "",
+      "retrievedAt": "",
+      "version": 1
+    },
+    {
+      "id": "wa-cares-fund",
+      "file": "corpus/wa-cares-fund.md",
+      "sourceUrl": "",
+      "retrievedAt": "",
+      "version": 1
+    },
+    {
+      "id": "va-aid-attendance",
+      "file": "corpus/va-aid-attendance.md",
+      "sourceUrl": "",
+      "retrievedAt": "",
+      "version": 1
+    },
+    {
+      "id": "medicare-home-health",
+      "file": "corpus/medicare-home-health.md",
+      "sourceUrl": "",
+      "retrievedAt": "",
+      "version": 1
+    }
+  ]
+}
