@@ -1,31 +1,164 @@
 {
+  "retrievedAt": "2026-07-05",
   "documents": [
     {
       "id": "wa-medicaid-copes",
       "file": "corpus/wa-medicaid-copes.md",
-      "sourceUrl": "",
-      "retrievedAt": "",
+      "name": "Medicaid COPES waiver (Community Options Program Entry System)",
+      "sourceUrls": [
+        "https://www.dshs.wa.gov/sites/default/files/ALTSA/hcs/documents/LTCManual/Chapter%207d.pdf",
+        "https://www.hca.wa.gov/free-or-low-cost-health-care/i-help-others-apply-and-access-apple-health/hcs-home-and-community-based-hcb-waivers",
+        "https://www.dshs.wa.gov/altsa/home-and-community-services/long-term-care-home-community-based-services-waivers",
+        "https://www.hca.wa.gov/assets/free-or-low-cost/income-standards.pdf"
+      ],
+      "retrievedAt": "2026-07-05",
+      "version": 1
+    },
+    {
+      "id": "wa-medicaid-cfc",
+      "file": "corpus/wa-medicaid-cfc.md",
+      "name": "Medicaid Community First Choice (CFC)",
+      "sourceUrls": [
+        "https://www.dshs.wa.gov/sites/default/files/ALTSA/hcs/documents/LTCManual/Chapter%207b.pdf",
+        "https://www.hca.wa.gov/free-or-low-cost-health-care/i-help-others-apply-and-access-apple-health/applications-ltss",
+        "https://www.hca.wa.gov/assets/free-or-low-cost/income-standards.pdf"
+      ],
+      "retrievedAt": "2026-07-05",
+      "version": 1
+    },
+    {
+      "id": "wa-apple-health-ltc",
+      "file": "corpus/wa-apple-health-ltc.md",
+      "name": "Apple Health long-term care (WA institutional/LTSS Medicaid)",
+      "sourceUrls": [
+        "https://www.hca.wa.gov/free-or-low-cost-health-care/i-help-others-apply-and-access-apple-health/general-eligibility-long-term-care",
+        "https://www.hca.wa.gov/assets/free-or-low-cost/income-standards.pdf",
+        "https://www.hca.wa.gov/free-or-low-cost-health-care/i-help-others-apply-and-access-apple-health/wac-182-513-1363-evaluating-asset-transfer-clients-applying-or-receiving-long-term-care-ltc-services",
+        "https://www.hca.wa.gov/free-or-low-cost-health-care/i-help-others-apply-and-access-apple-health/applications-ltss",
+        "https://www.dshs.wa.gov/altsa/home-and-community-services/how-apply-medicaid",
+        "https://www.dshs.wa.gov/sites/default/files/ALTSA/stakeholders/documents/RCL/DSHS%20How%20to%20apply%20for%20HCS.pdf"
+      ],
+      "retrievedAt": "2026-07-05",
       "version": 1
     },
     {
       "id": "wa-cares-fund",
       "file": "corpus/wa-cares-fund.md",
-      "sourceUrl": "",
-      "retrievedAt": "",
+      "name": "WA Cares Fund (Washington long-term care insurance)",
+      "sourceUrls": [
+        "https://wacaresfund.wa.gov/qualify",
+        "https://wacaresfund.wa.gov/benefits",
+        "https://wacaresfund.wa.gov/apply",
+        "https://wacaresfund.wa.gov/how-it-works",
+        "https://wacaresfund.wa.gov/help-support/frequently-asked-questions"
+      ],
+      "retrievedAt": "2026-07-05",
       "version": 1
     },
     {
       "id": "va-aid-attendance",
       "file": "corpus/va-aid-attendance.md",
-      "sourceUrl": "",
-      "retrievedAt": "",
+      "name": "VA Aid & Attendance (increased monthly pension)",
+      "sourceUrls": [
+        "https://www.va.gov/pension/aid-attendance-housebound/",
+        "https://www.va.gov/pension/eligibility/",
+        "https://www.va.gov/pension/veterans-pension-rates/",
+        "https://www.va.gov/pension/how-to-apply/"
+      ],
+      "retrievedAt": "2026-07-05",
+      "version": 1
+    },
+    {
+      "id": "va-housebound",
+      "file": "corpus/va-housebound.md",
+      "name": "VA Housebound benefit (increased monthly pension)",
+      "sourceUrls": [
+        "https://www.va.gov/pension/aid-attendance-housebound/",
+        "https://www.va.gov/pension/eligibility/",
+        "https://www.va.gov/pension/veterans-pension-rates/",
+        "https://www.va.gov/pension/how-to-apply/"
+      ],
+      "retrievedAt": "2026-07-05",
       "version": 1
     },
     {
       "id": "medicare-home-health",
       "file": "corpus/medicare-home-health.md",
-      "sourceUrl": "",
-      "retrievedAt": "",
+      "name": "Medicare home health benefit",
+      "sourceUrls": [
+        "https://www.medicare.gov/coverage/home-health-services",
+        "https://www.medicare.gov/basics/costs/medicare-costs"
+      ],
+      "retrievedAt": "2026-07-05",
+      "version": 1
+    },
+    {
+      "id": "medicare-snf",
+      "file": "corpus/medicare-snf.md",
+      "name": "Medicare skilled nursing facility (SNF) coverage",
+      "sourceUrls": [
+        "https://www.medicare.gov/coverage/skilled-nursing-facility-care",
+        "https://www.cms.gov/files/document/mm14279-medicare-deductible-coinsurance-premium-rates-cy-2026-update.pdf",
+        "https://www.medicare.gov/basics/costs/medicare-costs"
+      ],
+      "retrievedAt": "2026-07-05",
+      "version": 1
+    },
+    {
+      "id": "wa-pace",
+      "file": "corpus/wa-pace.md",
+      "name": "PACE — Program of All-Inclusive Care for the Elderly (Washington)",
+      "sourceUrls": [
+        "https://www.medicare.gov/health-drug-plans/health-plans/your-coverage-options/other-medicare-health-plans/PACE",
+        "https://www.dshs.wa.gov/altsa/program-all-inclusive-care-elderly-pace",
+        "https://www.hca.wa.gov/free-or-low-cost-health-care/i-help-others-apply-and-access-apple-health/program-all-inclusive-care-elderly-pace"
+      ],
+      "retrievedAt": "2026-07-05",
+      "version": 1
+    },
+    {
+      "id": "wa-tsoa",
+      "file": "corpus/wa-tsoa.md",
+      "name": "Tailored Supports for Older Adults (TSOA)",
+      "sourceUrls": [
+        "https://www.dshs.wa.gov/sites/default/files/ALTSA/hcs/documents/LTCManual/Chapter%2030b.pdf",
+        "https://www.hca.wa.gov/assets/free-or-low-cost/income-standards.pdf",
+        "https://www.hca.wa.gov/assets/free-or-low-cost/18-008.pdf",
+        "https://www.dshs.wa.gov/sites/default/files/publications/documents/22-1739.pdf",
+        "https://www.dshs.wa.gov/altsa/stakeholders/medicaid-transformation-demonstration",
+        "https://www.dshs.wa.gov/sites/default/files/ALTSA/stakeholders/documents/duals/FAQ%20-%20MAC%20and%20TSOA%20Waitlist.pdf"
+      ],
+      "retrievedAt": "2026-07-05",
+      "version": 1
+    },
+    {
+      "id": "wa-mac",
+      "file": "corpus/wa-mac.md",
+      "name": "Medicaid Alternative Care (MAC)",
+      "sourceUrls": [
+        "https://www.dshs.wa.gov/sites/default/files/ALTSA/hcs/documents/LTCManual/Chapter%2030b.pdf",
+        "https://www.dshs.wa.gov/sites/default/files/publications/documents/22-1739.pdf",
+        "https://www.dshs.wa.gov/altsa/stakeholders/medicaid-transformation-demonstration",
+        "https://www.dshs.wa.gov/sites/default/files/ALTSA/stakeholders/documents/duals/FAQ%20-%20MAC%20and%20TSOA%20Waitlist.pdf",
+        "https://www.dshs.wa.gov/altsa/home-and-community-services/caregiver-resources"
+      ],
+      "retrievedAt": "2026-07-05",
+      "version": 1
+    },
+    {
+      "id": "wa-respite-care",
+      "file": "corpus/wa-respite-care.md",
+      "name": "Respite care programs in Washington",
+      "sourceUrls": [
+        "https://www.dshs.wa.gov/sesa/office-communications/media-release/respite-vouchers-available-unpaid-family-caregivers",
+        "https://wapave.org/lifespan-respite-washington/",
+        "https://wapave.org/lifespan-respite-wa/how-to-apply-for-respite/",
+        "https://www.dshs.wa.gov/altsa/home-and-community-services/respite-care",
+        "https://www.dshs.wa.gov/altsa/home-and-community-services/caregiver-resources",
+        "https://www.dshs.wa.gov/sites/default/files/publications/documents/22-1331.pdf",
+        "https://www.dshs.wa.gov/dda/consumers-and-families/individual-and-family-services-waiver"
+      ],
+      "retrievedAt": "2026-07-05",
       "version": 1
     }
   ]
