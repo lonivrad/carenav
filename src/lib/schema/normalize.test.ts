@@ -170,3 +170,20 @@ describe("normalize", () => {
     ).toBe("unknown");
   });
 });
+
+describe("additionalNotes passthrough", () => {
+  it("carries trimmed free text into the profile verbatim", () => {
+    const p = normalize({
+      ...fullyAnswered,
+      additionalNotes: "  My mom definitely qualifies right?  ",
+    });
+    expect(p.additionalNotes).toBe("My mom definitely qualifies right?");
+  });
+
+  it("omits the field when absent or blank", () => {
+    expect(normalize(fullyAnswered).additionalNotes).toBeUndefined();
+    expect(
+      normalize({ ...fullyAnswered, additionalNotes: "   " }).additionalNotes,
+    ).toBeUndefined();
+  });
+});

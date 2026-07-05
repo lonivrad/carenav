@@ -62,6 +62,8 @@ export function normalize(intake: Intake): Profile {
     recentRelocation: yesNoToBool(intake.recentRelocation),
     waCaresParticipation: orUnknown(intake.waCaresParticipation),
   };
+  const notes = intake.additionalNotes?.trim();
+  if (notes) profile.additionalNotes = notes;
 
   return profileSchema.parse(profile);
 }

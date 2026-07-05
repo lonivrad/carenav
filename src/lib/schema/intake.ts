@@ -141,6 +141,12 @@ export const intakeSchema = z.object({
     z.enum(waCaresParticipationValues),
     declinedSchema,
   ]),
+  /**
+   * Optional free text from the family. Treated strictly as data: it is
+   * shown to the LLM inside the guarded <family_profile> block, never used
+   * by the rules engine and never embedded into retrieval queries.
+   */
+  additionalNotes: z.string().max(2000).optional(),
 });
 
 export type Intake = z.infer<typeof intakeSchema>;

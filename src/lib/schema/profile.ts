@@ -54,6 +54,11 @@ export const profileSchema = z.object({
   /** Moved to Washington within the past 5 years. */
   recentRelocation: unknownable(z.boolean()),
   waCaresParticipation: unknownable(z.enum(waCaresParticipationValues)),
+  /**
+   * Free text from the family, passed through verbatim (undefined when not
+   * provided). Data only: never read by rules, never embedded for retrieval.
+   */
+  additionalNotes: z.string().optional(),
 });
 
 export type Profile = z.infer<typeof profileSchema>;

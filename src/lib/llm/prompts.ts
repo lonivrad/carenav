@@ -51,7 +51,12 @@ export function buildUserPrompt(input: {
   const { profile, candidates, retrievals } = input;
   const retrievalById = new Map(retrievals.map((r) => [r.programId, r]));
 
-  const profileSection = `<family_profile>\n${describeProfile(profile)}\n</family_profile>`;
+  // Free-text notes ride inside the guarded block: HARD RULE 6 already
+  // declares everything in <family_profile> to be data, never instructions.
+  const noteSection = profile.additionalNotes
+    ? `\n<family_note>\n${profile.additionalNotes}\n</family_note>`
+    : "";
+  const profileSection = `<family_profile>\n${describeProfile(profile)}${noteSection}\n</family_profile>`;
 
   const candidateSections = candidates.map((candidate) => {
     const retrieval = retrievalById.get(candidate.programId);
