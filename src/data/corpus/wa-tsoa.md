@@ -8,6 +8,8 @@ sources:
   - https://www.dshs.wa.gov/sites/default/files/publications/documents/22-1739.pdf
   - https://www.dshs.wa.gov/altsa/stakeholders/medicaid-transformation-demonstration
   - https://www.dshs.wa.gov/sites/default/files/ALTSA/stakeholders/documents/duals/FAQ%20-%20MAC%20and%20TSOA%20Waitlist.pdf
+  - https://app.leg.wa.gov/wac/default.aspx?cite=182-513-1615
+  - https://www.dshs.wa.gov/sites/default/files/ALTSA/msd/documents/All_HCS_Rates.pdf
 retrievedAt: 2026-07-05
 ---
 
@@ -33,9 +35,10 @@ Transformation waiver (through June 30, 2028).
 - Medicaid enrollment is NOT required — income and resources can be above
   Medicaid amounts. Applicants on Medically Needy or Medicare Savings Program
   coverage may still qualify.
-  <!-- VERIFY --> The exact WAC rule that the applicant must not be
-  enrolled in CN or ABP Medicaid (WAC 182-513-1615) was not fetched directly;
-  the DSHS manual implies it (becoming CN/ABP-eligible terminates TSOA).
+  Confirmed by rule: WAC 182-513-1615 (effective 8/10/2025, WSR 25-15-053)
+  states "A person who receives apple health coverage under a categorically
+  needy (CN) or alternative benefit plan (ABP) program is not eligible for
+  TSOA."
 - Functional: nursing facility level of care (NFLOC) per WAC
   388-106-1900–1990.
 - Financial (HCA income and resource standards effective April 1, 2026):
@@ -60,11 +63,12 @@ services support the unpaid caregiver):
 - Step 2: $500 annually (minus any Step 1 spending); requires a TCARE/GetCare
   screening. An exception-to-rule can extend to $1,000 (local approval) or
   beyond (HQ approval).
-- Step 3: an average of $844/month, not to exceed $5,064 per six-month
-  period; requires a full TCARE/GetCare assessment.
-  <!-- VERIFY --> The Step 3 figures are the "as of 7/1/2024" amounts printed
-  in the April 2026 DSHS manual; the current amount is recalculated from home
-  care agency rates on the HCS Rates website ("MAC-TSOA" tab).
+- Step 3: for 07/01/2025–06/30/2026, "an average of $928 per month not to
+  exceed $5,568 in a six month period" (DSHS All HCS Rates document; an
+  earlier printing of the same 2025–26 table showed $880/$5,280, and the
+  2024–25 level was $844/$5,064). Requires a full TCARE/GetCare assessment;
+  benefit levels are set under WAC 388-106-1920 and recalculated
+  periodically from home care agency rates.
 
 Service categories: Caregiver Assistance Services (dyads only — respite,
 housekeeping and errands, adult day care, home-delivered meals); Personal
@@ -85,9 +89,14 @@ massage therapy).
   1-855-567-0252 (ask for a Family Caregiver specialist).
 - Functional eligibility is assessed by AAA/HCS staff; financial eligibility
   by HCS/HCA financial workers; eligibility is reviewed annually.
-- <!-- VERIFY --> During the enrollment pause it is unclear whether full
-  applications are financially processed or intake is waitlist-only (the
-  waitlist FAQ says joining requires only basic demographic information).
+- During the enrollment pause it is unclear whether full applications are
+  financially processed or intake is waitlist-only (the waitlist FAQ says
+  joining requires only basic demographic information) — ask HCS directly
+  before assembling financial documents.
+  <!-- HUMAN-VERIFY: Ask Home & Community Services (via Community Living
+  Connections, 1-855-567-0252) whether TSOA applications are financially
+  processed during the enrollment pause or whether intake is
+  waitlist-only. -->
 
 ## Documentation needed
 

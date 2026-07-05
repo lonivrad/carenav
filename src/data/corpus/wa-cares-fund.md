@@ -7,6 +7,7 @@ sources:
   - https://wacaresfund.wa.gov/apply
   - https://wacaresfund.wa.gov/how-it-works
   - https://wacaresfund.wa.gov/help-support/frequently-asked-questions
+  - https://app.leg.wa.gov/rcw/default.aspx?cite=50B.04.050
 retrievedAt: 2026-07-05
 ---
 
@@ -21,10 +22,9 @@ reads "Benefits now available statewide").
 
 Contribution (vesting) pathways — a worker must meet one:
 
-1. Permanent: contribute for at least 10 years (earns the full benefit).
-   <!-- VERIFY --> The statute (RCW 50A.04) phrases this as 10 years "without
-   interruption of five or more consecutive years"; the wacaresfund.wa.gov
-   pages say only "at least 10 years." Check the RCW for the exact rule.
+1. Permanent: contribute for a total of 10 years "without interruption of
+   five or more consecutive years" (RCW 50B.04.050) — the wacaresfund.wa.gov
+   pages summarize this as "at least 10 years." Earns the full benefit.
 2. Temporary: at the time of application, have contributed at least 3 of the
    past 6 years (full benefit).
 3. Transition (near-retirees): born before January 1, 1968 — partial benefit
@@ -33,18 +33,21 @@ Contribution (vesting) pathways — a worker must meet one:
 
 Other requirements:
 
-- A qualifying year requires working at least 500 hours (~10 hours/week).
+- A qualifying year requires working at least 500 hours (~10 hours/week)
+  (RCW 50B.04.050: "at least 500 hours during each of the ten years" or
+  "each of the three years").
 - Care-need trigger: needing help with 3 or more activities of daily living,
   with the need expected to continue at least 90 days. Counted ADLs: bathing,
   bed mobility, eating, medication management, mobility, transferring,
   toileting. Assistance includes supervision (monitoring, cueing, or set-up).
-- Residency: must live in Washington to use benefits. Workers who move out of
-  state may keep participating if they contributed at least 3 years and opt in
-  within 1 year of leaving; out-of-state benefits start July 2030.
-  <!-- VERIFY --> The out-of-state opt-in and July 2030 date are confirmed on
-  wacaresfund.wa.gov; the in-state residency requirement for initial benefit
-  use is implied by program structure but was not found verbatim on the
-  fetched pages.
+- Residency: workers who move out of state can choose to keep participating
+  (including self-employed opt-ins) if they opt in within 1 year of leaving
+  and have contributed at least 3 years at 500+ hours/year; per
+  wacaresfund.wa.gov, "Benefits will be available to out-of-state
+  participants who meet contribution requirements and need care starting in
+  July 2030." Until then, benefits can only be received by participants
+  living in Washington (no page states a residency rule verbatim; this
+  follows from the July 2030 out-of-state start date).
 - Workers with an approved WA Cares exemption cannot qualify.
 
 ## What it covers
@@ -61,9 +64,11 @@ Other requirements:
   professional nursing; dementia and behavioral supports; caregiver education;
   respite care; and residential care (assisted living, adult family homes,
   memory care, nursing homes).
-- <!-- VERIFY --> Whether wages for family caregivers are payable (as opposed
-  to caregiver education and respite) was not explicitly stated on the
-  benefits page.
+- Family members can be paid caregivers: per wacaresfund.wa.gov/benefits,
+  "If you have a family member who helps you out on a regular basis, they
+  may qualify to become your paid caregiver," with paid-family-caregiver
+  wages given as a worked benefit example and respite available to give the
+  paid or unpaid family caregiver a break.
 
 ## How to apply
 

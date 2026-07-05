@@ -9,6 +9,8 @@ sources:
   - https://www.dshs.wa.gov/altsa/home-and-community-services/caregiver-resources
   - https://www.dshs.wa.gov/sites/default/files/publications/documents/22-1331.pdf
   - https://www.dshs.wa.gov/dda/consumers-and-families/individual-and-family-services-waiver
+  - https://app.leg.wa.gov/wac/default.aspx?cite=388-828-9140
+  - https://www.dshs.wa.gov/dda/respite
 retrievedAt: 2026-07-05
 ---
 
@@ -62,11 +64,20 @@ generally must have originated before age 18):
   nursing facilities, or family/friends/volunteers) — plus support groups,
   counseling, caregiver training, supplies and equipment, and one-on-one
   consultation.
-  <!-- VERIFY --> No statewide dollar or hour cap for FCSP respite is
-  published; amounts vary by AAA and local budget, and waitlists can apply.
-- DDA: respite under the IFS or other DDA waivers.
-  <!-- VERIFY --> IFS annual budget tiers and Overnight Planned Respite
-  Services (OPRS) details were not confirmed from fetched official pages.
+  No statewide dollar or hour cap for FCSP respite is published; amounts
+  vary by Area Agency on Aging and local budget, and waitlists can apply —
+  confirm current limits with the local AAA.
+  <!-- HUMAN-VERIFY: Ask the local Area Agency on Aging (via Community
+  Living Connections, 1-855-567-0252) about current FCSP respite budget
+  limits and any waitlist in the family's county. -->
+- DDA: respite under the IFS or other DDA waivers. IFS annual allocation
+  levels per WAC 388-828-9140 (effective 10/18/2021, WSR 21-19-093):
+  Level 1 "up to: $1,200," Level 2 "up to: $1,800," Level 3 "up to:
+  $2,400," Level 4 "up to: $3,600" per year. Overnight Planned Respite
+  Services (OPRS), per the DSHS DDA respite page: for adults 18+ living
+  with family or primary caregivers, "provided in a community setting,
+  such as a home or apartment," serving "only one person at a time," and
+  "you may request OPRS up to fourteen days within a calendar year."
 
 ## How to apply
 
@@ -85,8 +96,11 @@ generally must have originated before age 18):
 
 - Lifespan Respite: the application form (multiple care recipients may be
   listed on one form; the award splits evenly).
-  <!-- VERIFY --> No fetched page enumerates proof documents beyond the
-  application itself.
+  No official page enumerates proof documents beyond the application
+  itself — confirm with the program before gathering paperwork.
+  <!-- HUMAN-VERIFY: Ask Lifespan Respite WA (via lifespanrespitewa.org or
+  the application contact listed there) whether any documentation beyond
+  the application form is required. -->
 - FCSP: TCARE screening/assessment completed with a caregiver specialist;
   requirements vary by AAA.
 - DDA: DDA eligibility determination records, then the waiver service

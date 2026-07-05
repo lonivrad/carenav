@@ -5,6 +5,8 @@ sources:
   - https://www.dshs.wa.gov/sites/default/files/ALTSA/hcs/documents/LTCManual/Chapter%207b.pdf
   - https://www.hca.wa.gov/free-or-low-cost-health-care/i-help-others-apply-and-access-apple-health/applications-ltss
   - https://www.hca.wa.gov/assets/free-or-low-cost/income-standards.pdf
+  - https://app.leg.wa.gov/wac/default.aspx?cite=182-513-1215
+  - https://www.law.cornell.edu/cfr/text/42/441.500
 retrievedAt: 2026-07-05
 ---
 
@@ -33,13 +35,18 @@ through Home and Community Services (aging/adult clients) and DDA.
   $994/$1,491, resources $2,000/$3,000).
 - Cost: in an alternate living facility, CFC clients keep a personal needs
   allowance of $108.74 and pay room and board of $885.26 (1/1/2026).
-  <!-- VERIFY --> Whether in-home CFC clients ever pay participation toward
-  cost of care was not confirmed from fetched sources (ALF room-and-board
-  figures only).
-- <!-- VERIFY --> CFC is often described as an entitlement created by the
-  Affordable Care Act; the fetched DSHS manual confirms the 1915(k)
-  state-plan basis, but the "entitlement" characterization comes from search
-  snippets of a page that no longer resolves.
+  Per WAC 182-513-1215 (CFC eligibility), "post-eligibility treatment of
+  income rules do not apply" to clients eligible through a noninstitutional
+  CN/ABP program or spousal-impoverishment institutional-spouse status — so
+  in-home CFC clients in those categories pay no participation toward cost
+  of care; clients eligible through an HCB waiver remain subject to the
+  waiver's post-eligibility (participation) rules.
+- Federal basis (42 CFR 441.500): the subpart "implements section 1915(k)
+  of the Act, referred to as the Community First Choice option," which
+  makes "home and community-based attendant services and supports"
+  available "to eligible individuals, as needed" — a Medicaid state plan
+  option, meaning services are available to everyone who meets the
+  eligibility rules rather than capped by waiver slots.
 
 ## What it covers
 

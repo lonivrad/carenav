@@ -7,6 +7,9 @@ sources:
   - https://www.dshs.wa.gov/altsa/stakeholders/medicaid-transformation-demonstration
   - https://www.dshs.wa.gov/sites/default/files/ALTSA/stakeholders/documents/duals/FAQ%20-%20MAC%20and%20TSOA%20Waitlist.pdf
   - https://www.dshs.wa.gov/altsa/home-and-community-services/caregiver-resources
+  - https://app.leg.wa.gov/wac/default.aspx?cite=182-513-1605
+  - https://app.leg.wa.gov/wac/default.aspx?cite=388-106-1905
+  - https://www.dshs.wa.gov/sites/default/files/ALTSA/msd/documents/All_HCS_Rates.pdf
 retrievedAt: 2026-07-05
 ---
 
@@ -36,11 +39,18 @@ The care receiver must meet ALL of the following (DSHS LTC Manual Ch. 30b):
 - No client responsibility (cost-sharing); the DSHS manual notes MAC avoids
   the estate-recovery exposure that comes with other Medicaid LTSS.
 - Changes must be reported within 30 days.
-- <!-- VERIFY --> The regulatory text (WAC 182-513-1605) could not be fetched
-  directly; criteria above are from the official DSHS manual.
-- <!-- VERIFY --> Whether any caregiver relationship test applies beyond
-  "unpaid family caregiver, age 18+" was not enumerated in the fetched
-  material.
+- Confirmed by rule: WAC 182-513-1605 (effective 6/28/2025, WSR 25-12-036)
+  requires the person to "Be age 55 or older," "Be assessed as meeting
+  nursing facility level of care under WAC 388-106-0355, and choose to
+  receive services under the MAC program," live at home, meet Medicaid
+  eligibility for noninstitutional CN/ABP coverage (or SSI-related with
+  spousal impoverishment protections), and "Have an eligible unpaid
+  caregiver under WAC 388-106-1905."
+- Caregiver definition (WAC 388-106-1905): "an unpaid caregiver who: (i) Is
+  age 18 or older" and participates in the required care planning
+  (TCARE screening/assessment and care plan by step). The rule imposes no
+  family-relationship test — DSHS materials say "family caregiver," but the
+  WAC requires only an unpaid caregiver age 18+.
 
 ## What it covers
 
@@ -50,9 +60,11 @@ care receiver's case; services support the caregiver):
 - Step 1: $250, one-time.
 - Step 2: $500/year (minus Step 1 spending); TCARE/GetCare screening
   required.
-- Step 3: average $844/month, max $5,064 per six-month period (as of
-  7/1/2024). <!-- VERIFY --> Current Step 3 amount is recalculated from home
-  care agency rates (HCS Rates website, "MAC-TSOA" tab).
+- Step 3: for 07/01/2025–06/30/2026, "an average of $928 per month not to
+  exceed $5,568 in a six month period" (DSHS All HCS Rates document; an
+  earlier printing of the same 2025–26 table showed $880/$5,280, and the
+  2024–25 level was $844/$5,064). Benefit levels are set under WAC
+  388-106-1920 and recalculated periodically from home care agency rates.
 
 Categories for MAC dyads: Caregiver Assistance Services (respite care,
 housekeeping and errands, adult day care / adult day health, home-delivered

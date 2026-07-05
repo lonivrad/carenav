@@ -5,6 +5,8 @@ sources:
   - https://www.medicare.gov/health-drug-plans/health-plans/your-coverage-options/other-medicare-health-plans/PACE
   - https://www.dshs.wa.gov/altsa/program-all-inclusive-care-elderly-pace
   - https://www.hca.wa.gov/free-or-low-cost-health-care/i-help-others-apply-and-access-apple-health/program-all-inclusive-care-elderly-pace
+  - https://app.leg.wa.gov/wac/default.aspx?cite=182-513-1230
+  - https://www.providence.org/locations/wa/elderplace-spokane
 retrievedAt: 2026-07-05
 ---
 
@@ -40,8 +42,9 @@ Washington specifics (HCA, WAC 182-513-1230):
   day of the month; participants may disenroll at any time for any reason.
 - Service areas are defined by ZIP code list published by DSHS
   (PACE Zip Codes spreadsheet linked from the DSHS PACE page).
-- <!-- VERIFY --> The HCA manual page shows a 2018 revision date citing WACs
-  effective 2017; rules may have been amended since.
+- The controlling eligibility rule, WAC 182-513-1230, was last amended
+  effective 9/25/2021 (WSR 21-18-045) — newer than the HCA manual page's
+  2018 revision date — so prefer the WAC text where the two differ.
 
 ## What it covers
 
@@ -59,9 +62,12 @@ Costs:
 
 - With Medicaid: no monthly premium.
 - Medicare-only (no Medicaid): a monthly premium for the long-term-care
-  portion plus a Part D drug premium.
-  <!-- VERIFY --> Premium dollar amounts are set by each PACE organization
-  and are not published on the fetched pages.
+  portion plus a Part D drug premium. Premium dollar amounts are set by each
+  PACE organization and are not published centrally — confirm current
+  premiums with the organization's intake line.
+  <!-- HUMAN-VERIFY: Ask each PACE organization's intake line for current
+  Medicare-only premium amounts — Providence PACE (206) 320-5325, ICHS PACE
+  (206) 462-7100, PNW PACE Partners (253) 459-7270. -->
 - Private pay is accepted for people with neither Medicare nor Medicaid.
 - No deductible, copayment, or coinsurance for any PACE-team-approved drug,
   service, or care.
@@ -72,16 +78,19 @@ Washington PACE organizations (per DSHS):
 
 - Providence PACE ("ElderPlace"), 7 centers — Seattle, West Seattle, Renton,
   Kent, Redmond, Everett South, and Spokane. Intake: (206) 320-5325.
-  <!-- VERIFY --> The DSHS page prints the Spokane center's ZIP as 98208,
-  which is an Everett-area ZIP (Spokane is 992xx; likely 99208) — check
-  before relying on the address.
+  The Spokane center is at 6018 N Astor St, Spokane, WA 99208 (per
+  Providence's own location page; the DSHS page misprints the ZIP as 98208).
 - ICHS PACE (International Community Health Services), Ron Chew Healthy Aging
   and Wellness Center, 939 Golf Dr S, Seattle 98144. Phone: (206) 462-7100.
 - PNW PACE Partners (MultiCare-affiliated), 6442 S. Yakima Ave, Tacoma 98408.
   Phone: (253) 459-7270.
-- <!-- VERIFY --> County coverage (King, Snohomish, Pierce, Spokane) is
-  inferred from center locations; DSHS defines service areas by ZIP code, so
-  confirm against the DSHS ZIP list.
+- County coverage (King, Snohomish, Pierce, Spokane) is inferred from center
+  locations; the DSHS page lists no counties and defines service areas only
+  by a downloadable "PACE Coverage Area Zip Codes" spreadsheet.
+  <!-- HUMAN-VERIFY: Check the family's ZIP against the "PACE Coverage Area
+  Zip Codes" spreadsheet linked from the DSHS PACE page
+  (https://www.dshs.wa.gov/altsa/program-all-inclusive-care-elderly-pace),
+  or ask the PACE organization's intake line whether the ZIP is served. -->
 
 Process (per HCA): the state certifies nursing facility level of care
 (functional assessment under WAC 388-106-0700 series); Home & Community
@@ -94,5 +103,9 @@ State policy questions: PACE@dshs.wa.gov.
 - Financial eligibility documentation under Apple Health HCB-waiver or
   institutional rules (income and resources).
 - The state functional / level-of-care assessment.
-- <!-- VERIFY --> No official page publishes an applicant document checklist;
-  the PACE organizations' intake lines walk applicants through requirements.
+- No official page publishes an applicant document checklist; the PACE
+  organizations' intake lines walk applicants through requirements, so call
+  the intake line for the specific list.
+  <!-- HUMAN-VERIFY: Ask the PACE organization's intake line what documents
+  an applicant must bring — Providence PACE (206) 320-5325, ICHS PACE
+  (206) 462-7100, PNW PACE Partners (253) 459-7270. -->

@@ -6,6 +6,8 @@ sources:
   - https://www.va.gov/pension/eligibility/
   - https://www.va.gov/pension/veterans-pension-rates/
   - https://www.va.gov/pension/how-to-apply/
+  - https://www.va.gov/pension/survivors-pension-rates/
+  - https://www.va.gov/family-and-caregiver-benefits/survivor-compensation/survivors-pension/
 retrievedAt: 2026-07-05
 ---
 
@@ -60,11 +62,16 @@ A&A clinical criteria — at least one must apply:
   - Veteran with 1 dependent, with A&A: $34,488/year (versus $22,839
     standard).
   - Add $2,984 per additional dependent.
-- <!-- VERIFY --> Monthly payment amounts are the annual MAPR minus countable
-  income divided by 12; VA publishes annual figures only, so per-month dollar
-  amounts shown elsewhere should be checked.
-- <!-- VERIFY --> Surviving-spouse A&A rates and eligibility are not covered
-  in this document; the source pages fetched covered veteran rates only.
+- Per VA's rates page, "We'll base your payment amount on the difference
+  between your income for VA purposes and a limit that Congress sets
+  (called the Maximum Annual Pension Rate, or MAPR)." VA publishes annual
+  MAPR figures; per-month dollar amounts quoted elsewhere are derived from
+  the annual figures, not published by VA.
+- Surviving spouses: VA's Survivors Pension "offers monthly payments to
+  qualified surviving spouses and unmarried dependent children of wartime
+  Veterans who meet certain income and net worth limits set by Congress."
+  Survivor MAPR with Aid & Attendance, no dependents: $18,697 (effective
+  December 1, 2025).
 
 ## How to apply
 

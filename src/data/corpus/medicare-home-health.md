@@ -72,6 +72,9 @@ All of the following are required:
 - Face-to-face assessment and provider certification of homebound status and
   need for skilled care.
 - Provider order for home health services and the agency-maintained care plan.
-- <!-- VERIFY --> Medicare.gov does not publish an explicit checklist of
-  paperwork the beneficiary must supply; the agency and provider assemble the
-  certification records.
+- <!-- HUMAN-VERIFY: Ask the home health agency what, if anything, the
+  beneficiary must supply beyond insurance cards and ID; general Medicare
+  questions: 1-800-MEDICARE (1-800-633-4227). -->
+  Medicare.gov does not publish a beneficiary paperwork checklist; the
+  agency and provider assemble the certification records, so confirm any
+  required items with the agency at intake.

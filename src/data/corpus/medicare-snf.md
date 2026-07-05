@@ -58,10 +58,13 @@ Costs per benefit period (2026, per CMS MM14279 and Medicare.gov):
 - Days 21–100: $217 per day coinsurance.
 - Days 101 and beyond: the patient pays all costs. Coverage is limited to 100
   days per benefit period.
-- <!-- VERIFY --> Benefit period definition: commonly stated as beginning on
-  inpatient admission and ending after 60 consecutive days without inpatient
-  hospital or SNF care; the fetched pages reference benefit periods without
-  reproducing the full 60-day reset definition.
+- Benefit period definition (42 CFR 409.60): "The initial benefit period
+  begins on the day the beneficiary receives inpatient hospital, inpatient
+  CAH, or SNF services for the first time after becoming entitled to
+  hospital insurance," and "a benefit period ends when a beneficiary has,
+  for at least 60 consecutive days," not been an inpatient in a hospital,
+  critical access hospital, or SNF. A new benefit period begins with the
+  next inpatient admission after that 60-day gap.
 
 ## How to apply
 
@@ -79,5 +82,9 @@ Costs per benefit period (2026, per CMS MM14279 and Medicare.gov):
 - Proof of the 3-day qualifying inpatient hospital stay (inpatient status,
   not observation).
 - The doctor's order or determination of the need for daily skilled care.
-- <!-- VERIFY --> Medicare.gov does not publish an explicit beneficiary
-  document checklist; the hospital and SNF handle certification paperwork.
+- <!-- HUMAN-VERIFY: Ask the admitting SNF's admissions office what, if
+  anything, the beneficiary must supply beyond insurance cards and ID;
+  general Medicare questions: 1-800-MEDICARE (1-800-633-4227). -->
+  Medicare.gov does not publish a beneficiary document checklist; the
+  hospital and SNF handle the certification paperwork, so confirm any
+  required items with the facility's admissions office.

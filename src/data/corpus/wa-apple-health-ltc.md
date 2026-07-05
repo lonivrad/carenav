@@ -8,6 +8,10 @@ sources:
   - https://www.hca.wa.gov/free-or-low-cost-health-care/i-help-others-apply-and-access-apple-health/applications-ltss
   - https://www.dshs.wa.gov/altsa/home-and-community-services/how-apply-medicaid
   - https://www.dshs.wa.gov/sites/default/files/ALTSA/stakeholders/documents/RCL/DSHS%20How%20to%20apply%20for%20HCS.pdf
+  - https://app.leg.wa.gov/wac/default.aspx?cite=182-513-1320
+  - https://app.leg.wa.gov/wac/default.aspx?cite=182-513-1395
+  - https://app.leg.wa.gov/wac/default.aspx?cite=182-513-1105
+  - https://www.dshs.wa.gov/altsa/residential-care-services/long-term-care-residential-options
 retrievedAt: 2026-07-05
 ---
 
@@ -25,10 +29,13 @@ General (WAC 182-513-1316/-1317):
 
 - Meet Apple Health general requirements (WAC 182-503-0505), including
   citizenship/immigration rules.
-- Attain institutional status (WAC 182-513-1320 — resident of a medical
-  institution, generally 30+ days).
-  <!-- VERIFY --> The 30-day framing comes from HCA worker guidance and
-  search snippets; the WAC 182-513-1320 rule text itself was not fetched.
+- Attain institutional status (WAC 182-513-1320, effective 2/17/2017): in a
+  medical institution, "a person must reside in a medical institution thirty
+  consecutive days or more, or based on a department assessment, be likely
+  to reside in a medical institution thirty consecutive days or more";
+  outside an institution, status comes from receiving HCB waiver services
+  (chapter 182-515 WAC) or equivalent programs (RCL, PACE, hospice, or
+  state-funded LTC services).
 - Meet functional eligibility — for HCS clients, nursing facility level of
   care via the CARE assessment (chapter 388-106 WAC).
 - Meet SSI-related criteria (WAC 182-512-0050) or MAGI-based criteria if
@@ -40,10 +47,15 @@ Income:
   (SIL), equal to 300% of the SSI federal benefit rate — $2,982/month
   (1/1/2026; FBR $994 single / $1,491 couple).
 - Above the SIL: Medically Needy pathway (MNIL $994 single, 1/1/2026).
-  <!-- VERIFY --> Current MN spenddown mechanics (WAC 182-513-1395) were not
-  fetched; the "income below the private facility rate" ceiling is sourced
-  from a 2003 DSHS brochure. Current private nursing facility rate:
-  $462/day, $14,059/month (10/1/2025).
+  Mechanics per WAC 182-513-1395 (institutional MN, effective 2/17/2017):
+  a person whose remaining income exceeds the state-contracted daily rate
+  but falls below the private nursing facility rate "is eligible to receive
+  institutional services at the state-contracted rate," approved for a
+  three- or six-month base period, with MN eligibility when "additional
+  medical expenses incurred during the base period exceeds the total
+  remaining income for all months of the base period minus the total
+  state-contracted rate." Current private nursing facility rate: $462/day,
+  $14,059/month (10/1/2025).
 - MAGI-based institutional coverage (chapter 182-514 WAC) has no asset test.
 
 Resources (SSI-related):
@@ -66,15 +78,20 @@ cost of care minus a personal needs allowance — $41.62 (clothing/personal
 incidentals) or $108.74 ("all other PNA, medical institutions," 1/1/2026);
 State Veterans Home max $160. A housing maintenance allowance (up to 100% FPL,
 $1,330, 4/1/2026) may be allowed to hold a residence.
-<!-- VERIFY --> Which PNA applies to a given client depends on payment source
-and was not fully disambiguated by the fetched sources.
+Which PNA applies depends on setting and payment source (WAC 182-513-1105,
+effective 12/5/2025, WSR 25-22-083 — separate amounts for medical
+institutions vs. alternate living facilities and by funding source); "the
+current PNA and room and board standards used in long-term services and
+supports are published under the institutional standards on the Washington
+apple health (medicaid) income and resource standards chart located at
+www.hca.wa.gov."
 
 ## What it covers
 
-- Nursing facility care for those meeting NFLOC — 24-hour nursing,
-  rehabilitative therapy, and personal care.
-  <!-- VERIFY --> The nursing-facility service description relies on a 2003
-  DSHS brochure; current benefit detail was not re-verified.
+- Nursing facility care for those meeting NFLOC — per DSHS's current
+  long-term care residential options page, nursing homes provide "24-hour
+  supervised nursing care, personal care, therapy, nutrition management,
+  organized activities, social services, room, board and laundry."
 - Gateway to: HCS home-and-community-based waivers (COPES, New Freedom,
   Residential Support Waiver), PACE, hospice in a medical institution, Roads
   to Community Living, and community LTSS (CFC, MPC, alternate living

@@ -6,6 +6,7 @@ sources:
   - https://www.va.gov/pension/eligibility/
   - https://www.va.gov/pension/veterans-pension-rates/
   - https://www.va.gov/pension/how-to-apply/
+  - https://www.law.cornell.edu/cfr/text/38/3.351
 retrievedAt: 2026-07-05
 ---
 
@@ -25,10 +26,16 @@ one or the other.
   Attendance document (see va-aid-attendance).
 - Clinical criterion (VA's plain-language standard): the person spends most of
   their time in their home because of a permanent disability.
-- <!-- VERIFY --> The regulatory definition of housebound status (38 CFR
-  3.351 — e.g., a single permanent disability rated 100% plus confinement to
-  the dwelling, or a 100% disability plus a separate 60% disability) does not
-  appear on the VA consumer page and should be checked against the CFR.
+- Regulatory definition (38 CFR 3.351(d)): applies to a veteran rated
+  permanently and totally disabled who either "(1) Has additional disability
+  or disabilities independently ratable at 60 percent or more, separate and
+  distinct from the permanent disability rated as 100 percent disabling and
+  involving different anatomical segments or bodily systems, or (2) Is
+  'permanently housebound' by reason of disability or disabilities...
+  substantially confined to his or her dwelling and the immediate premises
+  or, if institutionalized, to the ward or clinical area, and it is
+  reasonably certain that the disability or disabilities and resultant
+  confinement will continue throughout his or her lifetime."
 
 ## What it covers
 
@@ -38,8 +45,10 @@ one or the other.
   - Veteran with no dependents: $21,313/year (versus $17,441 standard).
   - Veteran with 1 dependent: $26,710/year (versus $22,839 standard).
   - Add $2,984 per additional dependent.
-- <!-- VERIFY --> Rates for married-veteran / two-veteran household
-  combinations with Housebound status were not captured from the rates page.
+- Two veterans married to each other (MAPR, effective December 1, 2025):
+  one qualifies for Housebound: $26,710/year; both qualify for Housebound:
+  $30,580/year; one qualifies for Housebound and one for Aid & Attendance:
+  $38,350/year.
 
 ## How to apply
 

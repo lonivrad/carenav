@@ -6,6 +6,7 @@ sources:
   - https://www.hca.wa.gov/free-or-low-cost-health-care/i-help-others-apply-and-access-apple-health/hcs-home-and-community-based-hcb-waivers
   - https://www.dshs.wa.gov/altsa/home-and-community-services/long-term-care-home-community-based-services-waivers
   - https://www.hca.wa.gov/assets/free-or-low-cost/income-standards.pdf
+  - https://app.leg.wa.gov/wac/default.aspx?cite=388-106-0355
 retrievedAt: 2026-07-05
 ---
 
@@ -29,8 +30,16 @@ whose needs exceed what CFC provides.
   days without waiver services. The client must choose community services
   over nursing facility care (documented on DSHS form 14-225, a federal
   requirement before services can be authorized).
-  <!-- VERIFY --> Exact CARE-score thresholds constituting NFLOC (WAC
-  388-106-0355 text) were not fetched.
+  NFLOC criteria per WAC 388-106-0355 (effective 2/12/2015, WSR 15-03-038) —
+  one of: (a) "care provided by or under the supervision of a registered
+  nurse or a licensed practical nurse on a daily basis"; (b) unmet or
+  partially met need in 3+ ADLs (eating, toileting, bathing, transfer, bed
+  mobility, locomotion, medication management) at specified assistance
+  levels; (c) unmet or partially met need in 2+ ADLs at higher assistance
+  levels (extensive assistance, or limited assistance with physical
+  assist); or (d) cognitive impairment requiring supervision
+  ("disorientation, memory impairment, impaired decision making, or
+  wandering") plus an unmet or partially met ADL need.
 - Financial — two pathways:
   - Already on SSI, an SSI-related noninstitutional CN Apple Health program,
     or Health Care for Workers with Disabilities → financially eligible; pays
