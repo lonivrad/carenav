@@ -1,5 +1,5 @@
 import type { Candidate } from "@/lib/rules/engine";
-import type { RetrievedPassage } from "@/lib/rag/retrieve";
+import type { ProgramRetrieval } from "@/lib/rag/retrieve";
 import type { Report } from "@/lib/schema/report";
 
 /**
@@ -9,7 +9,7 @@ import type { Report } from "@/lib/schema/report";
  */
 export async function explainCandidates(input: {
   candidates: Candidate[];
-  passages: RetrievedPassage[];
+  retrievals: ProgramRetrieval[];
 }): Promise<Report> {
   void input;
   throw new Error("Not implemented");
