@@ -1,7 +1,5 @@
-import type { UnknownEntry } from "@/lib/schema/report";
-
 export interface UnknownsPanelProps {
-  unknowns: UnknownEntry[];
+  unknowns: string[];
 }
 
 /** Surfaces missing answers explicitly — the report never guesses. */

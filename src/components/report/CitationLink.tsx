@@ -1,11 +1,9 @@
-import type { Citation } from "@/lib/schema/report";
-
 export interface CitationLinkProps {
-  citation: Citation;
+  chunkId: string;
 }
 
 /** Links a claim to the corpus chunk that supports it. */
-export function CitationLink({ citation }: CitationLinkProps) {
-  void citation;
+export function CitationLink({ chunkId }: CitationLinkProps) {
+  void chunkId;
   return <sup>{/* TODO */}</sup>;
 }
