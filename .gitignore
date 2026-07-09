@@ -53,3 +53,7 @@ Thumbs.db
 
 # local eval scratch (committed eval artifacts live in eval/results/)
 /tmp/
+
+# local tooling configuration (never commit)
+CLAUDE.md
+.claude/
