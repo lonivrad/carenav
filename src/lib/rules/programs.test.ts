@@ -175,22 +175,45 @@ describe("income thresholds", () => {
 
 describe("asset thresholds", () => {
   it("Medicaid limit ($2,000 single): single above fails, married stays unknown (spousal protections)", () => {
-    expect(outcome("wa-medicaid-copes", "copes-assets", prof({ countableAssetsBracket: "under_2000" }))).toBe("pass");
+    const off = { insurance: { medicaid: false as const } };
+    expect(outcome("wa-medicaid-copes", "copes-assets", prof({ countableAssetsBracket: "under_2000", ...off }))).toBe("pass");
     expect(
-      outcome("wa-medicaid-copes", "copes-assets", prof({ countableAssetsBracket: "2000_to_85000", maritalStatus: "single" })),
+      outcome("wa-medicaid-copes", "copes-assets", prof({ countableAssetsBracket: "2000_to_85000", maritalStatus: "single", ...off })),
     ).toBe("fail");
     expect(
-      outcome("wa-medicaid-copes", "copes-assets", prof({ countableAssetsBracket: "2000_to_85000", maritalStatus: "married" })),
+      outcome("wa-medicaid-copes", "copes-assets", prof({ countableAssetsBracket: "2000_to_85000", maritalStatus: "married", ...off })),
     ).toBe("unknown");
     expect(
-      outcome("wa-medicaid-copes", "copes-assets", prof({ countableAssetsBracket: "160000_or_more", maritalStatus: "widowed" })),
+      outcome("wa-medicaid-copes", "copes-assets", prof({ countableAssetsBracket: "160000_or_more", maritalStatus: "widowed", ...off })),
     ).toBe("fail");
     expect(
-      outcome("wa-medicaid-copes", "copes-assets", prof({ countableAssetsBracket: "2000_to_85000", maritalStatus: "unknown" })),
+      outcome("wa-medicaid-copes", "copes-assets", prof({ countableAssetsBracket: "2000_to_85000", maritalStatus: "unknown", ...off })),
     ).toBe("unknown");
     expect(
-      outcome("wa-apple-health-ltc", "ahltc-assets", prof({ countableAssetsBracket: "unknown" })),
+      outcome("wa-apple-health-ltc", "ahltc-assets", prof({ countableAssetsBracket: "unknown", ...off })),
     ).toBe("unknown");
+  });
+
+  it("Medicaid limit with reported enrollment: above-limit assets conflict → unknown, never fail", () => {
+    const on = { insurance: { medicaid: true as const } };
+    // Enrolled + under the limit is still a clean pass.
+    expect(outcome("wa-medicaid-copes", "copes-assets", prof({ countableAssetsBracket: "under_2000", ...on }))).toBe("pass");
+    // Enrolled + above the limit: CN implies ≤$2k, MAGI has no asset test —
+    // conflicting signals stay unknown for every above-limit bracket.
+    expect(
+      outcome("wa-medicaid-copes", "copes-assets", prof({ countableAssetsBracket: "2000_to_85000", maritalStatus: "single", ...on })),
+    ).toBe("unknown");
+    expect(
+      outcome("wa-apple-health-ltc", "ahltc-assets", prof({ countableAssetsBracket: "85000_to_160000", maritalStatus: "widowed", ...on })),
+    ).toBe("unknown");
+    expect(
+      outcome("wa-medicaid-copes", "copes-assets", prof({ countableAssetsBracket: "160000_or_more", maritalStatus: "single", ...on })),
+    ).toBe("unknown");
+    // Deliberate minimal-change choice: unknown enrollment does not soften
+    // the single above-limit fail (only a positive enrollment report does).
+    expect(
+      outcome("wa-medicaid-copes", "copes-assets", prof({ countableAssetsBracket: "2000_to_85000", maritalStatus: "single", insurance: { medicaid: "unknown" } })),
+    ).toBe("fail");
   });
 
   it("TSOA limits ($84,354 single / $156,883 married)", () => {
@@ -271,8 +294,13 @@ describe("insurance and enrollment gates", () => {
   it("Medicaid enrollment splits TSOA and MAC in opposite directions", () => {
     const onMedicaid = prof({ insurance: { medicaid: true } });
     const offMedicaid = prof({ insurance: { medicaid: false } });
-    expect(outcome("wa-tsoa", "tsoa-not-on-medicaid", onMedicaid)).toBe("fail");
+    // The intake checkbox cannot distinguish CN/ABP (barred) from MN/MSP
+    // ("may still qualify"), so reported enrollment is unknown, never fail.
+    expect(outcome("wa-tsoa", "tsoa-not-on-medicaid", onMedicaid)).toBe("unknown");
     expect(outcome("wa-tsoa", "tsoa-not-on-medicaid", offMedicaid)).toBe("pass");
+    expect(
+      outcome("wa-tsoa", "tsoa-not-on-medicaid", prof({ insurance: { medicaid: "unknown" } })),
+    ).toBe("unknown");
     expect(outcome("wa-mac", "mac-medicaid", onMedicaid)).toBe("pass");
     expect(outcome("wa-mac", "mac-medicaid", offMedicaid)).toBe("fail");
     expect(outcome("wa-mac", "mac-medicaid", prof({ insurance: { medicaid: "unknown" } }))).toBe("unknown");
@@ -351,5 +379,103 @@ describe("conflicting inputs", () => {
     const inconsistent = prof({ adlsNeedingHelp: [], adlHelpCount: 3 });
     expect(outcome("wa-cares-fund", "wacares-adl-trigger", inconsistent)).toBe("pass");
     expect(outcome("va-housebound", "vahb-housebound", inconsistent)).toBe("unknown");
+  });
+});
+
+describe("NFLOC proxy and nursing-facility residence", () => {
+  it("COPES/AHLTC: 0 ADLs + nursing facility → unknown (daily-nursing criterion unresolved)", () => {
+    const nfResident = prof({
+      adlsNeedingHelp: [],
+      adlHelpCount: 0,
+      livingSituation: "nursing_facility",
+    });
+    expect(outcome("wa-medicaid-copes", "copes-nfloc", nfResident)).toBe("unknown");
+    expect(outcome("wa-apple-health-ltc", "ahltc-nfloc", nfResident)).toBe("unknown");
+  });
+
+  it("0 ADLs outside a nursing facility still fails; ADL counts otherwise unchanged", () => {
+    expect(
+      outcome("wa-medicaid-copes", "copes-nfloc", prof({ adlHelpCount: 0, livingSituation: "own_home" })),
+    ).toBe("fail");
+    expect(
+      outcome("wa-medicaid-copes", "copes-nfloc", prof({ adlHelpCount: 2, livingSituation: "nursing_facility" })),
+    ).toBe("pass");
+    expect(
+      outcome("wa-apple-health-ltc", "ahltc-nfloc", prof({ adlHelpCount: "unknown", livingSituation: "nursing_facility" })),
+    ).toBe("unknown");
+  });
+
+  it("community programs keep the plain proxy: TSOA/PACE/MAC 0-ADL NF residents still fail NFLOC", () => {
+    const nfResident = prof({ adlHelpCount: 0, livingSituation: "nursing_facility" });
+    expect(outcome("wa-tsoa", "tsoa-nfloc", nfResident)).toBe("fail");
+    expect(outcome("wa-pace", "pace-nfloc", nfResident)).toBe("fail");
+    expect(outcome("wa-mac", "mac-nfloc", nfResident)).toBe("fail");
+  });
+});
+
+describe("classification-level regressions for the three rule changes", () => {
+  it("enrolled-in-Medicaid family with above-limit assets: COPES/AHLTC possibly relevant, not excluded (simple-01 shape)", () => {
+    const p = prof({
+      age: 71,
+      maritalStatus: "single",
+      countableAssetsBracket: "2000_to_85000",
+      monthlyIncomeBracket: "under_1000",
+      insurance: { medicaid: true },
+    });
+    for (const id of ["wa-medicaid-copes", "wa-apple-health-ltc"]) {
+      const c = evaluateProgram(byId(id), p);
+      expect(c.status).toBe("possibly_relevant");
+      expect(c.unknownFields).toContain("insurance.medicaid");
+    }
+  });
+
+  it("non-enrolled high-asset single family stays excluded (high-asset regression)", () => {
+    const p = prof({
+      maritalStatus: "single",
+      countableAssetsBracket: "85000_to_160000",
+      insurance: { medicaid: false },
+    });
+    expect(evaluateProgram(byId("wa-medicaid-copes"), p).status).toBe("excluded");
+    expect(evaluateProgram(byId("wa-apple-health-ltc"), p).status).toBe("excluded");
+    expect(evaluateProgram(byId("wa-tsoa"), p).status).toBe("excluded");
+  });
+
+  it("on-Medicaid family is no longer hard-excluded from TSOA (enrollment type unknowable)", () => {
+    const p = prof({
+      insurance: { medicaid: true },
+      countableAssetsBracket: "under_2000",
+      monthlyIncomeBracket: "under_1000",
+    });
+    const c = evaluateProgram(byId("wa-tsoa"), p);
+    expect(c.status).toBe("possibly_relevant");
+    expect(c.failedRules).toEqual([]);
+  });
+
+  it("TSOA stays excluded when assets independently fail, regardless of enrollment (medicaid-edge-08 shape)", () => {
+    const p = prof({
+      maritalStatus: "widowed",
+      countableAssetsBracket: "85000_to_160000",
+      insurance: { medicaid: true },
+    });
+    const c = evaluateProgram(byId("wa-tsoa"), p);
+    expect(c.status).toBe("excluded");
+    expect(c.failedRules).toContain("tsoa-assets");
+  });
+
+  it("0-ADL nursing-facility resident: COPES/AHLTC possibly relevant, TSOA excluded (ambiguous-03 shape)", () => {
+    const p = prof({
+      age: 87,
+      maritalStatus: "single",
+      adlsNeedingHelp: [],
+      adlHelpCount: 0,
+      livingSituation: "nursing_facility",
+      diagnosisCategory: "dementia",
+      countableAssetsBracket: "under_2000",
+      monthlyIncomeBracket: "under_1000",
+      insurance: { medicare: true, medicaid: false },
+    });
+    expect(evaluateProgram(byId("wa-medicaid-copes"), p).status).toBe("possibly_relevant");
+    expect(evaluateProgram(byId("wa-apple-health-ltc"), p).status).toBe("possibly_relevant");
+    expect(evaluateProgram(byId("wa-tsoa"), p).status).toBe("excluded");
   });
 });

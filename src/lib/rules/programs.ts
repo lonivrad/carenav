@@ -48,6 +48,24 @@ function nflocProxy(p: Profile): RuleOutcome {
   return "unknown";
 }
 
+// NFLOC proxy for COPES and Apple Health LTC only: nursing-facility residence
+// leaves WAC 388-106-0355(a) ("care provided by or under the supervision of a
+// registered nurse or a licensed practical nurse on a daily basis")
+// unresolved even when no ADL help is reported — the CARE assessment decides,
+// not the self-report. Other nflocProxy users (TSOA, MAC, PACE) are community
+// programs and keep the plain proxy: institutional residence must not soften
+// their screening.
+function nflocProxyOrInstitutional(p: Profile): RuleOutcome {
+  if (
+    p.adlHelpCount !== UNK &&
+    p.adlHelpCount === 0 &&
+    p.livingSituation === "nursing_facility"
+  ) {
+    return "unknown";
+  }
+  return nflocProxy(p);
+}
+
 // Age 55+ requirement shared by TSOA, MAC (wa-tsoa.md, wa-mac.md).
 function age55(p: Profile): RuleOutcome {
   if (p.age === UNK) return "unknown";
@@ -82,6 +100,11 @@ function silIncome(p: Profile): RuleOutcome {
 function medicaidAssets(p: Profile): RuleOutcome {
   if (p.countableAssetsBracket === UNK) return "unknown";
   if (p.countableAssetsBracket === "under_2000") return "pass";
+  // Reported Medicaid enrollment conflicts with above-limit assets: CN
+  // enrollment implies ≤$2k countable, MAGI coverage has no asset test, and
+  // wa-medicaid-copes.md pathway 1 makes CN enrollees financially eligible
+  // outright. Conflicting signals are unknown, never a guessed fail.
+  if (p.insurance.medicaid === true) return "unknown";
   if (p.maritalStatus === UNK) return "unknown";
   if (p.maritalStatus === "married") return "unknown";
   return "fail";
@@ -151,11 +174,12 @@ export const programs: readonly ProgramRules[] = [
       },
       {
         // wa-medicaid-copes.md: CARE assessment must find nursing facility
-        // level of care.
+        // level of care. Nursing-facility residence leaves the daily-nursing
+        // criterion open even with no reported ADL help.
         id: "copes-nfloc",
         description: "Needs nursing-facility level of care (ADL proxy)",
-        fields: ["adlHelpCount"],
-        evaluate: nflocProxy,
+        fields: ["adlHelpCount", "livingSituation"],
+        evaluate: nflocProxyOrInstitutional,
       },
       {
         // wa-medicaid-copes.md: income at/below the SIL ($2,982, 1/1/2026),
@@ -170,7 +194,7 @@ export const programs: readonly ProgramRules[] = [
         // spousal impoverishment protections.
         id: "copes-assets",
         description: "Countable assets within the Medicaid resource limit ($2,000 single)",
-        fields: ["countableAssetsBracket", "maritalStatus"],
+        fields: ["countableAssetsBracket", "maritalStatus", "insurance.medicaid"],
         evaluate: medicaidAssets,
       },
     ],
@@ -221,10 +245,12 @@ export const programs: readonly ProgramRules[] = [
       },
       {
         // wa-apple-health-ltc.md: functional eligibility via CARE assessment.
+        // Nursing-facility residence leaves the daily-nursing criterion open
+        // even with no reported ADL help.
         id: "ahltc-nfloc",
         description: "Needs nursing-facility level of care (ADL proxy)",
-        fields: ["adlHelpCount"],
-        evaluate: nflocProxy,
+        fields: ["adlHelpCount", "livingSituation"],
+        evaluate: nflocProxyOrInstitutional,
       },
       {
         // wa-apple-health-ltc.md: income at/below SIL; MN pathway above.
@@ -239,7 +265,7 @@ export const programs: readonly ProgramRules[] = [
         // collected as a dollar figure).
         id: "ahltc-assets",
         description: "Countable assets within the Medicaid resource limit ($2,000 single)",
-        fields: ["countableAssetsBracket", "maritalStatus"],
+        fields: ["countableAssetsBracket", "maritalStatus", "insurance.medicaid"],
         evaluate: medicaidAssets,
       },
     ],
@@ -522,15 +548,18 @@ export const programs: readonly ProgramRules[] = [
         evaluate: nflocProxy,
       },
       {
-        // wa-tsoa.md: TSOA serves people NOT on CN/ABP Medicaid (becoming
-        // CN/ABP-eligible terminates TSOA; flagged VERIFY in the corpus doc).
-        // Medicaid enrollees should look at MAC instead.
+        // wa-tsoa.md: CN/ABP enrollment bars TSOA ("A person who receives
+        // apple health coverage under a categorically needy (CN) or
+        // alternative benefit plan (ABP) program is not eligible"), but
+        // Medically Needy / Medicare Savings Program coverage "may still
+        // qualify" — and the intake checkbox cannot distinguish the coverage
+        // type, so enrollment is unknown, never a guessed fail.
         id: "tsoa-not-on-medicaid",
-        description: "Not currently enrolled in Medicaid (see MAC instead)",
+        description: "Not on CN/ABP Medicaid (MN/MSP coverage may still qualify)",
         fields: ["insurance.medicaid"],
         evaluate: (p) => {
           if (p.insurance.medicaid === UNK) return "unknown";
-          return p.insurance.medicaid ? "fail" : "pass";
+          return p.insurance.medicaid ? "unknown" : "pass";
         },
       },
     ],

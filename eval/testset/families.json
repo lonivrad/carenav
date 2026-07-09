@@ -32,9 +32,12 @@
       },
       "groundTruth": {
         "relevantPrograms": [
+          "wa-medicaid-copes",
           "wa-medicaid-cfc",
+          "wa-apple-health-ltc",
           "medicare-home-health",
           "medicare-snf",
+          "wa-tsoa",
           "wa-mac",
           "wa-respite-care"
         ],
@@ -43,15 +46,15 @@
           "medicare-home-health"
         ],
         "excludedPrograms": [
-          "wa-medicaid-copes",
-          "wa-apple-health-ltc",
           "wa-cares-fund",
           "va-aid-attendance",
           "va-housebound",
-          "wa-pace",
-          "wa-tsoa"
+          "wa-pace"
         ],
         "expectedUnknownFields": [
+          "countableAssetsBracket",
+          "maritalStatus",
+          "insurance.medicaid",
           "recentHospitalStay (not collected)",
           "unpaidCaregiver (not collected)"
         ],
@@ -161,6 +164,7 @@
         ],
         "expectedUnknownFields": [
           "adlHelpCount",
+          "livingSituation",
           "monthlyIncomeBracket",
           "insurance.medicaid",
           "recentHospitalStay (not collected)",
@@ -254,6 +258,7 @@
           "wa-apple-health-ltc",
           "medicare-home-health",
           "medicare-snf",
+          "wa-tsoa",
           "wa-mac",
           "wa-respite-care"
         ],
@@ -264,12 +269,13 @@
           "wa-cares-fund",
           "va-aid-attendance",
           "va-housebound",
-          "wa-pace",
-          "wa-tsoa"
+          "wa-pace"
         ],
         "expectedUnknownFields": [
           "adlHelpCount",
+          "livingSituation",
           "recentHospitalStay (not collected)",
+          "insurance.medicaid",
           "unpaidCaregiver (not collected)"
         ],
         "expectFollowUpQuestions": false
@@ -433,6 +439,7 @@
         ],
         "expectedUnknownFields": [
           "adlHelpCount",
+          "livingSituation",
           "monthlyIncomeBracket",
           "countableAssetsBracket",
           "maritalStatus",
@@ -472,9 +479,12 @@
       },
       "groundTruth": {
         "relevantPrograms": [
+          "wa-medicaid-copes",
           "wa-medicaid-cfc",
+          "wa-apple-health-ltc",
           "medicare-home-health",
           "medicare-snf",
+          "wa-tsoa",
           "wa-mac",
           "wa-respite-care"
         ],
@@ -483,15 +493,15 @@
           "medicare-home-health"
         ],
         "excludedPrograms": [
-          "wa-medicaid-copes",
-          "wa-apple-health-ltc",
           "wa-cares-fund",
           "va-aid-attendance",
           "va-housebound",
-          "wa-pace",
-          "wa-tsoa"
+          "wa-pace"
         ],
         "expectedUnknownFields": [
+          "countableAssetsBracket",
+          "maritalStatus",
+          "insurance.medicaid",
           "recentHospitalStay (not collected)",
           "unpaidCaregiver (not collected)"
         ],
@@ -697,9 +707,12 @@
       },
       "groundTruth": {
         "relevantPrograms": [
+          "wa-medicaid-copes",
           "wa-medicaid-cfc",
+          "wa-apple-health-ltc",
           "medicare-home-health",
           "medicare-snf",
+          "wa-tsoa",
           "wa-mac",
           "wa-respite-care"
         ],
@@ -708,15 +721,16 @@
           "medicare-home-health"
         ],
         "excludedPrograms": [
-          "wa-medicaid-copes",
-          "wa-apple-health-ltc",
           "wa-cares-fund",
           "va-aid-attendance",
           "va-housebound",
-          "wa-pace",
-          "wa-tsoa"
+          "wa-pace"
         ],
         "expectedUnknownFields": [
+          "monthlyIncomeBracket",
+          "countableAssetsBracket",
+          "maritalStatus",
+          "insurance.medicaid",
           "recentHospitalStay (not collected)",
           "unpaidCaregiver (not collected)"
         ],
@@ -769,6 +783,7 @@
         ],
         "expectedUnknownFields": [
           "adlHelpCount",
+          "livingSituation",
           "insurance.medicaid",
           "recentHospitalStay (not collected)",
           "unpaidCaregiver (not collected)"
@@ -923,6 +938,7 @@
           "wa-apple-health-ltc",
           "medicare-home-health",
           "medicare-snf",
+          "wa-tsoa",
           "wa-mac",
           "wa-respite-care"
         ],
@@ -934,13 +950,13 @@
           "wa-cares-fund",
           "va-aid-attendance",
           "va-housebound",
-          "wa-pace",
-          "wa-tsoa"
+          "wa-pace"
         ],
         "expectedUnknownFields": [
           "monthlyIncomeBracket",
           "countableAssetsBracket",
           "maritalStatus",
+          "insurance.medicaid",
           "recentHospitalStay (not collected)",
           "unpaidCaregiver (not collected)"
         ],
@@ -1162,6 +1178,7 @@
         ],
         "expectedUnknownFields": [
           "adlHelpCount",
+          "livingSituation",
           "insurance.medicaid",
           "recentHospitalStay (not collected)",
           "unpaidCaregiver (not collected)"
@@ -1757,6 +1774,7 @@
         ],
         "expectedUnknownFields": [
           "adlHelpCount",
+          "livingSituation",
           "insurance.medicaid",
           "recentHospitalStay (not collected)",
           "unpaidCaregiver (not collected)"
@@ -1873,6 +1891,7 @@
         ],
         "expectedUnknownFields": [
           "adlHelpCount",
+          "livingSituation",
           "countableAssetsBracket",
           "maritalStatus",
           "insurance.medicaid",
@@ -1932,6 +1951,7 @@
         ],
         "expectedUnknownFields": [
           "adlHelpCount",
+          "livingSituation",
           "monthlyIncomeBracket",
           "insurance.medicaid",
           "adlsNeedingHelp",
@@ -1991,6 +2011,7 @@
         ],
         "expectedUnknownFields": [
           "adlHelpCount",
+          "livingSituation",
           "monthlyIncomeBracket",
           "insurance.medicaid",
           "recentHospitalStay (not collected)",
@@ -2340,6 +2361,7 @@
         "expectedUnknownFields": [
           "age",
           "adlHelpCount",
+          "livingSituation",
           "monthlyIncomeBracket",
           "insurance.medicaid",
           "recentHospitalStay (not collected)",
@@ -2436,6 +2458,7 @@
           "wa-apple-health-ltc",
           "medicare-home-health",
           "medicare-snf",
+          "wa-tsoa",
           "wa-mac",
           "wa-respite-care"
         ],
@@ -2446,13 +2469,13 @@
           "wa-cares-fund",
           "va-aid-attendance",
           "va-housebound",
-          "wa-pace",
-          "wa-tsoa"
+          "wa-pace"
         ],
         "expectedUnknownFields": [
           "monthlyIncomeBracket",
           "countableAssetsBracket",
           "maritalStatus",
+          "insurance.medicaid",
           "adlHelpCount",
           "recentHospitalStay (not collected)",
           "unpaidCaregiver (not collected)"
@@ -2720,7 +2743,9 @@
       },
       "groundTruth": {
         "relevantPrograms": [
+          "wa-medicaid-copes",
           "wa-medicaid-cfc",
+          "wa-apple-health-ltc",
           "medicare-home-health",
           "medicare-snf",
           "wa-mac",
@@ -2731,8 +2756,6 @@
           "medicare-home-health"
         ],
         "excludedPrograms": [
-          "wa-medicaid-copes",
-          "wa-apple-health-ltc",
           "wa-cares-fund",
           "va-aid-attendance",
           "va-housebound",
@@ -2740,6 +2763,10 @@
           "wa-tsoa"
         ],
         "expectedUnknownFields": [
+          "monthlyIncomeBracket",
+          "countableAssetsBracket",
+          "maritalStatus",
+          "insurance.medicaid",
           "recentHospitalStay (not collected)",
           "unpaidCaregiver (not collected)"
         ],
@@ -2903,6 +2930,7 @@
         ],
         "expectedUnknownFields": [
           "adlHelpCount",
+          "livingSituation",
           "monthlyIncomeBracket",
           "insurance.medicaid",
           "recentHospitalStay (not collected)",
@@ -3000,6 +3028,7 @@
           "wa-apple-health-ltc",
           "medicare-home-health",
           "medicare-snf",
+          "wa-tsoa",
           "wa-mac",
           "wa-respite-care"
         ],
@@ -3010,14 +3039,14 @@
           "wa-cares-fund",
           "va-aid-attendance",
           "va-housebound",
-          "wa-pace",
-          "wa-tsoa"
+          "wa-pace"
         ],
         "expectedUnknownFields": [
           "age",
           "monthlyIncomeBracket",
           "adlHelpCount",
           "recentHospitalStay (not collected)",
+          "insurance.medicaid",
           "unpaidCaregiver (not collected)"
         ],
         "expectFollowUpQuestions": false
@@ -3122,6 +3151,7 @@
         ],
         "expectedUnknownFields": [
           "adlHelpCount",
+          "livingSituation",
           "countableAssetsBracket",
           "maritalStatus",
           "insurance.medicaid",
@@ -3277,6 +3307,7 @@
           "wa-apple-health-ltc",
           "medicare-home-health",
           "medicare-snf",
+          "wa-tsoa",
           "wa-mac",
           "wa-respite-care"
         ],
@@ -3288,12 +3319,12 @@
           "wa-cares-fund",
           "va-aid-attendance",
           "va-housebound",
-          "wa-pace",
-          "wa-tsoa"
+          "wa-pace"
         ],
         "expectedUnknownFields": [
           "monthlyIncomeBracket",
           "recentHospitalStay (not collected)",
+          "insurance.medicaid",
           "unpaidCaregiver (not collected)"
         ],
         "expectFollowUpQuestions": false
@@ -4121,6 +4152,7 @@
         ],
         "expectedUnknownFields": [
           "adlHelpCount",
+          "livingSituation",
           "monthlyIncomeBracket",
           "countableAssetsBracket",
           "maritalStatus",
@@ -4290,6 +4322,7 @@
         ],
         "expectedUnknownFields": [
           "adlHelpCount",
+          "livingSituation",
           "monthlyIncomeBracket",
           "countableAssetsBracket",
           "maritalStatus",
@@ -4561,6 +4594,7 @@
         "expectedUnknownFields": [
           "age",
           "adlHelpCount",
+          "livingSituation",
           "monthlyIncomeBracket",
           "countableAssetsBracket",
           "maritalStatus",
@@ -4571,7 +4605,6 @@
           "veteran.dischargeType",
           "adlsNeedingHelp",
           "insurance.medicare",
-          "livingSituation",
           "recentHospitalStay (not collected)",
           "county",
           "unpaidCaregiver (not collected)"
@@ -4662,14 +4695,14 @@
       },
       "groundTruth": {
         "relevantPrograms": [
+          "wa-medicaid-copes",
+          "wa-apple-health-ltc",
           "medicare-snf",
           "wa-respite-care"
         ],
         "likelyRelevantPrograms": [],
         "excludedPrograms": [
-          "wa-medicaid-copes",
           "wa-medicaid-cfc",
-          "wa-apple-health-ltc",
           "wa-cares-fund",
           "va-aid-attendance",
           "va-housebound",
@@ -4679,8 +4712,9 @@
           "wa-mac"
         ],
         "expectedUnknownFields": [
-          "recentHospitalStay (not collected)",
           "adlHelpCount",
+          "livingSituation",
+          "recentHospitalStay (not collected)",
           "unpaidCaregiver (not collected)"
         ],
         "expectFollowUpQuestions": false
@@ -4850,6 +4884,7 @@
         ],
         "expectedUnknownFields": [
           "adlHelpCount",
+          "livingSituation",
           "insurance.medicaid",
           "recentHospitalStay (not collected)",
           "unpaidCaregiver (not collected)"
@@ -4905,6 +4940,7 @@
         ],
         "expectedUnknownFields": [
           "adlHelpCount",
+          "livingSituation",
           "monthlyIncomeBracket",
           "insurance.medicaid",
           "recentHospitalStay (not collected)",
@@ -4956,6 +4992,7 @@
         "expectedUnknownFields": [
           "age",
           "adlHelpCount",
+          "livingSituation",
           "monthlyIncomeBracket",
           "countableAssetsBracket",
           "maritalStatus",
@@ -5012,10 +5049,10 @@
         "expectedUnknownFields": [
           "age",
           "adlHelpCount",
+          "livingSituation",
           "monthlyIncomeBracket",
           "insurance.medicaid",
           "waCaresParticipation",
-          "livingSituation",
           "recentHospitalStay (not collected)",
           "county",
           "unpaidCaregiver (not collected)"
@@ -5370,12 +5407,12 @@
         ],
         "expectedUnknownFields": [
           "adlHelpCount",
+          "livingSituation",
           "monthlyIncomeBracket",
           "countableAssetsBracket",
           "maritalStatus",
           "insurance.medicaid",
           "insurance.medicare",
-          "livingSituation",
           "recentHospitalStay (not collected)",
           "county",
           "unpaidCaregiver (not collected)"
@@ -5426,10 +5463,10 @@
         "expectedUnknownFields": [
           "age",
           "adlHelpCount",
+          "livingSituation",
           "monthlyIncomeBracket",
           "insurance.medicaid",
           "insurance.medicare",
-          "livingSituation",
           "recentHospitalStay (not collected)",
           "county",
           "unpaidCaregiver (not collected)"
@@ -5540,6 +5577,7 @@
         "expectedUnknownFields": [
           "age",
           "adlHelpCount",
+          "livingSituation",
           "monthlyIncomeBracket",
           "insurance.medicaid",
           "waCaresParticipation",
@@ -5548,7 +5586,6 @@
           "veteran.dischargeType",
           "adlsNeedingHelp",
           "insurance.medicare",
-          "livingSituation",
           "recentHospitalStay (not collected)",
           "county",
           "unpaidCaregiver (not collected)"

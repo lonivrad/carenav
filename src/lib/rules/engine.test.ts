@@ -133,9 +133,11 @@ describe("selectCandidates", () => {
     expect(byId["wa-medicaid-copes"].unknownFields).toEqual([
       "monthlyIncomeBracket",
     ]);
-    // On Medicaid → TSOA excluded by the named rule (MAC is the counterpart).
-    expect(byId["wa-tsoa"].status).toBe("excluded");
-    expect(byId["wa-tsoa"].failedRules).toEqual(["tsoa-not-on-medicaid"]);
+    // On "Medicaid" per the checkbox → TSOA possibly relevant, not excluded:
+    // CN/ABP enrollment bars TSOA but MN/MSP coverage may still qualify, and
+    // the intake cannot distinguish the coverage type.
+    expect(byId["wa-tsoa"].status).toBe("possibly_relevant");
+    expect(byId["wa-tsoa"].unknownFields).toContain("insurance.medicaid");
     expect(byId["wa-mac"].status).toBe("possibly_relevant");
     expect(byId["wa-mac"].unknownFields).toEqual([
       "unpaidCaregiver (not collected)",
