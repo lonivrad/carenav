@@ -7,6 +7,7 @@ import {
   buildProgramQuery,
   retrieveForPrograms,
   scoreAgainstIndex,
+  DEFAULT_TOP_K,
   RETRIEVAL_SCORE_THRESHOLD,
 } from "@/lib/rag/retrieve";
 import type { Profile } from "@/lib/schema/profile";
@@ -90,10 +91,42 @@ describe("retrieveForPrograms (deterministic, injected embedder)", () => {
     expect(results).toHaveLength(1);
     const result = results[0];
     if (result.status !== "ok") throw new Error("expected ok retrieval");
-    expect(result.chunks.length).toBeLessThanOrEqual(3);
+    expect(result.chunks.length).toBeLessThanOrEqual(DEFAULT_TOP_K);
     expect(result.chunks[0].chunkId).toBe(vaChunk.chunkId);
     expect(result.chunks[0].score).toBeCloseTo(1, 5);
     for (const c of result.chunks) expect(c.programId).toBe("va-aid-attendance");
+  });
+
+  it("returns every chunk of a >3-chunk program in score order (top-k covers whole docs)", async () => {
+    // wa-tsoa has 5 chunks — the Phase 7.5 truncation case. With k=5 the
+    // whole doc comes back, ordered by score, with the guard still intact.
+    const tsoaChunks = index.chunks.filter((c) => c.programId === "wa-tsoa");
+    expect(tsoaChunks.length).toBeGreaterThan(3); // precondition for the test
+    const results = await retrieveForPrograms(["wa-tsoa"], veteranProfile, {
+      embedQueries: async () => [tsoaChunks[0].embedding],
+    });
+    const result = results[0];
+    if (result.status !== "ok") throw new Error("expected ok retrieval");
+    expect(result.chunks).toHaveLength(tsoaChunks.length);
+    expect(new Set(result.chunks.map((c) => c.chunkId))).toEqual(
+      new Set(tsoaChunks.map((c) => c.chunkId)),
+    );
+    for (let i = 1; i < result.chunks.length; i++) {
+      expect(result.chunks[i - 1].score).toBeGreaterThanOrEqual(
+        result.chunks[i].score,
+      );
+    }
+  });
+
+  it("still honors an explicit smaller topK option", async () => {
+    const tsoaChunks = index.chunks.filter((c) => c.programId === "wa-tsoa");
+    const results = await retrieveForPrograms(["wa-tsoa"], veteranProfile, {
+      embedQueries: async () => [tsoaChunks[0].embedding],
+      topK: 2,
+    });
+    const result = results[0];
+    if (result.status !== "ok") throw new Error("expected ok retrieval");
+    expect(result.chunks).toHaveLength(2);
   });
 
   it("scopes each program to its own docs even with an off-topic query", async () => {

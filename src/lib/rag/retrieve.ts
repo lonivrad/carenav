@@ -18,7 +18,14 @@ const index = rawIndex as unknown as VectorIndex;
  */
 export const RETRIEVAL_SCORE_THRESHOLD = 0.45;
 
-export const DEFAULT_TOP_K = 3;
+/**
+ * Per-program chunk cap. Corpus docs currently split into 2–5 chunks, so 5
+ * returns every chunk of the targeted program; the independent labeling pass
+ * (Phase 7.5) marked 40/40 target-program chunks relevant, so a top-3 cut
+ * only cost recall (7 of 11 retrieval disagreements) without protecting
+ * precision. The cap still bounds prompt growth if the corpus grows chunkier.
+ */
+export const DEFAULT_TOP_K = 5;
 
 export interface RetrievedChunk {
   chunkId: string;
