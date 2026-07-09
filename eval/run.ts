@@ -16,7 +16,7 @@ import Anthropic from "@anthropic-ai/sdk";
 import { zodOutputFormat } from "@anthropic-ai/sdk/helpers/zod";
 
 import { keywordSearch } from "@/lib/baseline/search";
-import { EXPLAIN_MODEL, type ReportGenerator } from "@/lib/llm/explain";
+import { EXPLAIN_EFFORT, EXPLAIN_MODEL, type ReportGenerator } from "@/lib/llm/explain";
 import { SYSTEM_PROMPT } from "@/lib/llm/prompts";
 import { loadEnvLocal } from "@/lib/rag/local-env";
 import { runScreening } from "@/lib/pipeline";
@@ -113,7 +113,7 @@ function makeRecordingGenerator(box: UsageBox): ReportGenerator {
       max_tokens: 16000,
       system: SYSTEM_PROMPT,
       messages,
-      output_config: { format: zodOutputFormat(llmReportSchema) },
+      output_config: { format: zodOutputFormat(llmReportSchema), effort: EXPLAIN_EFFORT },
     });
     box.llmMs += Date.now() - t0;
     box.inputTokens += response.usage.input_tokens;

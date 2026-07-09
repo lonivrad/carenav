@@ -1,6 +1,19 @@
 import { describe, expect, it, vi } from "vitest";
 
-import { crossCheck, explainCandidates } from "@/lib/llm/explain";
+import {
+  crossCheck,
+  explainCandidates,
+  EXPLAIN_EFFORT,
+  EXPLAIN_MODEL,
+} from "@/lib/llm/explain";
+
+const sdkSpies = vi.hoisted(() => ({ parse: vi.fn() }));
+vi.mock("@anthropic-ai/sdk", () => {
+  class MockAnthropic {
+    messages = { parse: sdkSpies.parse };
+  }
+  return { default: MockAnthropic };
+});
 import type { Candidate } from "@/lib/rules/engine";
 import type { ProgramRetrieval } from "@/lib/rag/retrieve";
 import type { LlmReport } from "@/lib/schema/report";
@@ -179,5 +192,23 @@ describe("explainCandidates — validate, retry once, fail loud", () => {
       explainCandidates({ profile, candidates, retrievals }, generate),
     ).rejects.toThrow(/cross-checks after retry/);
     expect(generate).toHaveBeenCalledTimes(2);
+  });
+});
+
+describe("default generator configuration", () => {
+  it("calls the API with low reasoning effort and the structured format", async () => {
+    sdkSpies.parse.mockResolvedValueOnce({
+      parsed_output: validReport,
+      usage: { input_tokens: 1, output_tokens: 1 },
+    });
+    const report = await explainCandidates({ profile, candidates, retrievals });
+    expect(report).toEqual(validReport);
+    expect(sdkSpies.parse).toHaveBeenCalledTimes(1);
+    const args = sdkSpies.parse.mock.calls[0][0];
+    expect(args.model).toBe(EXPLAIN_MODEL);
+    expect(args.output_config.effort).toBe(EXPLAIN_EFFORT);
+    expect(EXPLAIN_EFFORT).toBe("low");
+    expect(args.output_config.format).toBeDefined();
+    expect(args.max_tokens).toBe(16000);
   });
 });

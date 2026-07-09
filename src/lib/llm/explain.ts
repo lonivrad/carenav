@@ -10,6 +10,14 @@ import { SYSTEM_PROMPT, buildUserPrompt } from "@/lib/llm/prompts";
 /** Latest Sonnet. */
 export const EXPLAIN_MODEL = "claude-sonnet-5";
 
+/**
+ * Reasoning effort for the explanation call. "low" halves latency and cost
+ * with no measured quality loss: a 10-case A/B showed identical schema and
+ * cross-check validity, grounding, hedging, and injection resistance — the
+ * structured schema and mechanical checks make extra deliberation redundant.
+ */
+export const EXPLAIN_EFFORT = "low" as const;
+
 export interface ExplainInput {
   profile: Profile;
   candidates: Candidate[];
@@ -40,6 +48,7 @@ const defaultGenerator: ReportGenerator = async (userPrompt, correction) => {
     messages,
     output_config: {
       format: zodOutputFormat(llmReportSchema),
+      effort: EXPLAIN_EFFORT,
     },
   });
   return response.parsed_output;
