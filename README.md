@@ -1,8 +1,7 @@
 # CareNav
 
-An educational screening tool that helps Washington-state families identify
-which eldercare funding programs appear worth investigating with a
-professional.
+An educational screening tool that helps Washington families identify which
+long-term care funding programs may be worth exploring with a professional.
 
 CareNav does **not** determine eligibility, provide legal or financial
 advice, or estimate benefit amounts. Every report carries that disclaimer,
