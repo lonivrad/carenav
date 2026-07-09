@@ -121,7 +121,7 @@ Every row is either a system error worth fixing before Phase 8, or a manual labe
 
 ## Addendum (2026-07-09): rule changes implemented
 
-Commit `19e2ef3` ("fix: soften eligibility predicates for unresolved intake
+Commit `4bffac4` ("fix: soften eligibility predicates for unresolved intake
 facts") implemented the two proposed rule changes plus the
 Medicaid-enrollment financial predicate, resolving the 9 rows this report
 left pointing at the rules engine:
