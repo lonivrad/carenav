@@ -15,6 +15,7 @@ const candidate = (
   ruleResults: [],
   unknownFields,
   failedRules: [],
+  alwaysNeeded: [],
 });
 
 const chunk = (score: number): RetrievedChunk => ({

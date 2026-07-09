@@ -38,6 +38,7 @@ const candidates: Candidate[] = [
     ruleResults: [],
     unknownFields: ["monthlyIncomeBracket"],
     failedRules: [],
+    alwaysNeeded: [],
   },
 ];
 

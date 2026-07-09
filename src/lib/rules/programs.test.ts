@@ -479,3 +479,71 @@ describe("classification-level regressions for the three rule changes", () => {
     expect(evaluateProgram(byId("wa-tsoa"), p).status).toBe("excluded");
   });
 });
+
+describe("alwaysNeeded reporting metadata (classification-inert)", () => {
+  it("exists only on the three proxy-pass programs with the documented facts", () => {
+    const byNeed = Object.fromEntries(
+      programs.map((p) => [p.programId, p.alwaysNeeded ?? []]),
+    );
+    expect(byNeed["medicare-home-health"]).toEqual([
+      "homebound status and provider certification (not collected)",
+      "skilled nursing/therapy care need (not collected)",
+    ]);
+    expect(byNeed["va-housebound"]).toEqual([
+      "substantial confinement to home due to permanent disability (not collected)",
+    ]);
+    expect(byNeed["va-aid-attendance"]).toEqual([
+      "clinical Aid & Attendance examination findings, VA Form 21-2680 (not collected)",
+    ]);
+    for (const p of programs) {
+      if (!["medicare-home-health", "va-housebound", "va-aid-attendance"].includes(p.programId)) {
+        expect(p.alwaysNeeded).toBeUndefined();
+      }
+    }
+  });
+
+  it("propagates to the candidate without touching status or unknownFields", () => {
+    // A profile where all three programs' rules fully pass (mobility help
+    // satisfies the vahb-housebound proxy).
+    const passing = prof({
+      insurance: { medicare: true, medicaid: false },
+      countableAssetsBracket: "under_2000",
+      adlsNeedingHelp: ["bathing", "dressing", "mobility"],
+      adlHelpCount: 3,
+    });
+    for (const [id, expectedNeeds] of [
+      ["medicare-home-health", 2],
+      ["va-aid-attendance", 1],
+      ["va-housebound", 1],
+    ] as const) {
+      const c = evaluateProgram(byId(id), passing);
+      expect(c.status).toBe("likely_relevant"); // unchanged by alwaysNeeded
+      expect(c.unknownFields).toEqual([]); // unchanged by alwaysNeeded
+      expect(c.alwaysNeeded).toHaveLength(expectedNeeds);
+    }
+    // Programs without metadata carry an empty list.
+    expect(evaluateProgram(byId("wa-respite-care"), passing).alwaysNeeded).toEqual([]);
+  });
+
+  it("does not perturb classification for an all-unknown profile", () => {
+    const allUnknown = prof({
+      age: "unknown",
+      county: "unknown",
+      livingSituation: "unknown",
+      adlsNeedingHelp: "unknown",
+      adlHelpCount: "unknown",
+      diagnosisCategory: "unknown",
+      veteran: { isVeteran: "unknown", serviceEra: "unknown", dischargeType: "unknown" },
+      maritalStatus: "unknown",
+      monthlyIncomeBracket: "unknown",
+      countableAssetsBracket: "unknown",
+      ownsHome: "unknown",
+      insurance: { medicare: "unknown", medicaid: "unknown", ltcInsurance: "unknown", privateInsurance: "unknown" },
+      recentRelocation: "unknown",
+      waCaresParticipation: "unknown",
+    });
+    for (const p of programs) {
+      expect(evaluateProgram(p, allUnknown).status).toBe("possibly_relevant");
+    }
+  });
+});

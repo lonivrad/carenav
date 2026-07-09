@@ -29,6 +29,14 @@ export interface ProgramRules {
   /** Corpus document (src/data/corpus/) that justifies this program's rules. */
   corpusDocumentId: string;
   rules: readonly Rule[];
+  /**
+   * Reporting-only metadata: facts a professional must verify whenever this
+   * program is surfaced, even when every screening rule passes (the rules
+   * pass on proxies; these are the underlying requirements the intake does
+   * not collect). Never consulted for classification, confidence, or
+   * ranking — they only feed "information still needed" in the report.
+   */
+  alwaysNeeded?: readonly string[];
 }
 
 const UNK = "unknown";
@@ -306,6 +314,11 @@ export const programs: readonly ProgramRules[] = [
     programId: "va-aid-attendance",
     programName: "VA Aid & Attendance",
     corpusDocumentId: "va-aid-attendance",
+    // vaaa-care-need passes on an ADL proxy; the actual clinical criteria
+    // are certified by a medical examiner (va-aid-attendance.md).
+    alwaysNeeded: [
+      "clinical Aid & Attendance examination findings, VA Form 21-2680 (not collected)",
+    ],
     rules: [
       {
         id: "vaaa-veteran",
@@ -350,6 +363,11 @@ export const programs: readonly ProgramRules[] = [
     programId: "va-housebound",
     programName: "VA Housebound benefit",
     corpusDocumentId: "va-housebound",
+    // vahb-housebound passes on a mobility-help proxy; actual substantial
+    // confinement to home is never collected (va-housebound.md).
+    alwaysNeeded: [
+      "substantial confinement to home due to permanent disability (not collected)",
+    ],
     rules: [
       {
         id: "vahb-veteran",
@@ -393,6 +411,13 @@ export const programs: readonly ProgramRules[] = [
     programId: "medicare-home-health",
     programName: "Medicare home health benefit",
     corpusDocumentId: "medicare-home-health",
+    // mhh-skilled-need passes on an ADL proxy; the benefit actually gates on
+    // homebound certification and intermittent SKILLED care
+    // (medicare-home-health.md) — neither collected by the intake.
+    alwaysNeeded: [
+      "homebound status and provider certification (not collected)",
+      "skilled nursing/therapy care need (not collected)",
+    ],
     rules: [
       {
         // medicare-home-health.md: covered by Part A and/or Part B.

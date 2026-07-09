@@ -37,6 +37,12 @@ export interface Candidate {
   unknownFields: string[];
   /** Ids of the rules that failed (nonempty exactly when excluded). */
   failedRules: string[];
+  /**
+   * Reporting-only facts copied from the program definition — requirements a
+   * professional must verify regardless of rule outcomes. Never used for
+   * classification, confidence, or ranking.
+   */
+  alwaysNeeded: string[];
 }
 
 export function evaluateProgram(
@@ -76,6 +82,7 @@ export function evaluateProgram(
     ruleResults,
     unknownFields,
     failedRules,
+    alwaysNeeded: [...(program.alwaysNeeded ?? [])],
   };
 }
 

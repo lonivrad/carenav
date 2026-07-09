@@ -63,9 +63,10 @@ export function buildUserPrompt(input: {
     const rules = candidate.ruleResults
       .map((r) => `  - ${r.description}: ${outcomeLabel[r.outcome]}`)
       .join("\n");
+    const missing = [...candidate.unknownFields, ...candidate.alwaysNeeded];
     const unknowns =
-      candidate.unknownFields.length > 0
-        ? `Missing data: ${candidate.unknownFields.join(", ")}`
+      missing.length > 0
+        ? `Missing data: ${missing.join(", ")}`
         : "Missing data: none";
 
     let passages: string;

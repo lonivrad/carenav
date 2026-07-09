@@ -116,3 +116,35 @@ Every row is either a system error worth fixing before Phase 8, or a manual labe
 | query-07 | medicaid_edge | wa-apple-health-ltc#02-what-it-covers | not retrieved (top-3, program-scoped) | R |  |
 | query-07 | medicaid_edge | wa-apple-health-ltc#04-documentation-needed | not retrieved (top-3, program-scoped) | R |  |
 | query-12 | ambiguous | wa-pace#01-what-it-covers | not retrieved (top-3, program-scoped) | R |  |
+
+---
+
+## Addendum (2026-07-09): rule changes implemented
+
+Commit `19e2ef3` ("fix: soften eligibility predicates for unresolved intake
+facts") implemented the two proposed rule changes plus the
+Medicaid-enrollment financial predicate, resolving the 9 rows this report
+left pointing at the rules engine:
+
+- **simple-01 / medicaid-edge-08 × wa-medicaid-copes, wa-apple-health-ltc
+  (4 rows)** — `medicaidAssets` now returns unknown (not fail) when the
+  family reports current Medicaid enrollment alongside above-limit assets;
+  all four programs are now included as possibly relevant with the
+  enrollment conflict surfaced as missing information. The manual WI labels
+  stand.
+- **simple-01 / simple-05 / medicaid-edge-13 × wa-tsoa (3 rows)** —
+  `tsoa-not-on-medicaid` now returns unknown (not fail) for reported
+  enrollment, since the intake checkbox cannot distinguish CN/ABP (barred)
+  from MN/MSP ("may still qualify"). Final labels: UNK.
+- **ambiguous-03 × wa-medicaid-copes, wa-apple-health-ltc (2 rows)** — a
+  scoped NFLOC proxy returns unknown (not fail) for 0-ADL nursing-facility
+  residents (WAC 388-106-0355(a) unresolved); TSOA/MAC/PACE keep the plain
+  proxy, so ambiguous-03/wa-tsoa correctly remains excluded. Final labels:
+  UNK.
+
+A fresh 100-case eval after the changes: hallucinated-program rate 0.0%,
+citation validity 100.0% (1,509 citations), 0 failures; ground truth
+regenerated (10 families gained programs, none lost). All 13
+predicted-delta checks matched, including the regressions (high-asset
+families remain excluded; medicaid-edge-08/wa-tsoa remains excluded via
+tsoa-assets).

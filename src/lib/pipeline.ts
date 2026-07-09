@@ -2,6 +2,7 @@ import manifest from "@/data/corpus-manifest.json";
 import { explainCandidates, type ReportGenerator } from "@/lib/llm/explain";
 import { assignConfidence } from "@/lib/llm/confidence";
 import { questionForField } from "@/lib/report/field-labels";
+import { mergeStillNeeded } from "@/lib/report/still-needed";
 import { retrieveForPrograms, type ProgramRetrieval } from "@/lib/rag/retrieve";
 import { selectCandidates, type Candidate } from "@/lib/rules/engine";
 import type { Intake } from "@/lib/schema/intake";
@@ -64,7 +65,12 @@ export async function runScreening(
         relevanceLabel: assignConfidence(candidate, retrieval),
         whyThisMayApply: p.whyThisMayApply,
         whatItCovers: p.whatItCovers,
-        informationStillNeeded: p.informationStillNeeded,
+        // Deterministic backstop: every rules-known missing fact survives
+        // even if the model dropped it (union, deduplicated by coverage).
+        informationStillNeeded: mergeStillNeeded(p.informationStillNeeded, [
+          ...candidate.unknownFields,
+          ...candidate.alwaysNeeded,
+        ]),
         citations: [...new Set(p.whatItCovers.flatMap((c) => c.chunkIds))],
         nextSteps: p.nextSteps,
         officialLinks: officialLinksById.get(p.programId) ?? [],
