@@ -30,8 +30,9 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
+# env files — never commit real keys; the empty template stays tracked
 .env*
+!.env.example
 
 # vercel
 .vercel
@@ -40,3 +41,15 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 coverage/
+
+# logs
+*.log
+
+# OS / editor
+Thumbs.db
+.idea/
+*.swp
+*.swo
+
+# local eval scratch (committed eval artifacts live in eval/results/)
+/tmp/
