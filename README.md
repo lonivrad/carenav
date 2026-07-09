@@ -56,12 +56,16 @@ cp .env.example .env.local    # fill in ANTHROPIC_API_KEY and VOYAGE_API_KEY
 npm run dev                   # http://localhost:3000 — start at /intake
 ```
 
+Heads-up: generating a report calls paid APIs and currently takes 1–2
+minutes (~$0.17 per report at list prices).
+
 Other commands:
 
 ```bash
 npm test              # unit + boundary tests (colocated *.test.ts)
 npm run ingest        # rebuild the RAG index from src/data/corpus/
-npm run eval          # run the 100-case evaluation harness (calls paid APIs)
+npm run eval          # 100-case evaluation harness — paid APIs, ~$17 and
+                      # ~25–30 min per full run (use -- --limit N to sample)
 npm run eval:generate # regenerate the synthetic test set
 npm run build         # production build
 ```
