@@ -47,6 +47,32 @@ family reviews the report — then takes it to a benefits
 professional, who makes any actual determination
 ```
 
+## What it looks like
+
+**Intake** asks one plain-language question at a time (about 10 minutes).
+Answers can be a numeric age, a single choice, or a multi-select — including
+multiple diagnoses. Every question can be skipped: the "I don't know" and
+"Prefer not to say" actions are shown as secondary "Skip this question"
+controls, and a skipped answer is recorded as an explicit unknown, never a
+guess. A review step lists every answer before submitting.
+
+![An intake question with multi-select answers and demoted skip actions](artifacts/intake-question.png)
+
+![The review step listing every answer before submitting](artifacts/intake-review.png)
+
+**The report** opens with the programs most worth exploring first — a ranked
+index that links to each program — followed by a single "Your next step"
+drawn from the highest-ranked program's own next actions. Each program is a
+numbered card (matching the index) with a one-line reason it may apply, its
+next steps shown inline, and collapsible sections for what it generally
+covers, information still needed, and sources. Every factual claim links to a
+cited source passage. A closing "What we couldn't determine" section groups
+the answers left unknown, so a family can see what would sharpen the result.
+
+![The report overview: ranked programs and a single next step](artifacts/report-overview.png)
+
+![A program card with next steps and grouped detail sections](artifacts/report-details.png)
+
 ## Quickstart
 
 ```bash

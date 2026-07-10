@@ -37,22 +37,57 @@ function ChoiceButton({
   );
 }
 
+// Skip actions are deliberately lighter than real answers: smaller type, a
+// lighter border, muted text, and sized to their content rather than full
+// width — so declining reads as a secondary escape hatch, not an answer.
+const declineBase =
+  "rounded-cta border px-4 py-2.5 text-sm transition-colors duration-[var(--duration-nav)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
+const declineOff =
+  "border-neutral-300 text-neutral-600 hover:border-neutral-400 hover:text-neutral-800";
+const declineOn = "border-accent bg-accent/5 font-medium text-accent";
+
+function DeclineButton({
+  selected,
+  label,
+  onClick,
+}: {
+  selected: boolean;
+  label: string;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      aria-pressed={selected}
+      onClick={onClick}
+      className={`${declineBase} ${selected ? declineOn : declineOff}`}
+    >
+      {label}
+    </button>
+  );
+}
+
 /** One step of the intake questionnaire. */
 export function QuestionStep({ question, value, onChange }: QuestionStepProps) {
   const declined = value === "unknown" || value === "prefer_not_to_say";
 
   const declineButtons = (
-    <div className="mt-4 flex gap-2 border-t border-neutral-200 pt-4">
-      <ChoiceButton
-        selected={value === "unknown"}
-        label="I don't know"
-        onClick={() => onChange("unknown")}
-      />
-      <ChoiceButton
-        selected={value === "prefer_not_to_say"}
-        label="Prefer not to say"
-        onClick={() => onChange("prefer_not_to_say")}
-      />
+    <div className="mt-4 border-t border-neutral-200 pt-4">
+      <p className="text-xs font-medium uppercase tracking-wide text-neutral-500">
+        Skip this question
+      </p>
+      <div className="mt-2 flex flex-wrap gap-2">
+        <DeclineButton
+          selected={value === "unknown"}
+          label="I don't know"
+          onClick={() => onChange("unknown")}
+        />
+        <DeclineButton
+          selected={value === "prefer_not_to_say"}
+          label="Prefer not to say"
+          onClick={() => onChange("prefer_not_to_say")}
+        />
+      </div>
     </div>
   );
 

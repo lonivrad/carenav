@@ -84,14 +84,6 @@ export default function ReportPage() {
         {rest && <p>{rest}</p>}
       </div>
 
-      <p className="mt-4 rounded-cta border-l-4 border-accent bg-accent/5 px-4 py-3 text-sm leading-relaxed text-text-body">
-        <strong className="font-semibold text-accent">
-          A starting point, not an eligibility decision.
-        </strong>{" "}
-        This highlights programs worth asking a professional about — it does not
-        determine what anyone qualifies for.
-      </p>
-
       <ReportSummary programs={programs} />
 
       <YourNextStep programs={programs} />
