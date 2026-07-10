@@ -1,83 +1,64 @@
-import type { ProgramEntry } from "@/lib/schema/report";
-import { ConfidenceBadge } from "@/components/report/ConfidenceBadge";
-import { RELEVANCE_ORDER, relevanceCounts } from "@/components/report/relevance";
-import { stripChunkIds } from "@/components/report/format";
+import type { ProgramEntry, RelevanceLabel } from "@/lib/schema/report";
 
 export interface ReportSummaryProps {
   /** Expected already sorted highest-relevance first (see sortByRelevance). */
   programs: ProgramEntry[];
 }
 
-const COUNT_LABELS: Record<(typeof RELEVANCE_ORDER)[number], string> = {
-  high: "High",
-  medium: "Medium",
-  low: "Low",
-};
-
-const COUNT_STYLES: Record<(typeof RELEVANCE_ORDER)[number], string> = {
-  high: "border-emerald-300 bg-emerald-50 text-emerald-900",
-  medium: "border-amber-300 bg-amber-50 text-amber-900",
-  low: "border-neutral-300 bg-neutral-50 text-neutral-800",
+const RELEVANCE_TEXT: Record<RelevanceLabel, string> = {
+  high: "High relevance",
+  medium: "Medium relevance",
+  low: "Low relevance",
 };
 
 /**
- * At-a-glance header so the report is scannable in seconds: how many programs
- * fell into each relevance band, and the top three to look at first. All values
- * are derived from the programs already in the report — nothing is recomputed.
+ * Compact index of the programs most worth exploring first: rank, name, and
+ * relevance, each a jump link to its full card below. Explanations live only in
+ * the cards — this is a scannable table of contents, not a second copy.
  */
 export function ReportSummary({ programs }: ReportSummaryProps) {
   if (programs.length === 0) return null;
-
-  const counts = relevanceCounts(programs);
   const top = programs.slice(0, 3);
 
   return (
     <section
       aria-labelledby="summary-heading"
-      className="mt-6 rounded-cta border border-neutral-200 bg-white p-5 shadow-sm"
+      className="mt-6 rounded-cta border border-neutral-200 p-5"
     >
       <h2 id="summary-heading" className="text-lg font-semibold text-accent">
         Most worth exploring first
       </h2>
 
-      <ul className="mt-3 flex flex-wrap gap-2">
-        {RELEVANCE_ORDER.map((label) => (
-          <li
-            key={label}
-            className={`inline-flex items-baseline gap-1.5 rounded-pill border px-3 py-1 text-sm font-medium ${COUNT_STYLES[label]}`}
-          >
-            <span className="text-base font-semibold">{counts[label]}</span>
-            {COUNT_LABELS[label]} relevance
-          </li>
-        ))}
-      </ul>
-
-      <ol className="mt-4 space-y-2">
+      <ol className="mt-3 space-y-1">
         {top.map((entry, i) => (
           <li key={entry.programId}>
             <a
               href={`#program-${entry.programId}`}
-              className="group flex items-start gap-3 rounded-cta p-2 hover:bg-accent/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+              className="group flex items-baseline gap-2 rounded-cta py-1.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
             >
               <span
                 aria-hidden
-                className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-pill bg-accent text-sm font-semibold text-text-on-dark"
+                className="shrink-0 text-sm font-semibold tabular-nums text-accent-secondary"
               >
-                {i + 1}
+                {i + 1}.
               </span>
               <span className="flex-1">
                 <span className="font-medium text-accent group-hover:underline">
                   {entry.programName}
                 </span>
-                <span className="mt-0.5 block text-sm text-text-body">
-                  {stripChunkIds(entry.whyThisMayApply)}
+                <span className="text-sm text-neutral-500">
+                  {" "}
+                  — {RELEVANCE_TEXT[entry.relevanceLabel]}
                 </span>
               </span>
-              <ConfidenceBadge confidence={entry.relevanceLabel} />
             </a>
           </li>
         ))}
       </ol>
+
+      <p className="mt-2 text-sm text-neutral-500" aria-hidden>
+        View details below ↓
+      </p>
     </section>
   );
 }

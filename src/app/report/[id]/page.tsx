@@ -8,6 +8,7 @@ import { reportSchema, type Report } from "@/lib/schema/report";
 import { DisclaimerBanner } from "@/components/ui/DisclaimerBanner";
 import { ProgramCard } from "@/components/report/ProgramCard";
 import { ReportSummary } from "@/components/report/ReportSummary";
+import { YourNextStep } from "@/components/report/YourNextStep";
 import { UnknownsPanel } from "@/components/report/UnknownsPanel";
 import { sortByRelevance } from "@/components/report/relevance";
 import { splitLead, stripChunkIds } from "@/components/report/format";
@@ -93,10 +94,12 @@ export default function ReportPage() {
 
       <ReportSummary programs={programs} />
 
+      <YourNextStep programs={programs} />
+
       {programs.length > 0 ? (
         <div className="mt-8 space-y-5">
-          {programs.map((entry) => (
-            <ProgramCard key={entry.programId} entry={entry} />
+          {programs.map((entry, i) => (
+            <ProgramCard key={entry.programId} entry={entry} rank={i + 1} />
           ))}
         </div>
       ) : (

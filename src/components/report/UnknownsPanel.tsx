@@ -54,11 +54,11 @@ export function UnknownsPanel({ unknowns, followUpQuestions }: UnknownsPanelProp
   const followUps = dedupe(followUpQuestions);
 
   return (
-    <section className="mt-8 rounded-cta border border-amber-300 bg-amber-50 p-5">
-      <h2 className="text-lg font-semibold text-amber-900">
+    <section className="mt-8 rounded-cta border border-neutral-200 bg-neutral-50 p-5">
+      <h2 className="text-base font-semibold text-text-body">
         What we couldn&rsquo;t determine
       </h2>
-      <p className="mt-1 text-sm leading-relaxed text-amber-900">
+      <p className="mt-1 text-sm leading-relaxed text-neutral-600">
         {unknowns.length} answer{unknowns.length === 1 ? " was" : "s were"} left
         unknown or declined. We never guess at missing information — this affects
         which programs appear and how confidently, so filling these in may change
@@ -66,7 +66,7 @@ export function UnknownsPanel({ unknowns, followUpQuestions }: UnknownsPanelProp
       </p>
 
       {useFollowUps ? (
-        <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-amber-900">
+        <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-neutral-700">
           {followUps.map((q) => (
             <li key={q}>{q}</li>
           ))}
@@ -76,10 +76,10 @@ export function UnknownsPanel({ unknowns, followUpQuestions }: UnknownsPanelProp
           {CATEGORY_ORDER.filter((c) => (grouped.get(c)?.length ?? 0) > 0).map(
             (category) => (
               <div key={category}>
-                <h3 className="text-xs font-semibold uppercase tracking-wide text-amber-800">
+                <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-500">
                   {category}
                 </h3>
-                <ul className="mt-1 list-disc space-y-1 pl-5 text-sm text-amber-900">
+                <ul className="mt-1 list-disc space-y-1 pl-5 text-sm text-neutral-700">
                   {grouped.get(category)!.map((q) => (
                     <li key={q}>{q}</li>
                   ))}
