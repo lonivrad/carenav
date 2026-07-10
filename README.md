@@ -10,6 +10,37 @@ logic is deterministic and auditable, every factual claim cites a curated
 source passage, and missing answers surface as explicit unknowns rather
 than guesses.
 
+## Current status
+
+v1, measured against the latest committed evaluation baseline
+(`eval/results/results.md`):
+
+- Explanation reasoning effort: **low**
+- Evaluation size: **100 synthetic cases**
+- Mean latency: **39.4 s** · p95 latency: **51.7 s**
+- Mean cost per report: **$0.1065** · total evaluation cost: **$10.65**
+- Hallucinated-program rate: **0%**
+- Citation validity: **100%**
+- Refusal correctness: **100%**
+
+## Architecture
+
+```
+Intake
+  ↓
+Rules engine
+  ↓
+Candidate programs
+  ↓
+Retrieval (top-k = 5)
+  ↓
+LLM explanation
+  ↓
+Cross-check + citations
+  ↓
+Report UI
+```
+
 ## The problem
 
 Long-term-care funding in Washington is fragmented across at least a dozen
@@ -73,6 +104,34 @@ the answers left unknown, so a family can see what would sharpen the result.
 
 ![A program card with next steps and grouped detail sections](artifacts/report-details.png)
 
+The layout is responsive and readable on a phone:
+
+![The report on a mobile viewport](artifacts/report-mobile.png)
+
+## Design principles
+
+- Built for adult children helping aging parents, older adults, and families
+  navigating stressful care and funding decisions.
+- Calm, government-adjacent, operational design — deliberately not
+  startup-marketing aesthetics.
+- Large typography and strong contrast for legibility.
+- Accessible: keyboard support with visible focus, native disclosure
+  controls, no dark mode.
+- Educational only — it never determines eligibility.
+- Never guesses missing information; unanswered questions surface as explicit
+  unknowns.
+
+## Known limitations
+
+- Washington State programs only.
+- Educational screening only — not legal, financial, or eligibility advice.
+- Program administrators (DSHS, the Health Care Authority, Medicare, the VA,
+  and the local Area Agency on Aging) make the final eligibility decisions.
+- Evaluation uses synthetic cases whose ground truth derives from the
+  deterministic rules engine.
+- Latency remains around 40 seconds per report because every claim is sourced
+  from the corpus and validated before it is shown.
+
 ## Quickstart
 
 ```bash
@@ -81,16 +140,16 @@ cp .env.example .env.local    # fill in ANTHROPIC_API_KEY and VOYAGE_API_KEY
 npm run dev                   # http://localhost:3000 — start at /intake
 ```
 
-Heads-up: generating a report calls paid APIs and currently takes 1–2
-minutes (~$0.17 per report at list prices).
+Heads-up: generating a report calls paid APIs and takes ~40 s (~$0.11 per
+report at list prices).
 
 Other commands:
 
 ```bash
 npm test              # unit + boundary tests (colocated *.test.ts)
 npm run ingest        # rebuild the RAG index from src/data/corpus/
-npm run eval          # 100-case evaluation harness — paid APIs, ~$17 and
-                      # ~25–30 min per full run (use -- --limit N to sample)
+npm run eval          # 100-case evaluation harness — paid APIs, ~$11 and
+                      # ~13 min per full run (use -- --limit N to sample)
 npm run eval:generate # regenerate the synthetic test set
 npm run build         # production build
 ```

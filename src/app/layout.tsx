@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Public_Sans, Atkinson_Hyperlegible } from "next/font/google";
 import "./globals.css";
+import { SiteFooter } from "@/components/ui/SiteFooter";
 
 const publicSans = Public_Sans({
   variable: "--font-public-sans",
@@ -31,7 +32,10 @@ export default function RootLayout({
       lang="en"
       className={`${publicSans.variable} ${atkinsonHyperlegible.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <SiteFooter />
+      </body>
     </html>
   );
 }
