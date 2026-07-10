@@ -43,23 +43,27 @@ human quality rubric in `eval/rubric.md`.
 
 ## Automated harness results (100 cases)
 
-From `eval/results/results.md`, run of 2026-07-09. Note: this run predates
-the top-k retrieval change described below; program-level metrics are
-unaffected by it.
+From `eval/results/results.md`, low-effort re-baseline of 2026-07-10
+(explanation effort `low`, retrieval top-k 5, migrated array-diagnosis
+fixture, corrected refusal metric). The prior default-effort baseline
+(2026-07-09) recorded mean latency 86.7s, mean output 8,527 tokens, and
+$0.173/report ($17.31 total); setting effort to `low` roughly halved output
+(mean 3,828 tokens) and latency at unchanged program-level fidelity, for
+$0.107/report ($10.65 total).
 
 | Metric | Baseline (keyword) | System (full pipeline) |
 |---|---|---|
 | Program precision | 60.1% | 100.0% |
 | Program recall | 99.3% | 100.0% |
 | Top-5 recall | 50.6% | 100.0% |
-| Citation validity | n/a | 100.0% (1,509 checked) |
+| Citation validity | n/a | 100.0% (1,456 checked) |
 | Unknown detection | n/a | 100.0% |
 | Refusal correctness | n/a | 100.0% |
 | Follow-up compliance | n/a | 100.0% |
 | Hallucinated-program rate | n/a | 0.0% (target 0%) |
-| Mean latency | 4ms | 86.7s (target <10s — missed) |
-| p95 latency | — | 137.6s |
-| Mean cost / report | $0 | $0.173 |
+| Mean latency | 2ms | 39.4s (target <10s — missed) |
+| p95 latency | — | 51.7s |
+| Mean cost / report | $0 | $0.107 |
 | Pipeline failures | — | 0/100 |
 
 **What the 100% figures do and do not mean.** Program precision/recall/
@@ -142,18 +146,21 @@ Every disagreement was adjudicated against direct corpus quotes
 
 ## Latency (honest status)
 
-Mean 86.7s per report, p95 137.6s, against a documented target of <10s —
-the target is missed, and not narrowly. Instrumentation shows essentially
-all of it is one monolithic model call producing a fully-cited multi-
+Mean 39.4s per report, p50 39.6s, p95 51.7s, worst case 56.5s, against a
+documented target of <10s — still missed, though the gap narrowed
+substantially after adopting reasoning-effort `low`. Instrumentation shows
+~95% of it is one monolithic model call producing a fully-cited multi-
 program report (retrieval, embedding, and assembly total ~3s). The <10s
 target is unreachable under this architecture regardless of tuning.
-Planned sequence: (1) a cheap reasoning-effort experiment on the report
-call, A/B'd against recorded runs; (2) if insufficient, per-program
-parallel explanation calls plus a short summary call, putting wall-clock
-near the slowest single program; (3) re-baseline the documented target on
-evidence (likely ~30s p95) with streaming/progress UI. Until then the
-intake UI sets expectations and the API route allows 120s (one observed
-worst case exceeded even that during evaluation).
+Sequence: (1) the reasoning-effort experiment shipped — `low` is now the
+default, cutting mean latency from 86.7s and p95 from 137.6s to the figures
+above at no measured quality loss; (2) if further reduction is needed,
+per-program parallel explanation calls plus a short summary call would put
+wall-clock near the slowest single program; (3) re-baseline the documented
+target on evidence (p95 now ~52s) with streaming/progress UI. The intake UI
+sets expectations and the API route allows 120s — the worst observed case
+(56.5s) now sits comfortably within it (the prior default-effort run had a
+287s outlier).
 
 ## Human quality rubric
 
