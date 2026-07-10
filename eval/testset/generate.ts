@@ -15,7 +15,6 @@ import { fileURLToPath } from "node:url";
 import { selectCandidates } from "@/lib/rules/engine";
 import {
   adlValues,
-  diagnosisCategoryValues,
   waCountyValues,
   type Adl,
   type Intake,
@@ -87,7 +86,19 @@ function baseIntake(): Intake {
     county: pick(waCountyValues),
     livingSituation: pick(["own_home", "family_home"] as const),
     adlsNeedingHelp: pickN(adlValues, int(1, 3)) as Adl[],
-    diagnosisCategory: pickN(diagnosisCategoryValues, int(0, 2)),
+    // Draw-count-preserving migration to the array schema: one PRNG draw over
+    // the original scalar set (matching the pre-migration generator), then wrap
+    // the result as an array so the rest of the seeded sequence is unchanged.
+    diagnosisCategory: ((): Intake["diagnosisCategory"] => {
+      const v = pick([
+        "dementia",
+        "parkinsons",
+        "stroke",
+        "heart_disease",
+        "none",
+      ] as const);
+      return v === "none" ? [] : [v];
+    })(),
     isVeteran: "no",
     maritalStatus: pick(["single", "married", "widowed", "divorced"] as const),
     monthlyIncomeBracket: pick(["under_1000", "1000_to_2999"] as const),

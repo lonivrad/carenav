@@ -17,7 +17,9 @@
           "eating",
           "dressing"
         ],
-        "diagnosisCategory": "dementia",
+        "diagnosisCategory": [
+          "dementia"
+        ],
         "isVeteran": "no",
         "maritalStatus": "single",
         "monthlyIncomeBracket": "under_1000",
@@ -74,7 +76,7 @@
           "toileting",
           "bathing"
         ],
-        "diagnosisCategory": "none",
+        "diagnosisCategory": [],
         "isVeteran": "no",
         "maritalStatus": "married",
         "monthlyIncomeBracket": "under_1000",
@@ -130,7 +132,9 @@
         "adlsNeedingHelp": [
           "toileting"
         ],
-        "diagnosisCategory": "stroke",
+        "diagnosisCategory": [
+          "stroke"
+        ],
         "isVeteran": "no",
         "maritalStatus": "married",
         "monthlyIncomeBracket": "1000_to_2999",
@@ -185,7 +189,9 @@
         "adlsNeedingHelp": [
           "transferring"
         ],
-        "diagnosisCategory": "dementia",
+        "diagnosisCategory": [
+          "dementia"
+        ],
         "isVeteran": "no",
         "maritalStatus": "divorced",
         "monthlyIncomeBracket": "1000_to_2999",
@@ -238,7 +244,9 @@
         "adlsNeedingHelp": [
           "transferring"
         ],
-        "diagnosisCategory": "stroke",
+        "diagnosisCategory": [
+          "stroke"
+        ],
         "isVeteran": "no",
         "maritalStatus": "single",
         "monthlyIncomeBracket": "under_1000",
@@ -296,7 +304,9 @@
           "bathing",
           "mobility"
         ],
-        "diagnosisCategory": "stroke",
+        "diagnosisCategory": [
+          "stroke"
+        ],
         "isVeteran": "no",
         "maritalStatus": "married",
         "monthlyIncomeBracket": "1000_to_2999",
@@ -351,7 +361,9 @@
           "transferring",
           "mobility"
         ],
-        "diagnosisCategory": "dementia",
+        "diagnosisCategory": [
+          "dementia"
+        ],
         "isVeteran": "no",
         "maritalStatus": "divorced",
         "monthlyIncomeBracket": "under_1000",
@@ -405,7 +417,7 @@
         "adlsNeedingHelp": [
           "dressing"
         ],
-        "diagnosisCategory": "none",
+        "diagnosisCategory": [],
         "isVeteran": "no",
         "maritalStatus": "married",
         "monthlyIncomeBracket": "1000_to_2999",
@@ -464,7 +476,7 @@
           "transferring",
           "mobility"
         ],
-        "diagnosisCategory": "none",
+        "diagnosisCategory": [],
         "isVeteran": "no",
         "maritalStatus": "single",
         "monthlyIncomeBracket": "under_1000",
@@ -521,7 +533,9 @@
           "dressing",
           "transferring"
         ],
-        "diagnosisCategory": "stroke",
+        "diagnosisCategory": [
+          "stroke"
+        ],
         "isVeteran": "no",
         "maritalStatus": "married",
         "monthlyIncomeBracket": "under_1000",
@@ -580,7 +594,9 @@
           "toileting",
           "transferring"
         ],
-        "diagnosisCategory": "stroke",
+        "diagnosisCategory": [
+          "stroke"
+        ],
         "isVeteran": "no",
         "maritalStatus": "married",
         "monthlyIncomeBracket": "under_1000",
@@ -637,7 +653,9 @@
           "eating",
           "bathing"
         ],
-        "diagnosisCategory": "stroke",
+        "diagnosisCategory": [
+          "stroke"
+        ],
         "isVeteran": "no",
         "maritalStatus": "widowed",
         "monthlyIncomeBracket": "under_1000",
@@ -692,7 +710,9 @@
           "eating",
           "toileting"
         ],
-        "diagnosisCategory": "dementia",
+        "diagnosisCategory": [
+          "dementia"
+        ],
         "isVeteran": "no",
         "maritalStatus": "divorced",
         "monthlyIncomeBracket": "1000_to_2999",
@@ -749,7 +769,7 @@
         "adlsNeedingHelp": [
           "toileting"
         ],
-        "diagnosisCategory": "none",
+        "diagnosisCategory": [],
         "isVeteran": "no",
         "maritalStatus": "married",
         "monthlyIncomeBracket": "under_1000",
@@ -805,7 +825,9 @@
           "mobility",
           "transferring"
         ],
-        "diagnosisCategory": "stroke",
+        "diagnosisCategory": [
+          "stroke"
+        ],
         "isVeteran": "no",
         "maritalStatus": "divorced",
         "monthlyIncomeBracket": "under_1000",
@@ -863,7 +885,9 @@
           "mobility",
           "toileting"
         ],
-        "diagnosisCategory": "heart_disease",
+        "diagnosisCategory": [
+          "heart_disease"
+        ],
         "isVeteran": "no",
         "maritalStatus": "divorced",
         "monthlyIncomeBracket": "under_1000",
@@ -918,7 +942,9 @@
           "transferring",
           "dressing"
         ],
-        "diagnosisCategory": "parkinsons",
+        "diagnosisCategory": [
+          "parkinsons"
+        ],
         "isVeteran": "no",
         "maritalStatus": "married",
         "monthlyIncomeBracket": "1000_to_2999",
@@ -977,7 +1003,7 @@
           "mobility",
           "toileting"
         ],
-        "diagnosisCategory": "none",
+        "diagnosisCategory": [],
         "isVeteran": "no",
         "maritalStatus": "married",
         "monthlyIncomeBracket": "under_1000",
@@ -1032,7 +1058,9 @@
         "adlsNeedingHelp": [
           "bathing"
         ],
-        "diagnosisCategory": "heart_disease",
+        "diagnosisCategory": [
+          "heart_disease"
+        ],
         "isVeteran": "no",
         "maritalStatus": "single",
         "monthlyIncomeBracket": "1000_to_2999",
@@ -1086,7 +1114,7 @@
           "mobility",
           "toileting"
         ],
-        "diagnosisCategory": "none",
+        "diagnosisCategory": [],
         "isVeteran": "no",
         "maritalStatus": "single",
         "monthlyIncomeBracket": "under_1000",
@@ -1140,7 +1168,9 @@
         "adlsNeedingHelp": [
           "mobility"
         ],
-        "diagnosisCategory": "heart_disease",
+        "diagnosisCategory": [
+          "heart_disease"
+        ],
         "isVeteran": "yes",
         "maritalStatus": "divorced",
         "monthlyIncomeBracket": "under_1000",
@@ -1199,7 +1229,7 @@
           "mobility",
           "toileting"
         ],
-        "diagnosisCategory": "none",
+        "diagnosisCategory": [],
         "isVeteran": "yes",
         "maritalStatus": "single",
         "monthlyIncomeBracket": "1000_to_2999",
@@ -1259,7 +1289,9 @@
           "toileting",
           "mobility"
         ],
-        "diagnosisCategory": "heart_disease",
+        "diagnosisCategory": [
+          "heart_disease"
+        ],
         "isVeteran": "yes",
         "maritalStatus": "divorced",
         "monthlyIncomeBracket": "under_1000",
@@ -1319,7 +1351,9 @@
           "dressing",
           "mobility"
         ],
-        "diagnosisCategory": "heart_disease",
+        "diagnosisCategory": [
+          "heart_disease"
+        ],
         "isVeteran": "yes",
         "maritalStatus": "married",
         "monthlyIncomeBracket": "under_1000",
@@ -1381,7 +1415,9 @@
           "bathing",
           "transferring"
         ],
-        "diagnosisCategory": "heart_disease",
+        "diagnosisCategory": [
+          "heart_disease"
+        ],
         "isVeteran": "yes",
         "maritalStatus": "single",
         "monthlyIncomeBracket": "1000_to_2999",
@@ -1440,7 +1476,9 @@
           "mobility",
           "bathing"
         ],
-        "diagnosisCategory": "parkinsons",
+        "diagnosisCategory": [
+          "parkinsons"
+        ],
         "isVeteran": "yes",
         "maritalStatus": "single",
         "monthlyIncomeBracket": "under_1000",
@@ -1498,7 +1536,7 @@
           "eating",
           "bathing"
         ],
-        "diagnosisCategory": "none",
+        "diagnosisCategory": [],
         "isVeteran": "yes",
         "maritalStatus": "single",
         "monthlyIncomeBracket": "under_1000",
@@ -1558,7 +1596,9 @@
           "transferring",
           "toileting"
         ],
-        "diagnosisCategory": "parkinsons",
+        "diagnosisCategory": [
+          "parkinsons"
+        ],
         "isVeteran": "yes",
         "maritalStatus": "single",
         "monthlyIncomeBracket": "1000_to_2999",
@@ -1617,7 +1657,9 @@
           "eating",
           "dressing"
         ],
-        "diagnosisCategory": "stroke",
+        "diagnosisCategory": [
+          "stroke"
+        ],
         "isVeteran": "yes",
         "maritalStatus": "married",
         "monthlyIncomeBracket": "1000_to_2999",
@@ -1681,7 +1723,9 @@
           "toileting",
           "eating"
         ],
-        "diagnosisCategory": "heart_disease",
+        "diagnosisCategory": [
+          "heart_disease"
+        ],
         "isVeteran": "yes",
         "maritalStatus": "single",
         "monthlyIncomeBracket": "under_1000",
@@ -1738,7 +1782,9 @@
         "adlsNeedingHelp": [
           "eating"
         ],
-        "diagnosisCategory": "stroke",
+        "diagnosisCategory": [
+          "stroke"
+        ],
         "isVeteran": "yes",
         "maritalStatus": "married",
         "monthlyIncomeBracket": "under_1000",
@@ -1798,7 +1844,9 @@
           "toileting",
           "dressing"
         ],
-        "diagnosisCategory": "stroke",
+        "diagnosisCategory": [
+          "stroke"
+        ],
         "isVeteran": "yes",
         "maritalStatus": "single",
         "monthlyIncomeBracket": "1000_to_2999",
@@ -1854,7 +1902,7 @@
         "adlsNeedingHelp": [
           "transferring"
         ],
-        "diagnosisCategory": "none",
+        "diagnosisCategory": [],
         "isVeteran": "yes",
         "maritalStatus": "married",
         "monthlyIncomeBracket": "under_1000",
@@ -1914,7 +1962,9 @@
         "adlsNeedingHelp": [
           "toileting"
         ],
-        "diagnosisCategory": "parkinsons",
+        "diagnosisCategory": [
+          "parkinsons"
+        ],
         "isVeteran": "yes",
         "maritalStatus": "single",
         "monthlyIncomeBracket": "1000_to_2999",
@@ -1975,7 +2025,9 @@
         "adlsNeedingHelp": [
           "mobility"
         ],
-        "diagnosisCategory": "heart_disease",
+        "diagnosisCategory": [
+          "heart_disease"
+        ],
         "isVeteran": "yes",
         "maritalStatus": "divorced",
         "monthlyIncomeBracket": "1000_to_2999",
@@ -2032,7 +2084,9 @@
         "adlsNeedingHelp": [
           "dressing"
         ],
-        "diagnosisCategory": "parkinsons",
+        "diagnosisCategory": [
+          "parkinsons"
+        ],
         "isVeteran": "yes",
         "maritalStatus": "divorced",
         "monthlyIncomeBracket": "under_1000",
@@ -2090,7 +2144,9 @@
           "bathing",
           "toileting"
         ],
-        "diagnosisCategory": "dementia",
+        "diagnosisCategory": [
+          "dementia"
+        ],
         "isVeteran": "yes",
         "maritalStatus": "single",
         "monthlyIncomeBracket": "1000_to_2999",
@@ -2152,7 +2208,7 @@
         "adlsNeedingHelp": [
           "transferring"
         ],
-        "diagnosisCategory": "none",
+        "diagnosisCategory": [],
         "isVeteran": "yes",
         "maritalStatus": "divorced",
         "monthlyIncomeBracket": "1000_to_2999",
@@ -2209,7 +2265,7 @@
           "dressing",
           "toileting"
         ],
-        "diagnosisCategory": "none",
+        "diagnosisCategory": [],
         "isVeteran": "yes",
         "maritalStatus": "single",
         "monthlyIncomeBracket": "1000_to_2999",
@@ -2270,7 +2326,9 @@
           "bathing",
           "eating"
         ],
-        "diagnosisCategory": "dementia",
+        "diagnosisCategory": [
+          "dementia"
+        ],
         "isVeteran": "yes",
         "maritalStatus": "widowed",
         "monthlyIncomeBracket": "1000_to_2999",
@@ -2326,7 +2384,9 @@
         "adlsNeedingHelp": [
           "bathing"
         ],
-        "diagnosisCategory": "dementia",
+        "diagnosisCategory": [
+          "dementia"
+        ],
         "isVeteran": "no",
         "maritalStatus": "married",
         "monthlyIncomeBracket": "3000_to_3999",
@@ -2383,7 +2443,9 @@
           "transferring",
           "dressing"
         ],
-        "diagnosisCategory": "dementia",
+        "diagnosisCategory": [
+          "dementia"
+        ],
         "isVeteran": "no",
         "maritalStatus": "single",
         "monthlyIncomeBracket": "under_1000",
@@ -2438,7 +2500,9 @@
           "eating",
           "toileting"
         ],
-        "diagnosisCategory": "dementia",
+        "diagnosisCategory": [
+          "dementia"
+        ],
         "isVeteran": "no",
         "maritalStatus": "married",
         "monthlyIncomeBracket": "1000_to_2999",
@@ -2497,7 +2561,9 @@
           "mobility",
           "transferring"
         ],
-        "diagnosisCategory": "heart_disease",
+        "diagnosisCategory": [
+          "heart_disease"
+        ],
         "isVeteran": "no",
         "maritalStatus": "widowed",
         "monthlyIncomeBracket": "under_1000",
@@ -2554,7 +2620,9 @@
           "eating",
           "dressing"
         ],
-        "diagnosisCategory": "dementia",
+        "diagnosisCategory": [
+          "dementia"
+        ],
         "isVeteran": "no",
         "maritalStatus": "married",
         "monthlyIncomeBracket": "1000_to_2999",
@@ -2613,7 +2681,9 @@
           "dressing",
           "toileting"
         ],
-        "diagnosisCategory": "heart_disease",
+        "diagnosisCategory": [
+          "heart_disease"
+        ],
         "isVeteran": "no",
         "maritalStatus": "single",
         "monthlyIncomeBracket": "3000_to_3999",
@@ -2668,7 +2738,9 @@
           "toileting",
           "transferring"
         ],
-        "diagnosisCategory": "dementia",
+        "diagnosisCategory": [
+          "dementia"
+        ],
         "isVeteran": "no",
         "maritalStatus": "married",
         "monthlyIncomeBracket": "1000_to_2999",
@@ -2728,7 +2800,9 @@
           "mobility",
           "toileting"
         ],
-        "diagnosisCategory": "dementia",
+        "diagnosisCategory": [
+          "dementia"
+        ],
         "isVeteran": "no",
         "maritalStatus": "widowed",
         "monthlyIncomeBracket": "prefer_not_to_say",
@@ -2786,7 +2860,7 @@
           "mobility",
           "toileting"
         ],
-        "diagnosisCategory": "none",
+        "diagnosisCategory": [],
         "isVeteran": "no",
         "maritalStatus": "married",
         "monthlyIncomeBracket": "3000_to_3999",
@@ -2843,7 +2917,9 @@
         "adlsNeedingHelp": [
           "toileting"
         ],
-        "diagnosisCategory": "stroke",
+        "diagnosisCategory": [
+          "stroke"
+        ],
         "isVeteran": "no",
         "maritalStatus": "single",
         "monthlyIncomeBracket": "1000_to_2999",
@@ -2896,7 +2972,9 @@
         "adlsNeedingHelp": [
           "mobility"
         ],
-        "diagnosisCategory": "heart_disease",
+        "diagnosisCategory": [
+          "heart_disease"
+        ],
         "isVeteran": "no",
         "maritalStatus": "married",
         "monthlyIncomeBracket": "3000_to_3999",
@@ -2952,7 +3030,9 @@
           "bathing",
           "dressing"
         ],
-        "diagnosisCategory": "parkinsons",
+        "diagnosisCategory": [
+          "parkinsons"
+        ],
         "isVeteran": "no",
         "maritalStatus": "single",
         "monthlyIncomeBracket": "1000_to_2999",
@@ -3008,7 +3088,9 @@
           "bathing",
           "dressing"
         ],
-        "diagnosisCategory": "heart_disease",
+        "diagnosisCategory": [
+          "heart_disease"
+        ],
         "isVeteran": "no",
         "maritalStatus": "married",
         "monthlyIncomeBracket": "1000_to_2999",
@@ -3064,7 +3146,9 @@
         "adlsNeedingHelp": [
           "dressing"
         ],
-        "diagnosisCategory": "parkinsons",
+        "diagnosisCategory": [
+          "parkinsons"
+        ],
         "isVeteran": "no",
         "maritalStatus": "single",
         "monthlyIncomeBracket": "1000_to_2999",
@@ -3117,7 +3201,7 @@
         "adlsNeedingHelp": [
           "transferring"
         ],
-        "diagnosisCategory": "none",
+        "diagnosisCategory": [],
         "isVeteran": "no",
         "maritalStatus": "married",
         "monthlyIncomeBracket": "under_1000",
@@ -3173,7 +3257,9 @@
         "adlsNeedingHelp": [
           "mobility"
         ],
-        "diagnosisCategory": "dementia",
+        "diagnosisCategory": [
+          "dementia"
+        ],
         "isVeteran": "no",
         "maritalStatus": "widowed",
         "monthlyIncomeBracket": "3000_to_3999",
@@ -3229,7 +3315,9 @@
           "dressing",
           "mobility"
         ],
-        "diagnosisCategory": "dementia",
+        "diagnosisCategory": [
+          "dementia"
+        ],
         "isVeteran": "no",
         "maritalStatus": "married",
         "monthlyIncomeBracket": "under_1000",
@@ -3287,7 +3375,9 @@
           "toileting",
           "dressing"
         ],
-        "diagnosisCategory": "stroke",
+        "diagnosisCategory": [
+          "stroke"
+        ],
         "isVeteran": "no",
         "maritalStatus": "divorced",
         "monthlyIncomeBracket": "prefer_not_to_say",
@@ -3343,7 +3433,9 @@
           "bathing",
           "toileting"
         ],
-        "diagnosisCategory": "parkinsons",
+        "diagnosisCategory": [
+          "parkinsons"
+        ],
         "isVeteran": "no",
         "maritalStatus": "married",
         "monthlyIncomeBracket": "1000_to_2999",
@@ -3401,7 +3493,9 @@
           "toileting",
           "transferring"
         ],
-        "diagnosisCategory": "parkinsons",
+        "diagnosisCategory": [
+          "parkinsons"
+        ],
         "isVeteran": "no",
         "maritalStatus": "widowed",
         "monthlyIncomeBracket": "3000_to_3999",
@@ -3455,7 +3549,9 @@
           "mobility",
           "toileting"
         ],
-        "diagnosisCategory": "stroke",
+        "diagnosisCategory": [
+          "stroke"
+        ],
         "isVeteran": "no",
         "maritalStatus": "single",
         "monthlyIncomeBracket": "4000_or_more",
@@ -3509,7 +3605,9 @@
           "toileting",
           "mobility"
         ],
-        "diagnosisCategory": "stroke",
+        "diagnosisCategory": [
+          "stroke"
+        ],
         "isVeteran": "no",
         "maritalStatus": "widowed",
         "monthlyIncomeBracket": "4000_or_more",
@@ -3562,7 +3660,9 @@
         "adlsNeedingHelp": [
           "transferring"
         ],
-        "diagnosisCategory": "stroke",
+        "diagnosisCategory": [
+          "stroke"
+        ],
         "isVeteran": "no",
         "maritalStatus": "divorced",
         "monthlyIncomeBracket": "4000_or_more",
@@ -3617,7 +3717,7 @@
           "eating",
           "bathing"
         ],
-        "diagnosisCategory": "none",
+        "diagnosisCategory": [],
         "isVeteran": "no",
         "maritalStatus": "widowed",
         "monthlyIncomeBracket": "3000_to_3999",
@@ -3672,7 +3772,9 @@
           "eating",
           "toileting"
         ],
-        "diagnosisCategory": "heart_disease",
+        "diagnosisCategory": [
+          "heart_disease"
+        ],
         "isVeteran": "yes",
         "maritalStatus": "divorced",
         "monthlyIncomeBracket": "3000_to_3999",
@@ -3729,7 +3831,9 @@
           "transferring",
           "dressing"
         ],
-        "diagnosisCategory": "heart_disease",
+        "diagnosisCategory": [
+          "heart_disease"
+        ],
         "isVeteran": "no",
         "maritalStatus": "widowed",
         "monthlyIncomeBracket": "4000_or_more",
@@ -3784,7 +3888,9 @@
           "transferring",
           "dressing"
         ],
-        "diagnosisCategory": "stroke",
+        "diagnosisCategory": [
+          "stroke"
+        ],
         "isVeteran": "no",
         "maritalStatus": "married",
         "monthlyIncomeBracket": "3000_to_3999",
@@ -3842,7 +3948,9 @@
           "dressing",
           "toileting"
         ],
-        "diagnosisCategory": "stroke",
+        "diagnosisCategory": [
+          "stroke"
+        ],
         "isVeteran": "no",
         "maritalStatus": "married",
         "monthlyIncomeBracket": "4000_or_more",
@@ -3899,7 +4007,9 @@
           "transferring",
           "mobility"
         ],
-        "diagnosisCategory": "dementia",
+        "diagnosisCategory": [
+          "dementia"
+        ],
         "isVeteran": "no",
         "maritalStatus": "single",
         "monthlyIncomeBracket": "4000_or_more",
@@ -3952,7 +4062,7 @@
           "bathing",
           "eating"
         ],
-        "diagnosisCategory": "none",
+        "diagnosisCategory": [],
         "isVeteran": "yes",
         "maritalStatus": "divorced",
         "monthlyIncomeBracket": "3000_to_3999",
@@ -4012,7 +4122,9 @@
           "eating",
           "mobility"
         ],
-        "diagnosisCategory": "parkinsons",
+        "diagnosisCategory": [
+          "parkinsons"
+        ],
         "isVeteran": "no",
         "maritalStatus": "divorced",
         "monthlyIncomeBracket": "4000_or_more",
@@ -4065,7 +4177,9 @@
           "bathing",
           "transferring"
         ],
-        "diagnosisCategory": "heart_disease",
+        "diagnosisCategory": [
+          "heart_disease"
+        ],
         "isVeteran": "no",
         "maritalStatus": "single",
         "monthlyIncomeBracket": "3000_to_3999",
@@ -4118,7 +4232,9 @@
         "adlsNeedingHelp": [
           "dressing"
         ],
-        "diagnosisCategory": "parkinsons",
+        "diagnosisCategory": [
+          "parkinsons"
+        ],
         "isVeteran": "no",
         "maritalStatus": "married",
         "monthlyIncomeBracket": "4000_or_more",
@@ -4176,7 +4292,9 @@
           "dressing",
           "mobility"
         ],
-        "diagnosisCategory": "parkinsons",
+        "diagnosisCategory": [
+          "parkinsons"
+        ],
         "isVeteran": "no",
         "maritalStatus": "single",
         "monthlyIncomeBracket": "3000_to_3999",
@@ -4231,7 +4349,9 @@
           "eating",
           "dressing"
         ],
-        "diagnosisCategory": "dementia",
+        "diagnosisCategory": [
+          "dementia"
+        ],
         "isVeteran": "yes",
         "maritalStatus": "single",
         "monthlyIncomeBracket": "3000_to_3999",
@@ -4288,7 +4408,7 @@
         "adlsNeedingHelp": [
           "transferring"
         ],
-        "diagnosisCategory": "none",
+        "diagnosisCategory": [],
         "isVeteran": "no",
         "maritalStatus": "married",
         "monthlyIncomeBracket": "4000_or_more",
@@ -4345,7 +4465,9 @@
         "adlsNeedingHelp": [
           "toileting"
         ],
-        "diagnosisCategory": "parkinsons",
+        "diagnosisCategory": [
+          "parkinsons"
+        ],
         "isVeteran": "no",
         "maritalStatus": "single",
         "monthlyIncomeBracket": "4000_or_more",
@@ -4399,7 +4521,9 @@
           "toileting",
           "bathing"
         ],
-        "diagnosisCategory": "dementia",
+        "diagnosisCategory": [
+          "dementia"
+        ],
         "isVeteran": "no",
         "maritalStatus": "divorced",
         "monthlyIncomeBracket": "3000_to_3999",
@@ -4455,7 +4579,7 @@
           "transferring",
           "toileting"
         ],
-        "diagnosisCategory": "none",
+        "diagnosisCategory": [],
         "isVeteran": "no",
         "maritalStatus": "single",
         "monthlyIncomeBracket": "3000_to_3999",
@@ -4507,7 +4631,9 @@
         "adlsNeedingHelp": [
           "bathing"
         ],
-        "diagnosisCategory": "dementia",
+        "diagnosisCategory": [
+          "dementia"
+        ],
         "isVeteran": "yes",
         "maritalStatus": "divorced",
         "monthlyIncomeBracket": "4000_or_more",
@@ -4627,7 +4753,9 @@
           "transferring",
           "eating"
         ],
-        "diagnosisCategory": "dementia",
+        "diagnosisCategory": [
+          "dementia"
+        ],
         "isVeteran": "no",
         "maritalStatus": "widowed",
         "monthlyIncomeBracket": "prefer_not_to_say",
@@ -4681,7 +4809,9 @@
         "county": "Clallam",
         "livingSituation": "nursing_facility",
         "adlsNeedingHelp": [],
-        "diagnosisCategory": "dementia",
+        "diagnosisCategory": [
+          "dementia"
+        ],
         "isVeteran": "no",
         "maritalStatus": "single",
         "monthlyIncomeBracket": "under_1000",
@@ -4735,7 +4865,7 @@
         "adlsNeedingHelp": [
           "dressing"
         ],
-        "diagnosisCategory": "none",
+        "diagnosisCategory": [],
         "isVeteran": "no",
         "maritalStatus": "single",
         "monthlyIncomeBracket": "under_1000",
@@ -4792,7 +4922,9 @@
           "toileting",
           "mobility"
         ],
-        "diagnosisCategory": "parkinsons",
+        "diagnosisCategory": [
+          "parkinsons"
+        ],
         "isVeteran": "no",
         "maritalStatus": "widowed",
         "monthlyIncomeBracket": "1000_to_2999",
@@ -4849,7 +4981,9 @@
         "adlsNeedingHelp": [
           "toileting"
         ],
-        "diagnosisCategory": "dementia",
+        "diagnosisCategory": [
+          "dementia"
+        ],
         "isVeteran": "no",
         "maritalStatus": "married",
         "monthlyIncomeBracket": "under_1000",
@@ -4906,7 +5040,9 @@
         "adlsNeedingHelp": [
           "mobility"
         ],
-        "diagnosisCategory": "heart_disease",
+        "diagnosisCategory": [
+          "heart_disease"
+        ],
         "isVeteran": "no",
         "maritalStatus": "married",
         "monthlyIncomeBracket": "1000_to_2999",
@@ -4961,7 +5097,7 @@
         "county": "Okanogan",
         "livingSituation": "own_home",
         "adlsNeedingHelp": "prefer_not_to_say",
-        "diagnosisCategory": "none",
+        "diagnosisCategory": [],
         "isVeteran": "no",
         "maritalStatus": "unknown",
         "monthlyIncomeBracket": "prefer_not_to_say",
@@ -5016,7 +5152,9 @@
         "county": "prefer_not_to_say",
         "livingSituation": "unknown",
         "adlsNeedingHelp": "unknown",
-        "diagnosisCategory": "stroke",
+        "diagnosisCategory": [
+          "stroke"
+        ],
         "isVeteran": "no",
         "maritalStatus": "prefer_not_to_say",
         "monthlyIncomeBracket": "prefer_not_to_say",
@@ -5075,7 +5213,7 @@
           "toileting",
           "eating"
         ],
-        "diagnosisCategory": "none",
+        "diagnosisCategory": [],
         "isVeteran": "unknown",
         "maritalStatus": "unknown",
         "monthlyIncomeBracket": "prefer_not_to_say",
@@ -5141,7 +5279,9 @@
           "transferring",
           "mobility"
         ],
-        "diagnosisCategory": "dementia",
+        "diagnosisCategory": [
+          "dementia"
+        ],
         "isVeteran": "unknown",
         "maritalStatus": "unknown",
         "monthlyIncomeBracket": "unknown",
@@ -5203,7 +5343,9 @@
           "dressing",
           "eating"
         ],
-        "diagnosisCategory": "heart_disease",
+        "diagnosisCategory": [
+          "heart_disease"
+        ],
         "isVeteran": "no",
         "maritalStatus": "unknown",
         "monthlyIncomeBracket": "prefer_not_to_say",
@@ -5261,7 +5403,9 @@
           "bathing",
           "toileting"
         ],
-        "diagnosisCategory": "parkinsons",
+        "diagnosisCategory": [
+          "parkinsons"
+        ],
         "isVeteran": "prefer_not_to_say",
         "maritalStatus": "prefer_not_to_say",
         "monthlyIncomeBracket": "1000_to_2999",
@@ -5319,7 +5463,9 @@
         "county": "unknown",
         "livingSituation": "prefer_not_to_say",
         "adlsNeedingHelp": "prefer_not_to_say",
-        "diagnosisCategory": "parkinsons",
+        "diagnosisCategory": [
+          "parkinsons"
+        ],
         "isVeteran": "prefer_not_to_say",
         "maritalStatus": "single",
         "monthlyIncomeBracket": "unknown",
@@ -5377,7 +5523,9 @@
         "county": "prefer_not_to_say",
         "livingSituation": "unknown",
         "adlsNeedingHelp": "unknown",
-        "diagnosisCategory": "parkinsons",
+        "diagnosisCategory": [
+          "parkinsons"
+        ],
         "isVeteran": "no",
         "maritalStatus": "widowed",
         "monthlyIncomeBracket": "unknown",
@@ -5432,7 +5580,9 @@
         "county": "unknown",
         "livingSituation": "unknown",
         "adlsNeedingHelp": "unknown",
-        "diagnosisCategory": "stroke",
+        "diagnosisCategory": [
+          "stroke"
+        ],
         "isVeteran": "no",
         "maritalStatus": "prefer_not_to_say",
         "monthlyIncomeBracket": "prefer_not_to_say",
@@ -5490,7 +5640,9 @@
           "transferring",
           "dressing"
         ],
-        "diagnosisCategory": "dementia",
+        "diagnosisCategory": [
+          "dementia"
+        ],
         "isVeteran": "unknown",
         "maritalStatus": "unknown",
         "monthlyIncomeBracket": "under_1000",
@@ -5547,7 +5699,7 @@
         "county": "prefer_not_to_say",
         "livingSituation": "prefer_not_to_say",
         "adlsNeedingHelp": "unknown",
-        "diagnosisCategory": "none",
+        "diagnosisCategory": [],
         "isVeteran": "unknown",
         "maritalStatus": "widowed",
         "monthlyIncomeBracket": "1000_to_2999",
@@ -5609,7 +5761,7 @@
           "eating",
           "bathing"
         ],
-        "diagnosisCategory": "none",
+        "diagnosisCategory": [],
         "isVeteran": "prefer_not_to_say",
         "maritalStatus": "divorced",
         "monthlyIncomeBracket": "unknown",
@@ -5669,7 +5821,9 @@
           "mobility",
           "eating"
         ],
-        "diagnosisCategory": "heart_disease",
+        "diagnosisCategory": [
+          "heart_disease"
+        ],
         "isVeteran": "no",
         "maritalStatus": "prefer_not_to_say",
         "monthlyIncomeBracket": "under_1000",
