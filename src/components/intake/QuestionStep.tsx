@@ -12,9 +12,9 @@ export interface QuestionStepProps {
 }
 
 const btnBase =
-  "block w-full rounded border px-4 py-3 text-left transition-colors";
-const btnOff = "border-neutral-300 hover:border-neutral-500";
-const btnOn = "border-neutral-900 bg-neutral-900 text-white";
+  "block w-full rounded border px-4 py-3 text-left transition-colors duration-[var(--duration-nav)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
+const btnOff = "border-neutral-400 hover:border-accent";
+const btnOn = "border-accent bg-accent text-text-on-dark";
 
 function ChoiceButton({
   selected,
@@ -60,7 +60,7 @@ export function QuestionStep({ question, value, onChange }: QuestionStepProps) {
     <fieldset data-question={question.id}>
       <legend className="text-xl font-medium">{question.prompt}</legend>
       {question.help && (
-        <p className="mt-2 text-sm text-neutral-500">{question.help}</p>
+        <p className="mt-2 text-sm text-neutral-600">{question.help}</p>
       )}
 
       <div className="mt-4 space-y-2">
@@ -77,7 +77,7 @@ export function QuestionStep({ question, value, onChange }: QuestionStepProps) {
               const n = e.target.valueAsNumber;
               onChange(Number.isNaN(n) ? undefined : n);
             }}
-            className="w-40 rounded border border-neutral-300 px-4 py-3"
+            className="w-40 rounded border border-neutral-400 px-4 py-3 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           />
         )}
 
@@ -86,7 +86,7 @@ export function QuestionStep({ question, value, onChange }: QuestionStepProps) {
             aria-label={question.prompt}
             value={typeof value === "string" && !declined ? value : ""}
             onChange={(e) => onChange(e.target.value as Answer)}
-            className="w-full rounded border border-neutral-300 px-4 py-3"
+            className="w-full rounded border border-neutral-400 px-4 py-3 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             <option value="" disabled>
               Select…

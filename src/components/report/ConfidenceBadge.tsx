@@ -33,7 +33,7 @@ const EXPLANATIONS: Record<Confidence, string> = {
 export function ConfidenceBadge({ confidence }: ConfidenceBadgeProps) {
   return (
     <span
-      className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium ${STYLES[confidence]}`}
+      className={`inline-flex shrink-0 items-center rounded-pill border px-3 py-1 text-xs font-semibold ${STYLES[confidence]}`}
       title={EXPLANATIONS[confidence]}
     >
       {LABELS[confidence]}

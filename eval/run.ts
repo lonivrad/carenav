@@ -68,13 +68,8 @@ export function buildBaselineQuery(intake: Intake): string {
     terms.push(intake.county);
   }
   if (intake.isVeteran === "yes") terms.push("veteran");
-  if (
-    intake.diagnosisCategory &&
-    intake.diagnosisCategory !== "none" &&
-    intake.diagnosisCategory !== "unknown" &&
-    intake.diagnosisCategory !== "prefer_not_to_say"
-  ) {
-    terms.push(intake.diagnosisCategory.replace(/_/g, " "));
+  if (Array.isArray(intake.diagnosisCategory)) {
+    for (const d of intake.diagnosisCategory) terms.push(d.replace(/_/g, " "));
   }
   if (Array.isArray(intake.adlsNeedingHelp) && intake.adlsNeedingHelp.length > 0) {
     terms.push("help", intake.adlsNeedingHelp[0]);

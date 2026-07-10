@@ -21,7 +21,7 @@ const veteranProfile: Profile = {
   livingSituation: "own_home",
   adlsNeedingHelp: ["bathing", "dressing", "mobility"],
   adlHelpCount: 3,
-  diagnosisCategory: "parkinsons",
+  diagnosisCategory: ["parkinsons"],
   veteran: { isVeteran: true, serviceEra: "vietnam", dischargeType: "honorable" },
   maritalStatus: "widowed",
   monthlyIncomeBracket: "1000_to_2999",

@@ -117,7 +117,7 @@ export function IntakeFlow() {
           <button
             type="button"
             onClick={() => setPhase("review")}
-            className="mt-4 rounded border border-neutral-300 px-4 py-2"
+            className="mt-4 rounded-cta border border-neutral-400 px-4 py-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
             Back to review
           </button>
@@ -152,7 +152,7 @@ export function IntakeFlow() {
           type="button"
           onClick={goBack}
           disabled={index === 0}
-          className="rounded border border-neutral-300 px-4 py-2 disabled:opacity-40"
+          className="rounded-cta border border-neutral-400 px-4 py-3 text-text-body focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:opacity-40"
         >
           Back
         </button>
@@ -160,7 +160,7 @@ export function IntakeFlow() {
           type="button"
           onClick={goNext}
           disabled={!answered}
-          className="rounded bg-neutral-900 px-6 py-2 text-white disabled:opacity-40"
+          className="rounded-cta bg-accent px-6 py-3 font-semibold text-text-on-dark transition-colors duration-[var(--duration-nav)] hover:bg-accent-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:opacity-40"
         >
           {index + 1 === questions.length ? "Review answers" : "Next"}
         </button>

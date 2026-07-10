@@ -77,8 +77,12 @@ export function describeProfile(profile: Profile): string {
   if (profile.adlsNeedingHelp !== "unknown" && profile.adlsNeedingHelp.length > 0) {
     parts.push(`needing help with ${profile.adlsNeedingHelp.join(", ")}`);
   }
-  if (profile.diagnosisCategory !== "unknown" && profile.diagnosisCategory !== "none") {
-    parts.push(`diagnosed with ${profile.diagnosisCategory.replace(/_/g, " ")}`);
+  if (profile.diagnosisCategory !== "unknown" && profile.diagnosisCategory.length > 0) {
+    parts.push(
+      `diagnosed with ${profile.diagnosisCategory
+        .map((d) => d.replace(/_/g, " "))
+        .join(", ")}`,
+    );
   }
   if (profile.veteran.isVeteran === true) {
     const era =

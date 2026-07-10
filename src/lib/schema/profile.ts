@@ -35,7 +35,8 @@ export const profileSchema = z.object({
   adlsNeedingHelp: unknownable(z.array(z.enum(adlValues))),
   /** Derived from adlsNeedingHelp; "unknown" exactly when the list is unknown. */
   adlHelpCount: unknownable(z.number().int().min(0).max(adlValues.length)),
-  diagnosisCategory: unknownable(z.enum(diagnosisCategoryValues)),
+  /** Empty array means no listed diagnosis (a known answer). */
+  diagnosisCategory: unknownable(z.array(z.enum(diagnosisCategoryValues))),
   veteran: z.object({
     isVeteran: unknownable(z.boolean()),
     serviceEra: unknownableOrNa(z.enum(serviceEraValues)),

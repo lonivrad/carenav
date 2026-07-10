@@ -11,7 +11,7 @@ const baseProfile: Profile = {
   livingSituation: "own_home",
   adlsNeedingHelp: ["bathing", "dressing", "transferring"],
   adlHelpCount: 3,
-  diagnosisCategory: "dementia",
+  diagnosisCategory: ["dementia"],
   veteran: { isVeteran: true, serviceEra: "vietnam", dischargeType: "honorable" },
   maritalStatus: "married",
   monthlyIncomeBracket: "1000_to_2999",

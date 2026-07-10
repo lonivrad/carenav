@@ -22,7 +22,7 @@ export function ReviewScreen({
   return (
     <section>
       <h2 className="text-xl font-medium">Review your answers</h2>
-      <p className="mt-2 text-sm text-neutral-500">
+      <p className="mt-2 text-sm text-neutral-600">
         Check everything before submitting. Answers marked “I don’t know” or
         “Prefer not to say” are kept as unknowns — the screening never fills
         in a guess.
@@ -32,13 +32,13 @@ export function ReviewScreen({
         {questions.map((q) => (
           <div key={q.id} className="flex items-start gap-4 py-3">
             <div className="flex-1">
-              <dt className="text-sm text-neutral-500">{q.prompt}</dt>
+              <dt className="text-sm text-neutral-600">{q.prompt}</dt>
               <dd className="mt-0.5">{formatAnswer(answers[q.id])}</dd>
             </div>
             <button
               type="button"
               onClick={() => onEdit(q.id)}
-              className="text-sm underline"
+              className="text-sm font-medium text-accent underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
             >
               Edit
             </button>
@@ -50,12 +50,12 @@ export function ReviewScreen({
         type="button"
         onClick={onSubmit}
         disabled={submitting}
-        className="mt-8 rounded bg-neutral-900 px-6 py-3 text-white disabled:opacity-50"
+        className="mt-8 rounded-cta bg-accent px-6 py-3 font-semibold text-text-on-dark transition-colors duration-[var(--duration-nav)] hover:bg-accent-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:opacity-50"
       >
         {submitting ? "Generating your report…" : "Submit answers"}
       </button>
       {submitting && (
-        <p className="mt-2 text-sm text-neutral-500">
+        <p className="mt-2 text-sm text-neutral-600">
           This can take up to a couple of minutes.
         </p>
       )}

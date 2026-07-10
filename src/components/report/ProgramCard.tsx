@@ -1,92 +1,124 @@
-"use client";
-
-import { useState } from "react";
-
 import type { ProgramEntry } from "@/lib/schema/report";
 import { ConfidenceBadge } from "@/components/report/ConfidenceBadge";
 import { CitationLink } from "@/components/report/CitationLink";
 import { NextSteps } from "@/components/report/NextSteps";
+import { sourceLabel, stripChunkIds } from "@/components/report/format";
 
 export interface ProgramCardProps {
   entry: ProgramEntry;
 }
 
+const summaryClass =
+  "flex cursor-pointer list-none items-center gap-1.5 rounded-cta py-1 text-sm font-medium text-accent hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent [&::-webkit-details-marker]:hidden";
+
+const caret = (
+  <span
+    aria-hidden
+    className="text-xs text-accent-secondary transition-transform group-open:rotate-90"
+  >
+    ▸
+  </span>
+);
+
 /** One program that appears worth investigating. Never asserts eligibility. */
 export function ProgramCard({ entry }: ProgramCardProps) {
-  const [expanded, setExpanded] = useState(false);
   const sourcesAnchor = `sources-${entry.programId}`;
 
   return (
-    <article className="rounded border border-neutral-200 p-5">
-      <div className="flex items-start justify-between gap-4">
-        <h3 className="text-lg font-medium">{entry.programName}</h3>
+    <article
+      id={`program-${entry.programId}`}
+      className="flex h-full scroll-mt-8 flex-col rounded-cta border border-neutral-200 p-5"
+    >
+      <div className="flex items-start justify-between gap-3">
+        <h3 className="text-lg font-semibold text-accent">{entry.programName}</h3>
         <ConfidenceBadge confidence={entry.relevanceLabel} />
       </div>
 
       {entry.status === "unverified" && (
-        <p className="mt-2 text-sm text-neutral-500">
-          We could not verify current details for this program from our
-          sources — treat this entry as a starting point for your own
-          research, not a confirmed match.
+        <p className="mt-2 text-sm text-amber-800">
+          We could not verify current details for this program from our sources —
+          treat this as a starting point for your own research, not a confirmed
+          match.
         </p>
       )}
 
-      <p className="mt-3 text-neutral-800">{entry.whyThisMayApply}</p>
-
-      {entry.whatItCovers.length > 0 && (
-        <button
-          type="button"
-          onClick={() => setExpanded((v) => !v)}
-          className="mt-3 text-sm font-medium text-blue-700 hover:underline"
-        >
-          {expanded ? "Hide" : "Show"} what it generally covers
-        </button>
-      )}
-
-      {expanded && entry.whatItCovers.length > 0 && (
-        <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-neutral-700">
-          {entry.whatItCovers.map((claim, i) => (
-            <li key={i}>
-              {claim.text}
-              {claim.chunkIds.map((chunkId, j) => (
-                <CitationLink
-                  key={chunkId}
-                  chunkId={chunkId}
-                  index={j + 1}
-                  sourcesAnchor={sourcesAnchor}
-                />
-              ))}
-            </li>
-          ))}
-        </ul>
-      )}
-
-      {entry.informationStillNeeded.length > 0 && (
-        <div className="mt-3 rounded bg-neutral-50 p-3 text-sm text-neutral-600">
-          <span className="font-medium">Information still needed: </span>
-          {entry.informationStillNeeded.join("; ")}
-        </div>
-      )}
+      <p className="mt-2 leading-relaxed text-text-body">
+        {stripChunkIds(entry.whyThisMayApply)}
+      </p>
 
       <NextSteps steps={entry.nextSteps} />
 
-      {entry.officialLinks.length > 0 && (
-        <div id={sourcesAnchor} className="mt-4 border-t border-neutral-100 pt-3">
-          <h4 className="text-sm font-medium text-neutral-700">Sources</h4>
-          <ul className="mt-1 space-y-1 text-sm">
-            {entry.officialLinks.map((url) => (
-              <li key={url}>
-                <a
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-700 hover:underline"
-                >
-                  {url}
-                </a>
-              </li>
-            ))}
-          </ul>
+      {(entry.whatItCovers.length > 0 ||
+        entry.informationStillNeeded.length > 0 ||
+        entry.officialLinks.length > 0) && (
+        <div className="mt-auto space-y-1 pt-4">
+          {entry.whatItCovers.length > 0 && (
+            <details className="group">
+              <summary className={summaryClass}>
+                {caret}
+                What it generally covers
+              </summary>
+              <ul className="mt-1 list-disc space-y-1 pl-5 text-sm leading-relaxed text-text-body">
+                {entry.whatItCovers.map((claim, i) => (
+                  <li key={i}>
+                    {stripChunkIds(claim.text)}
+                    {claim.chunkIds.map((chunkId, j) => (
+                      <CitationLink
+                        key={chunkId}
+                        chunkId={chunkId}
+                        index={j + 1}
+                        sourcesAnchor={sourcesAnchor}
+                      />
+                    ))}
+                  </li>
+                ))}
+              </ul>
+            </details>
+          )}
+
+          {entry.informationStillNeeded.length > 0 && (
+            <details className="group">
+              <summary className={summaryClass}>
+                {caret}
+                Information still needed
+              </summary>
+              <ul className="mt-1 list-disc space-y-1 pl-5 text-sm leading-relaxed text-text-body">
+                {entry.informationStillNeeded.map((item, i) => (
+                  <li key={i}>{item}</li>
+                ))}
+              </ul>
+            </details>
+          )}
+
+          {entry.officialLinks.length > 0 && (
+            <details id={sourcesAnchor} className="group scroll-mt-8">
+              <summary className={summaryClass}>
+                {caret}
+                Sources ({entry.officialLinks.length})
+              </summary>
+              <ul className="mt-1 space-y-1.5 pl-5 text-sm">
+                {entry.officialLinks.map((url) => {
+                  const { host, slug } = sourceLabel(url);
+                  return (
+                    <li key={url}>
+                      <a
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title={url}
+                        className="text-accent underline hover:text-accent-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                      >
+                        {host}
+                        {slug && (
+                          <span className="text-neutral-500"> · {slug}</span>
+                        )}
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </details>
+          )}
         </div>
       )}
     </article>

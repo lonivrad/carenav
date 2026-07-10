@@ -8,7 +8,7 @@ const fullyAnswered: Intake = {
   county: "King",
   livingSituation: "own_home",
   adlsNeedingHelp: ["bathing", "dressing", "transferring"],
-  diagnosisCategory: "dementia",
+  diagnosisCategory: ["dementia"],
   isVeteran: "yes",
   serviceEra: "vietnam",
   dischargeType: "honorable",
@@ -49,7 +49,7 @@ describe("normalize", () => {
       livingSituation: "own_home",
       adlsNeedingHelp: ["bathing", "dressing", "transferring"],
       adlHelpCount: 3,
-      diagnosisCategory: "dementia",
+      diagnosisCategory: ["dementia"],
       veteran: {
         isVeteran: true,
         serviceEra: "vietnam",

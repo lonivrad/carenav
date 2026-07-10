@@ -15,6 +15,7 @@ import { fileURLToPath } from "node:url";
 import { selectCandidates } from "@/lib/rules/engine";
 import {
   adlValues,
+  diagnosisCategoryValues,
   waCountyValues,
   type Adl,
   type Intake,
@@ -86,13 +87,7 @@ function baseIntake(): Intake {
     county: pick(waCountyValues),
     livingSituation: pick(["own_home", "family_home"] as const),
     adlsNeedingHelp: pickN(adlValues, int(1, 3)) as Adl[],
-    diagnosisCategory: pick([
-      "dementia",
-      "parkinsons",
-      "stroke",
-      "heart_disease",
-      "none",
-    ] as const),
+    diagnosisCategory: pickN(diagnosisCategoryValues, int(0, 2)),
     isVeteran: "no",
     maritalStatus: pick(["single", "married", "widowed", "divorced"] as const),
     monthlyIncomeBracket: pick(["under_1000", "1000_to_2999"] as const),
@@ -239,7 +234,7 @@ function ambiguousCase(i: number): Omit<EvalCase, "groundTruth"> {
       intake = {
         ...baseIntake(),
         adlsNeedingHelp: [],
-        diagnosisCategory: "dementia",
+        diagnosisCategory: ["dementia"],
         livingSituation: "nursing_facility",
       };
       description =

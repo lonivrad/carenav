@@ -13,7 +13,7 @@ export function CitationLink({ chunkId, index, sourcesAnchor }: CitationLinkProp
       <a
         href={`#${sourcesAnchor}`}
         title={`Source passage: ${chunkId}`}
-        className="ml-0.5 text-blue-700 no-underline hover:underline"
+        className="ml-0.5 font-semibold text-accent no-underline hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
       >
         [{index}]
       </a>

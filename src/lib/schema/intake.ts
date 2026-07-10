@@ -49,7 +49,6 @@ export const diagnosisCategoryValues = [
   "mental_health",
   "developmental_disability",
   "other",
-  "none",
 ] as const;
 
 export const serviceEraValues = [
@@ -116,8 +115,12 @@ export const intakeSchema = z.object({
   livingSituation: z.union([z.enum(livingSituationValues), declinedSchema]),
   /** Empty array is a real answer: no help needed with any listed ADL. */
   adlsNeedingHelp: z.union([z.array(z.enum(adlValues)), declinedSchema]),
+  /**
+   * Zero or more diagnoses. Empty array is a real answer (no listed
+   * diagnosis); the whole field is optional and may be skipped.
+   */
   diagnosisCategory: z
-    .union([z.enum(diagnosisCategoryValues), declinedSchema])
+    .union([z.array(z.enum(diagnosisCategoryValues)), declinedSchema])
     .optional(),
   isVeteran: z.union([yesNo, declinedSchema]),
   /** Asked only when isVeteran is "yes". */

@@ -12,7 +12,7 @@ const profile: Profile = {
   livingSituation: "own_home",
   adlsNeedingHelp: ["bathing"],
   adlHelpCount: 1,
-  diagnosisCategory: "none",
+  diagnosisCategory: [],
   veteran: { isVeteran: false, serviceEra: "not_applicable", dischargeType: "not_applicable" },
   maritalStatus: "single",
   monthlyIncomeBracket: "under_1000",

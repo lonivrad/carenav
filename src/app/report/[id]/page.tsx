@@ -7,7 +7,10 @@ import { useEffect, useState } from "react";
 import { reportSchema, type Report } from "@/lib/schema/report";
 import { DisclaimerBanner } from "@/components/ui/DisclaimerBanner";
 import { ProgramCard } from "@/components/report/ProgramCard";
+import { ReportSummary } from "@/components/report/ReportSummary";
 import { UnknownsPanel } from "@/components/report/UnknownsPanel";
+import { sortByRelevance } from "@/components/report/relevance";
+import { splitLead, stripChunkIds } from "@/components/report/format";
 
 type LoadState =
   | { status: "loading" }
@@ -38,24 +41,24 @@ export default function ReportPage() {
 
   if (load.status === "loading") {
     return (
-      <main className="mx-auto max-w-3xl p-8">
-        <p className="text-neutral-500">Loading report…</p>
+      <main className="mx-auto max-w-3xl px-6 py-12">
+        <p className="text-text-body">Loading report…</p>
       </main>
     );
   }
 
   if (load.status === "not-found" || load.status === "invalid") {
     return (
-      <main className="mx-auto max-w-3xl p-8">
-        <h1 className="text-2xl font-semibold">Report not found</h1>
-        <p className="mt-2 text-neutral-600">
+      <main className="mx-auto max-w-3xl px-6 py-12">
+        <h1 className="text-2xl font-semibold text-accent">Report not found</h1>
+        <p className="mt-3 text-text-body">
           Reports are kept only in this browser session and aren&rsquo;t
           stored on a server. If you refreshed, opened this link elsewhere, or
           the session expired, you&rsquo;ll need to start a new screening.
         </p>
         <Link
           href="/intake"
-          className="mt-6 inline-block rounded bg-neutral-900 px-4 py-2 text-white"
+          className="mt-6 inline-flex rounded-cta bg-accent px-6 py-3 font-semibold text-text-on-dark transition-colors duration-[var(--duration-nav)] hover:bg-accent-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
         >
           Start a new screening
         </Link>
@@ -64,36 +67,56 @@ export default function ReportPage() {
   }
 
   const r = load.report;
+  const programs = sortByRelevance(r.programs);
+  const { lead, rest } = splitLead(stripChunkIds(r.overallSummary));
 
   return (
-    <>
+    <main className="mx-auto max-w-3xl px-6 py-10">
       <DisclaimerBanner text={r.disclaimer} />
-      <main className="mx-auto max-w-3xl p-8">
-        <h1 className="text-2xl font-semibold">Your screening report</h1>
-        <p className="mt-3 text-neutral-700">{r.overallSummary}</p>
 
-        <UnknownsPanel unknowns={r.unknowns} followUpQuestions={r.followUpQuestions} />
+      <h1 className="mt-6 text-2xl font-semibold text-accent sm:text-3xl">
+        Your screening report
+      </h1>
 
+      <div className="mt-3 space-y-2 text-base leading-relaxed text-text-body">
+        <p>{lead}</p>
+        {rest && <p>{rest}</p>}
+      </div>
+
+      <p className="mt-4 rounded-cta border-l-4 border-accent bg-accent/5 px-4 py-3 text-sm leading-relaxed text-text-body">
+        <strong className="font-semibold text-accent">
+          A starting point, not an eligibility decision.
+        </strong>{" "}
+        This highlights programs worth asking a professional about — it does not
+        determine what anyone qualifies for.
+      </p>
+
+      <ReportSummary programs={programs} />
+
+      {programs.length > 0 ? (
         <div className="mt-8 space-y-5">
-          {r.programs.map((entry) => (
+          {programs.map((entry) => (
             <ProgramCard key={entry.programId} entry={entry} />
           ))}
         </div>
-
-        {r.programs.length === 0 && (
-          <p className="mt-8 text-neutral-600">
-            No programs appeared worth investigating based on the information
-            provided. This isn&rsquo;t a determination that none apply — it
-            reflects what could be screened from your answers.
-          </p>
-        )}
-
-        <p className="mt-10 text-sm text-neutral-500">
-          <Link href="/intake" className="text-blue-700 hover:underline">
-            Start a new screening
-          </Link>
+      ) : (
+        <p className="mt-8 text-text-body">
+          No programs appeared worth investigating based on the information
+          provided. This isn&rsquo;t a determination that none apply — it
+          reflects what could be screened from your answers.
         </p>
-      </main>
-    </>
+      )}
+
+      <UnknownsPanel unknowns={r.unknowns} followUpQuestions={r.followUpQuestions} />
+
+      <p className="mt-10 text-sm">
+        <Link
+          href="/intake"
+          className="font-medium text-accent underline hover:text-accent-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+        >
+          Start a new screening
+        </Link>
+      </p>
+    </main>
   );
 }

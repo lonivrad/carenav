@@ -118,8 +118,9 @@ export const QUESTIONS: QuestionDef[] = [
   },
   {
     id: "diagnosisCategory",
-    kind: "single",
+    kind: "multi",
     prompt: "Has a doctor diagnosed any of the following? (optional)",
+    help: "Select all that apply.",
     options: opts([
       "dementia",
       "parkinsons",
@@ -129,8 +130,8 @@ export const QUESTIONS: QuestionDef[] = [
       "mental_health",
       "developmental_disability",
       "other",
-      "none",
     ]),
+    noneLabel: "None of these / no diagnosis",
   },
   {
     id: "isVeteran",
