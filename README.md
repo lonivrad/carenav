@@ -12,6 +12,107 @@ logic is deterministic and auditable, every factual claim cites a curated
 source passage, and missing answers surface as explicit unknowns rather
 than guesses.
 
+## The product
+
+CareNav helps a family figure out which Washington long-term-care funding
+programs are worth exploring, before they spend hours researching ones that
+don't apply.
+
+**Who it's for.** An adult child helping an aging parent, usually mid-crisis: a
+hospital is discharging a parent in days, or a fall just ended "managing at
+home." They aren't benefits experts. They discover these programs one at a
+time, from pages written for caseworkers, while doing everything else a hard
+week demands. The job they're hiring CareNav for is orientation: which programs
+are even worth my time, in plain language.
+
+**A deliberate scope note.** From what I saw in the ER, the deepest pain for
+these families is often further downstream, in the applications themselves and
+in getting a straight answer on whether a parent qualifies. CareNav does not
+try to solve those, on purpose. Determination depends on assessments no
+questionnaire can run (the state CARE assessment, a VA medical exam), and
+applications are a heavier build. CareNav targets orientation because it's the
+slice an automated, cited, honest tool can do well and safely, and because
+orienting a family faster is what unblocks them to reach the professional who
+handles the rest. The handoff isn't a limitation bolted on; it's the point.
+
+The benefits professional who makes the actual determination is a downstream
+recipient of the report, not a user I've designed for yet. Whether the report
+is genuinely useful to them is a hypothesis I want to test, not a claim I can
+currently stand behind.
+
+**What I deliberately did not build, and why.** These decisions define the
+product more than the features do.
+
+- **It does not determine eligibility.** It screens for "worth exploring,"
+  never "you qualify." Eligibility depends on assessments no questionnaire can
+  run. Claiming determination would be wrong, a liability, and would set
+  families up for a false yes. The architecture is built so the system
+  structurally cannot overstate: deterministic rules, every claim cited,
+  missing answers surfaced as explicit unknowns.
+- **It does not guess missing answers.** Every question is skippable, and a
+  skip is recorded as an unknown, not a default. A mid-crisis family won't have
+  every number at hand, and a tool that quietly assumes income or assets to
+  produce a cleaner result is lying to them. The "what we couldn't determine"
+  section is a first-class output.
+- **It is Washington-only, twelve programs.** Funding rules are state-specific
+  and change often. A shallow fifty-state version would be confidently wrong; a
+  deep single-state version can cite primary sources. Depth over coverage was
+  the call.
+- **It does not persist reports server-side.** Reports live only in the browser
+  session, trading shareable links and refresh-recovery for never holding a
+  family's health and financial answers on a server. For this data,
+  no-PHI-at-rest was worth the UX cost.
+- **It accepts a known recall cost in retrieval.** Passages are scoped to the
+  program they belong to, so a citation can never point at another program's
+  document, even though this occasionally misses a cross-program passage a
+  human would find relevant. A tool whose whole promise is "every claim is
+  sourced" cannot afford a citation pointing at the wrong source.
+
+**How I'd measure success.** North star: time-to-oriented-shortlist, from "I
+don't know what exists" to "here are three or four programs worth a
+professional's time, with sources," in one sitting instead of hours over weeks.
+Supporting metrics: intake completion rate, whether a benefits professional
+would call the shortlist a reasonable starting point, unknowns surfaced
+honestly rather than guessed (currently 100%), and family-reported trust (not
+yet instrumented). Guardrails that must never regress, and are treated as
+release gates: hallucinated-program rate (0%), citation validity (100%),
+refusal correctness.
+
+**Honest status:** this is pre-user-testing. I have not yet put CareNav in
+front of real families or benefits professionals. Everything above is a
+designed hypothesis. The evaluation to date measures whether the system
+faithfully does what it intends (fidelity) and, through a blind labeling pass,
+whether some underlying rules were actually correct (they weren't, in nine
+cases, which I fixed). It does not yet measure whether the product helps a real
+person.
+
+The assumptions I most need to test, roughly by risk:
+
+- That solving orientation is valuable even though it isn't the deepest pain.
+  The deeper pain is applications and determination; the bet is that orienting
+  a family quickly and honestly still saves real time and unblocks the handoff.
+  If not, the product should move downstream.
+- That a hedged, cited shortlist reduces a family's time and anxiety rather
+  than just adding a step before they call a professional anyway.
+- That families will complete a ten-minute intake mid-crisis instead of
+  abandoning it.
+- That "educational, not a determination" is a position families accept, when
+  what they emotionally want is a yes or no.
+- That the report is useful to a benefits professional rather than something
+  they'd re-verify from scratch. (Untested, which is why the professional is a
+  hypothesis, not a designed-for user.)
+
+What would make me pivot or kill:
+
+- If families tell me orientation was never the hard part and CareNav just
+  added a step before the paperwork, it moves downstream toward guided
+  applications, where I saw more of the pain.
+- If families won't finish the ten-minute intake, the flow is too long and gets
+  cut down or restructured.
+- If benefits professionals won't treat the output as a trustworthy starting
+  point, its ceiling as a family-facing tool is capped and it either pivots
+  professional-facing or refocuses on the handoff.
+
 ## Current status
 
 v1, measured against the latest committed evaluation baseline
@@ -52,8 +153,7 @@ Long-term-care funding in Washington is fragmented across at least a dozen
 programs — Medicaid waivers (COPES, CFC), institutional Apple Health, the
 WA Cares Fund, two VA pension enhancements, two Medicare benefits, PACE,
 TSOA, MAC, and respite programs — each with its own agency, eligibility
-rules, income and asset standards, and application path. Families typically
-discover them one at a time, mid-crisis, from pages written for caseworkers.
+rules, income and asset standards, and application path.
 Caregiver accounts suggest this research can consume many hours spread over
 weeks (figures like "15+ hours" circulate; treat any such number as
 illustrative — we have not sourced a rigorous estimate). CareNav compresses
