@@ -46,10 +46,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-coverage/
 
 # logs
 *.log
+
+# process id / runtime files
+*.pid
+*.pid.lock
+.pids/
 
 # OS / editor
 Thumbs.db
