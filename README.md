@@ -129,8 +129,13 @@ The layout is responsive and readable on a phone:
   and the local Area Agency on Aging) make the final eligibility decisions.
 - Evaluation uses synthetic cases whose ground truth derives from the
   deterministic rules engine.
-- Latency remains around 40 seconds per report because every claim is sourced
-  from the corpus and validated before it is shown.
+- Latency is about 40 seconds per report (mean 39.4 s, p95 51.7 s over the
+  committed 100-case baseline). Sub-10-second latency is **not** achievable
+  under a citation-validated architecture: a single fully-cited, multi-program
+  generation dominates wall-clock, while retrieval, embedding, and assembly add
+  only ~3 s. The intended mitigation is a UX one — setting expectations up front
+  and showing a progress indicator while the report is produced (see
+  `docs/evaluation.md`) — not a smaller number.
 
 ## Quickstart
 
