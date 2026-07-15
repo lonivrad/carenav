@@ -1,8 +1,16 @@
-# Explanation-quality rubric (human scoring)
+# Explanation-quality rubric
 
-Score the 15 sample reports listed at the bottom of `eval/results/results.md`.
-The full report JSON for each case id is in `eval/results/run-latest.json`
-(`systemRecords[].report`); read the report as a family member would.
+> **Status of the recorded scores.** The scores currently recorded for this
+> rubric (`eval/results/rubric-scores.md`) were produced by an automated
+> **LLM-as-judge** pass (`eval/rubric-judge.ts`), **not by a human rater**. They
+> are an interim signal. This document defines the *instrument*; a human scoring
+> pass against it remains the intended gold standard and the next step. Nothing
+> here should be read as a human having scored the current numbers.
+
+This rubric is written for a **human** rater. Score the 15 sample reports listed
+at the bottom of `eval/results/results.md`. The full report JSON for each case id
+is in `eval/results/run-latest.json` (`systemRecords[].report`); read the report
+as a family member would.
 
 Score each criterion 1–5 independently. Do not average in your head while
 reading — score one criterion at a time across all 15 cases if possible.
