@@ -16,6 +16,7 @@ export function ProgressBar({ step, total }: ProgressBarProps) {
       </div>
       <div
         role="progressbar"
+        aria-label={`Question ${step} of ${total}`}
         aria-valuenow={step}
         aria-valuemin={0}
         aria-valuemax={total}

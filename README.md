@@ -180,3 +180,5 @@ the evaluation harness.
   trust boundaries, failure modes and mitigations.
 - [Evaluation](docs/evaluation.md) — methodology, current results, the
   independent labeling pass, and known limitations (including latency).
+- [Accessibility](docs/accessibility.md) — the automated axe-core audit,
+  contrast ratios for the palette, and keyboard/focus confirmation.

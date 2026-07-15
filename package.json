@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
+    "test:a11y": "playwright test",
     "ingest": "tsx src/lib/rag/ingest.ts",
     "eval": "tsx eval/run.ts",
     "eval:generate": "tsx eval/testset/generate.ts"
@@ -21,6 +22,8 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.12.1",
+    "@playwright/test": "^1.61.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
