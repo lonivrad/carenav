@@ -1,5 +1,7 @@
 # CareNav
 
+[![CI](https://github.com/lonivrad/carenav/actions/workflows/ci.yml/badge.svg)](https://github.com/lonivrad/carenav/actions/workflows/ci.yml)
+
 An educational screening tool that helps Washington families identify which
 long-term care funding programs may be worth exploring with a professional.
 
@@ -131,6 +133,14 @@ The layout is responsive and readable on a phone:
   deterministic rules engine.
 - Latency remains around 40 seconds per report because every claim is sourced
   from the corpus and validated before it is shown.
+- `POST /api/screen` is rate limited per IP (default 5 requests/minute) because
+  each report spends real money on paid APIs; exceeding it returns `429` with a
+  `Retry-After` header. The limiter is in-memory, so under multi-instance or
+  serverless deployment the effective limit is per instance, not global.
+- Reports live only in the browser session (`sessionStorage`), never persisted
+  server-side. This is a deliberate privacy tradeoff — no PHI leaves the
+  browser — at the cost of no shareable report link and no recovery after a
+  refresh or tab close.
 
 ## Quickstart
 
