@@ -51,6 +51,11 @@ coverage/
 # logs
 *.log
 
+# process id / runtime files
+*.pid
+*.pid.lock
+.pids/
+
 # OS / editor
 Thumbs.db
 .idea/
