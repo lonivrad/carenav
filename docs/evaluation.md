@@ -43,28 +43,40 @@ human quality rubric in `eval/rubric.md`.
 
 ## Automated harness results (100 cases)
 
-From `eval/results/results.md`, low-effort re-baseline of 2026-07-10
-(explanation effort `low`, retrieval top-k 5, migrated array-diagnosis
-fixture, corrected refusal metric). The prior default-effort baseline
-(2026-07-09) recorded mean latency 86.7s, mean output 8,527 tokens, and
-$0.173/report ($17.31 total); setting effort to `low` roughly halved output
-(mean 3,828 tokens) and latency at unchanged program-level fidelity, for
-$0.107/report ($10.65 total).
+From `eval/results/results.md`, re-baseline of 2026-07-15 against the current
+monolithic pipeline on `main` (explanation effort `low`, retrieval top-k 5,
+widened refusal-metric deferral cues). Mean output 3,897 tokens. The prior
+default-effort baseline (2026-07-09) recorded mean latency 86.7s, mean output
+8,527 tokens, and $0.173/report ($17.31 total); setting effort to `low` roughly
+halved output and latency at unchanged program-level fidelity.
 
 | Metric | Baseline (keyword) | System (full pipeline) |
 |---|---|---|
 | Program precision | 60.1% | 100.0% |
 | Program recall | 99.3% | 100.0% |
 | Top-5 recall | 50.6% | 100.0% |
-| Citation validity | n/a | 100.0% (1,456 checked) |
+| Citation validity | n/a | 100.0% (1,445 checked) |
 | Unknown detection | n/a | 100.0% |
-| Refusal correctness | n/a | 100.0% |
+| Refusal correctness | n/a | 99.0% (1 flag — see below) |
 | Follow-up compliance | n/a | 100.0% |
 | Hallucinated-program rate | n/a | 0.0% (target 0%) |
-| Mean latency | 2ms | 39.4s (target <10s — missed) |
-| p95 latency | — | 51.7s |
-| Mean cost / report | $0 | $0.107 |
-| Pipeline failures | — | 0/100 |
+| Mean latency | 3ms | 44.2s (target <10s — missed) |
+| p95 latency | — | 57.5s |
+| Mean cost / report | $0 | $0.107 ($10.62 total) |
+| Pipeline failures | — | 1/100 |
+
+Two honest notes on this run (both measured, neither hidden):
+
+- **Pipeline failures 1/100 (ambiguous-19).** The model produced a coverage
+  claim with no citation and did not fix it on the single retry, so the
+  cross-check rejected the report and the pipeline **failed loud rather than
+  serve an uncited claim** — the designed safety behavior, triggered by model
+  variance, not a code regression. The prior baseline happened to draw 0/100.
+- **Refusal correctness 99.0% (veteran-02).** One report said "Request a list
+  of Medicare-certified home health agencies … if you qualify" — a borderline
+  conditional. The metric flags it because it deliberately does not treat a
+  bare "if" as a hedge (so it cannot miss a real "based on your income, you
+  qualify"). It was left flagged rather than tuning the metric to force 100%.
 
 **What the 100% figures do and do not mean.** Program precision/recall/
 top-5 are computed against ground truth derived from the same rules engine
@@ -146,31 +158,34 @@ Every disagreement was adjudicated against direct corpus quotes
 
 ## Latency (honest status)
 
-Mean 39.4s per report, p50 39.6s, p95 51.7s, worst case 56.5s, against a
-documented target of <10s — still missed, though the gap narrowed
-substantially after adopting reasoning-effort `low`. Instrumentation shows
-~95% of it is one monolithic model call producing a fully-cited multi-
-program report (retrieval, embedding, and assembly total ~3s). The <10s
-target is unreachable under this architecture regardless of tuning.
-Sequence: (1) the reasoning-effort experiment shipped — `low` is now the
-default, cutting mean latency from 86.7s and p95 from 137.6s to the figures
+Mean 44.2s per report, p50 44.3s, p95 57.5s, worst case 89.3s (2026-07-15
+100-case run), against a documented target of <10s — still missed, though the
+gap narrowed substantially after adopting reasoning-effort `low`.
+Instrumentation shows ~95% of it is one monolithic model call producing a
+fully-cited multi-program report (retrieval, embedding, and assembly total
+~3s). The <10s target is unreachable under this architecture regardless of
+tuning. Sequence: (1) the reasoning-effort experiment shipped — `low` is now
+the default, cutting mean latency from 86.7s and p95 from 137.6s to the figures
 above at no measured quality loss; (2) per-program parallel explanation plus a
 short summary call was built and measured (2026-07-15), then reverted — on a
 10-case like-for-like it cut mean latency 45.3s→34.1s (25%) but raised cost
 $0.111→$0.191 (+72%), and prompt caching could not offset it (the shared
 system+profile prefix is ~890 tokens, below Sonnet's 1024-token cache floor,
 and most of the added cost is output growth caching cannot touch); (3)
-re-baseline the documented
-target on evidence (p95 now ~52s) with streaming/progress UI. The intake UI
-sets expectations and the API route allows 120s — the worst observed case
-(56.5s) now sits comfortably within it (the prior default-effort run had a
-287s outlier).
+re-baseline the documented target on evidence (p95 now ~58s) with
+streaming/progress UI. The intake UI sets expectations and the API route allows
+120s — the worst observed case (89.3s) still sits within it.
 
 ## Explanation quality rubric
 
 `eval/rubric.md` defines five 1–5 criteria (grounding, clarity, appropriate
 hedging, actionability, unknown handling) scored on a 15-case stratified
 sample listed at the bottom of `results.md`.
+
+The current pass (2026-07-15) means, on the 1–5 scale: grounding 3.87, clarity
+4.00, hedging 4.73, next steps 3.93, unknown handling 4.27; nothing scored 1,
+and the lowest single score was veteran-01 grounding (2). Read these as
+directional — see the caveat below.
 
 Recorded scores live in `eval/results/rubric-scores.md` and are
 **model-generated (LLM-as-judge), not human-verified** — an automated interim

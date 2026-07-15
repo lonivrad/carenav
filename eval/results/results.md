@@ -1,4 +1,4 @@
-# Eval results (2026-07-10T04:02:01.392Z)
+# Eval results (2026-07-15T21:06:03.655Z)
 
 100 synthetic cases (eval/testset/families.json). Ground truth derives from the deterministic rules engine; the baseline is unranked keyword search over the same corpus.
 
@@ -7,16 +7,16 @@
 | Program precision | 60.1% | 100.0% |
 | Program recall | 99.3% | 100.0% |
 | Top-5 recall | 50.6% | 100.0% |
-| Citation validity | n/a (no citations) | 100.0% (1456 checked) |
+| Citation validity | n/a (no citations) | 100.0% (1445 checked) |
 | Unknown detection | n/a (not modeled) | 100.0% |
-| Refusal correctness | n/a (no prose) | 100.0% |
+| Refusal correctness | n/a (no prose) | 99.0% |
 | Follow-up compliance | n/a | 100.0% |
 | Hallucinated-program rate | n/a | 0.0% (target 0%) |
-| Mean latency | 2ms | 39.4s (target <10s) |
-| p95 latency | — | 51.7s |
-| Mean cost / report | $0 | $0.106 |
-| Total cost | $0 | $10.65 |
-| Pipeline failures | — | 0/100 |
+| Mean latency | 3ms | 44.2s (target <10s) |
+| p95 latency | — | 57.5s |
+| Mean cost / report | $0 | $0.107 |
+| Total cost | $0 | $10.62 |
+| Pipeline failures | — | 1/100 |
 
 > **Caveat — self-consistency, not independent correctness:** program
 > precision, program recall, and top-5 recall are computed against ground
@@ -30,6 +30,10 @@
 > detection, refusal correctness, hallucinated-program rate, latency,
 > cost) are measured against artifacts independent of the rules engine
 > and stand as-is.
+
+## Refusal violations
+
+- veteran-02: you qualify
 
 ## Rubric sample (explanation quality)
 
