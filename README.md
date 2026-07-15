@@ -113,21 +113,18 @@ What would make me pivot or kill:
   point, its ceiling as a family-facing tool is capped and it either pivots
   professional-facing or refocuses on the handoff.
 
-## Current status
+## The problem
 
-v1, measured against the latest committed evaluation baseline
-(`eval/results/results.md`):
-
-- Explanation reasoning effort: **low**
-- Evaluation size: **100 synthetic cases**
-- Mean latency: **44.2 s** · p95 latency: **57.5 s**
-- Mean cost per report: **$0.107** · total evaluation cost: **$10.62**
-- Hallucinated-program rate: **0%**
-- Citation validity: **100%**
-- Refusal correctness: **99.0%** (the single flag is a strict-metric edge case —
-  a borderline bare-"if" conditional, not an eligibility assertion)
-- Pipeline failures: **1/100** — the cross-check refused to serve a report with
-  an uncited claim, the designed safety behavior firing under model variance
+Long-term-care funding in Washington is fragmented across at least a dozen
+programs — Medicaid waivers (COPES, CFC), institutional Apple Health, the
+WA Cares Fund, two VA pension enhancements, two Medicare benefits, PACE,
+TSOA, MAC, and respite programs — each with its own agency, eligibility
+rules, income and asset standards, and application path.
+Caregiver accounts suggest this research can consume many hours spread over
+weeks (figures like "15+ hours" circulate; treat any such number as
+illustrative — I haven't sourced a rigorous estimate). A screening takes
+roughly 30 minutes (illustrative), from questionnaire to a cited, prioritized
+shortlist a family can take to a benefits professional.
 
 ## Architecture
 
@@ -147,19 +144,21 @@ Cross-check + citations
 Report UI
 ```
 
-## The problem
+## Current status
 
-Long-term-care funding in Washington is fragmented across at least a dozen
-programs — Medicaid waivers (COPES, CFC), institutional Apple Health, the
-WA Cares Fund, two VA pension enhancements, two Medicare benefits, PACE,
-TSOA, MAC, and respite programs — each with its own agency, eligibility
-rules, income and asset standards, and application path.
-Caregiver accounts suggest this research can consume many hours spread over
-weeks (figures like "15+ hours" circulate; treat any such number as
-illustrative — we have not sourced a rigorous estimate). CareNav compresses
-the *orientation* step into a structured screening: roughly 30 minutes
-(illustrative) from questionnaire to a cited, prioritized shortlist a family
-can take to a benefits professional.
+v1, measured against the latest committed evaluation baseline
+(`eval/results/results.md`):
+
+- Explanation reasoning effort: **low**
+- Evaluation size: **100 synthetic cases**
+- Mean latency: **44.2 s** · p95 latency: **57.5 s**
+- Mean cost per report: **$0.107** · total evaluation cost: **$10.62**
+- Hallucinated-program rate: **0%**
+- Citation validity: **100%**
+- Refusal correctness: **99.0%** (the single flag is a strict-metric edge case —
+  a borderline bare-"if" conditional, not an eligibility assertion)
+- Pipeline failures: **1/100** — the cross-check refused to serve a report with
+  an uncited claim, the designed safety behavior firing under model variance
 
 ## Workflow
 
