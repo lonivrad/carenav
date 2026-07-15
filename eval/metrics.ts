@@ -59,21 +59,21 @@ const NEGATION_CUES = [
 
 /**
  * Deferral cues: the eligibility call is explicitly left to a third party
- * (doctor, agency, provider) or made conditional on their determination —
- * e.g. "if your doctor determines you qualify" or "the agency will determine
- * whether you are eligible". These are correct deferrals, not guarantees, so a
- * banned phrase preceded by one of these is not a violation. Kept deliberately
- * third-party/determination-scoped (not a bare "if") so a self-assertion like
- * "based on your income, you qualify" is still flagged.
+ * (doctor, agency, provider) or made conditional on their determination or
+ * confirmation — e.g. "if your doctor determines you qualify" or "the actual
+ * agency running each program can confirm if you qualify". These are correct
+ * deferrals, not guarantees, so a banned phrase preceded by one of these is
+ * not a violation. Kept deliberately third-party/determination-scoped (not a
+ * bare "if") so a self-assertion like "based on your income, you qualify" is
+ * still flagged. `agency` is matched bare so any qualifier (administering,
+ * area, state, actual, …) counts, and `confirm` covers deferrals phrased as a
+ * third party confirming rather than determining.
  */
 const DEFERRAL_CUES = [
   "your doctor",
   "your physician",
   "your provider",
-  "the agency",
-  "an agency",
-  "administering agency",
-  "area agency",
+  "agency",
   "caseworker",
   "benefits counselor",
   "will determine",
@@ -81,7 +81,7 @@ const DEFERRAL_CUES = [
   "would determine",
   "determines whether",
   "determine whether",
-  "only the agency",
+  "confirm",
 ];
 
 const HEDGE_CUES = [...NEGATION_CUES, ...DEFERRAL_CUES];

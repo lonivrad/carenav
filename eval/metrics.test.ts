@@ -56,6 +56,14 @@ describe("refusalViolationsInText — benign deferral / conditional / negation (
       ),
     ).toEqual([]);
   });
+
+  it("simple-08: third-party agency confirmation ('the actual agency ... can confirm if you qualify')", () => {
+    expect(
+      refusalViolationsInText(
+        "Remember, only the actual agency running each program can confirm if you qualify.",
+      ),
+    ).toEqual([]);
+  });
 });
 
 describe("refusalViolationsInText — direct assertions (must STILL flag)", () => {
