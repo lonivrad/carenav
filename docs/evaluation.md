@@ -154,9 +154,13 @@ program report (retrieval, embedding, and assembly total ~3s). The <10s
 target is unreachable under this architecture regardless of tuning.
 Sequence: (1) the reasoning-effort experiment shipped — `low` is now the
 default, cutting mean latency from 86.7s and p95 from 137.6s to the figures
-above at no measured quality loss; (2) if further reduction is needed,
-per-program parallel explanation calls plus a short summary call would put
-wall-clock near the slowest single program; (3) re-baseline the documented
+above at no measured quality loss; (2) per-program parallel explanation plus a
+short summary call was built and measured (2026-07-15), then reverted — on a
+10-case like-for-like it cut mean latency 45.3s→34.1s (25%) but raised cost
+$0.111→$0.191 (+72%), and prompt caching could not offset it (the shared
+system+profile prefix is ~890 tokens, below Sonnet's 1024-token cache floor,
+and most of the added cost is output growth caching cannot touch); (3)
+re-baseline the documented
 target on evidence (p95 now ~52s) with streaming/progress UI. The intake UI
 sets expectations and the API route allows 120s — the worst observed case
 (56.5s) now sits comfortably within it (the prior default-effort run had a
