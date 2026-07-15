@@ -22,6 +22,7 @@ import { z } from "zod";
 import { loadEnvLocal } from "@/lib/rag/local-env";
 import type { Report } from "@/lib/schema/report";
 import type { SystemCaseRecord } from "./metrics";
+import { rubricSample } from "./sample";
 
 loadEnvLocal();
 
@@ -72,23 +73,6 @@ const CRITERIA = [
   "unknownHandling",
 ] as const;
 
-/** Deterministic 15-case sample: 3 per bucket, spread across each. */
-function rubricSample(ids: string[]): string[] {
-  const byBucket = new Map<string, string[]>();
-  for (const id of ids) {
-    const bucket = id.replace(/-\d+$/, "");
-    byBucket.set(bucket, [...(byBucket.get(bucket) ?? []), id]);
-  }
-  const sample: string[] = [];
-  for (const group of byBucket.values()) {
-    const picks = [0, Math.floor(group.length / 2), group.length - 1]
-      .map((i) => group[i])
-      .filter((id): id is string => Boolean(id));
-    sample.push(...new Set(picks));
-  }
-  return sample.slice(0, 15);
-}
-
 async function scoreOne(
   client: Anthropic,
   report: Report,
@@ -128,7 +112,13 @@ async function main() {
   for (const r of runLatest.systemRecords) {
     if (r.ok && r.report) reportById.set(r.caseId, r.report);
   }
-  const sample = rubricSample(runLatest.systemRecords.map((r) => r.caseId));
+
+  // Sample the canonical 15 from the testset (in order) — the same list
+  // results.md documents — not from run-latest's concurrent completion order.
+  const testset = JSON.parse(
+    readFileSync(join(EVAL_DIR, "testset/families.json"), "utf8"),
+  ) as { cases: { id: string; category: string }[] };
+  const sample = rubricSample(testset.cases);
 
   const client = new Anthropic();
   const rows: { id: string; score: RubricScore }[] = [];

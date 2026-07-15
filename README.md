@@ -19,11 +19,14 @@ v1, measured against the latest committed evaluation baseline
 
 - Explanation reasoning effort: **low**
 - Evaluation size: **100 synthetic cases**
-- Mean latency: **39.4 s** · p95 latency: **51.7 s**
-- Mean cost per report: **$0.1065** · total evaluation cost: **$10.65**
+- Mean latency: **44.2 s** · p95 latency: **57.5 s**
+- Mean cost per report: **$0.107** · total evaluation cost: **$10.62**
 - Hallucinated-program rate: **0%**
 - Citation validity: **100%**
-- Refusal correctness: **100%**
+- Refusal correctness: **99.0%** (the single flag is a strict-metric edge case —
+  a borderline bare-"if" conditional, not an eligibility assertion)
+- Pipeline failures: **1/100** — the cross-check refused to serve a report with
+  an uncited claim, the designed safety behavior firing under model variance
 
 ## Architecture
 

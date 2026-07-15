@@ -31,6 +31,7 @@ import {
   type BaselineCaseRecord,
   type SystemCaseRecord,
 } from "./metrics";
+import { rubricSample } from "./sample";
 import type { EvalCase } from "./testset/generate";
 
 /* ---------------------------------------------------------------- setup -- */
@@ -186,22 +187,6 @@ async function pool<T, R>(
 }
 
 /* ----------------------------------------------------------------- main -- */
-
-/** Deterministic 15-case rubric sample: 3 per category, spread across it. */
-function rubricSample(cases: EvalCase[]): string[] {
-  const byCategory = new Map<string, EvalCase[]>();
-  for (const c of cases) {
-    byCategory.set(c.category, [...(byCategory.get(c.category) ?? []), c]);
-  }
-  const sample: string[] = [];
-  for (const group of byCategory.values()) {
-    const picks = [0, Math.floor(group.length / 2), group.length - 1]
-      .map((i) => group[i]?.id)
-      .filter((id): id is string => Boolean(id));
-    sample.push(...new Set(picks));
-  }
-  return sample.slice(0, 15);
-}
 
 async function main() {
   const { limit, concurrency, recompute } = parseArgs();
