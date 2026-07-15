@@ -11,7 +11,8 @@
     "test:a11y": "playwright test",
     "ingest": "tsx src/lib/rag/ingest.ts",
     "eval": "tsx eval/run.ts",
-    "eval:generate": "tsx eval/testset/generate.ts"
+    "eval:generate": "tsx eval/testset/generate.ts",
+    "eval:rubric": "tsx eval/rubric-judge.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.110.0",

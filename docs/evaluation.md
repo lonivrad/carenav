@@ -166,9 +166,22 @@ sets expectations and the API route allows 120s — the worst observed case
 (56.5s) now sits comfortably within it (the prior default-effort run had a
 287s outlier).
 
-## Human quality rubric
+## Explanation quality rubric
 
 `eval/rubric.md` defines five 1–5 criteria (grounding, clarity, appropriate
 hedging, actionability, unknown handling) scored on a 15-case stratified
-sample listed at the bottom of `results.md`. Rubric scoring is a manual
-step; scores are not yet recorded in this repository.
+sample listed at the bottom of `results.md`.
+
+Recorded scores live in `eval/results/rubric-scores.md` and are
+**model-generated (LLM-as-judge), not human-verified** — an automated interim
+signal, not a human quality judgment. They are produced by `eval/rubric-judge.ts`
+(`npm run eval:rubric`), which sends each sampled report to a judge model with
+the rubric's criteria and anchors and records the returned 1–5 scores; the judge
+prompt and schema live in that script, so the pass is reproducible and auditable
+like the rest of the eval. Because the judge (`claude-sonnet-5`) shares the
+explanation model's family, the scores may carry self-preference and should be
+read as directional.
+
+**Human scoring against this rubric remains the intended gold standard and the
+next step** — the automated pass does not replace it, only fills the gap until a
+human rater scores the sample.

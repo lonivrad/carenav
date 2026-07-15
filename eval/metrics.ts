@@ -401,11 +401,14 @@ export function renderResultsMarkdown(input: {
     lines.push("");
   }
 
-  lines.push("## Human rubric sample");
+  lines.push("## Rubric sample (explanation quality)");
   lines.push("");
   lines.push(
-    "Score these 15 cases against eval/rubric.md (1–5 per criterion); the " +
-      "full reports are in eval/results/run-latest.json under each case id:",
+    "The 15-case stratified sample below is scored against eval/rubric.md. " +
+      "Recorded scores are in eval/results/rubric-scores.md and are " +
+      "**model-generated (LLM-as-judge), not human-verified** — an automated " +
+      "interim signal; human scoring remains the intended gold standard (next " +
+      "step). Full reports for each case id are in eval/results/run-latest.json:",
   );
   lines.push("");
   for (const id of input.rubricSample) lines.push(`- ${id}`);
